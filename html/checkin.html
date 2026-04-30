@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check-in — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/checkin.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🪴</div>
+      <span class="sidebar-brand-name">MindNest</span>
+    </div>
+
+    <span class="sidebar-label">Menu</span>
+
+    <nav>
+      <a href="dashboard.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
+            <polyline points="9 21 9 12 15 12 15 21"/>
+          </svg>
+        </span>
+        Dashboard
+      </a>
+      <a href="biblioteca.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8"/>
+          </svg>
+        </span>
+        Biblioteca
+      </a>
+      <a href="checkin.html" class="nav-item active">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
+          </svg>
+        </span>
+        Check-in
+      </a>
+      <a href="reflexoes.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </span>
+        Reflexoes
+      </a>
+      <a href="progresso.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </span>
+        Progresso
+      </a>
+      <a href="favoritos.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </span>
+        Favoritos
+      </a>
+      <a href="perfil.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        Perfil
+      </a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-profile">
+      <div class="profile-card">
+        <div class="avatar">J</div>
+        <div class="min-w-0">
+          <p class="profile-name truncate">Joao Silva</p>
+          <p class="profile-level">Nivel Intermedio</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+  <main class="main-content">
+    <div class="checkin-main">
+
+      <!-- Header -->
+      <header class="checkin-header anim-1">
+        <p class="checkin-date">Segunda-feira, 21 de Abril</p>
+        <h1 class="checkin-title">Check-in diario</h1>
+        <p class="checkin-sub">Como esta a tua mente e o teu corpo hoje?</p>
+      </header>
+
+      <!-- Progress -->
+      <div class="checkin-progress anim-2">
+        <div class="checkin-progress-track">
+          <div class="checkin-progress-fill" id="ci-progress" style="width:25%"></div>
+        </div>
+        <span class="checkin-progress-label" id="ci-progress-label">Momento 1 de 4</span>
+      </div>
+
+      <!-- Historico recente -->
+      <div class="historico-wrap anim-2">
+        <span class="historico-label">Esta semana</span>
+        <div class="historico-list">
+          <div class="historico-item">
+            <span class="historico-dia">Seg</span>
+            <div class="historico-emocao">😌</div>
+          </div>
+          <div class="historico-item">
+            <span class="historico-dia">Ter</span>
+            <div class="historico-emocao">😟</div>
+          </div>
+          <div class="historico-item">
+            <span class="historico-dia">Qua</span>
+            <div class="historico-emocao">🙂</div>
+          </div>
+          <div class="historico-item">
+            <span class="historico-dia">Qui</span>
+            <div class="historico-emocao">😴</div>
+          </div>
+          <div class="historico-item">
+            <span class="historico-dia">Sex</span>
+            <div class="historico-emocao" style="background:var(--dusk-100); border-color:var(--dusk-300);">?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOMENTO 1 — Emoção ─────────────────────────────── -->
+      <div class="checkin-step active" id="ci-step-1">
+        <div class="checkin-step-heading">
+          <span class="checkin-step-emoji">💭</span>
+          <h2 class="checkin-step-title">Como te sentes agora?</h2>
+          <p class="checkin-step-sub">Escolhe a emocao que mais se aproxima do teu estado atual.</p>
+        </div>
+
+        <div class="emocoes-grid">
+          <div class="emocao-card" onclick="selectEmocao(this, 'calmo', '😌')" data-emocao="calmo">
+            <span class="emocao-emoji">😌</span>
+            <span class="emocao-label">Calmo</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'ansioso', '😰')" data-emocao="ansioso">
+            <span class="emocao-emoji">😰</span>
+            <span class="emocao-label">Ansioso</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'cansado', '😴')" data-emocao="cansado">
+            <span class="emocao-emoji">😴</span>
+            <span class="emocao-label">Cansado</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'focado', '🎯')" data-emocao="focado">
+            <span class="emocao-emoji">🎯</span>
+            <span class="emocao-label">Focado</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'triste', '😢')" data-emocao="triste">
+            <span class="emocao-emoji">😢</span>
+            <span class="emocao-label">Triste</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'irritado', '😤')" data-emocao="irritado">
+            <span class="emocao-emoji">😤</span>
+            <span class="emocao-label">Irritado</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'confuso', '😵')" data-emocao="confuso">
+            <span class="emocao-emoji">😵</span>
+            <span class="emocao-label">Confuso</span>
+          </div>
+          <div class="emocao-card" onclick="selectEmocao(this, 'grato', '🙏')" data-emocao="grato">
+            <span class="emocao-emoji">🙏</span>
+            <span class="emocao-label">Grato</span>
+          </div>
+        </div>
+
+        <div class="checkin-nav">
+          <button class="btn-skip-checkin" onclick="goCI(2)">Saltar</button>
+          <div class="checkin-nav-right">
+            <button class="btn-checkin-next" onclick="goCI(2)">Continuar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOMENTO 2 — Intensidade ────────────────────────── -->
+      <div class="checkin-step" id="ci-step-2">
+        <div class="checkin-step-heading">
+          <span class="checkin-step-emoji">📊</span>
+          <h2 class="checkin-step-title">Com que intensidade?</h2>
+          <p class="checkin-step-sub">Clica no circulo que melhor representa a intensidade do que sentes.</p>
+        </div>
+
+        <div class="intensidade-wrap">
+          <div class="intensidade-item" onclick="selectIntensidade(this, 1)">
+            <div class="intensidade-circulo"></div>
+            <span class="intensidade-label">Muito<br>leve</span>
+          </div>
+          <div class="intensidade-item" onclick="selectIntensidade(this, 2)">
+            <div class="intensidade-circulo"></div>
+            <span class="intensidade-label">Leve</span>
+          </div>
+          <div class="intensidade-item" onclick="selectIntensidade(this, 3)">
+            <div class="intensidade-circulo"></div>
+            <span class="intensidade-label">Moderado</span>
+          </div>
+          <div class="intensidade-item" onclick="selectIntensidade(this, 4)">
+            <div class="intensidade-circulo"></div>
+            <span class="intensidade-label">Intenso</span>
+          </div>
+          <div class="intensidade-item" onclick="selectIntensidade(this, 5)">
+            <div class="intensidade-circulo"></div>
+            <span class="intensidade-label">Muito<br>intenso</span>
+          </div>
+        </div>
+
+        <div class="checkin-nav">
+          <button class="btn-skip-checkin" onclick="goCI(1)">Voltar</button>
+          <div class="checkin-nav-right">
+            <button class="btn-checkin-next" onclick="goCI(3)">Continuar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOMENTO 3 — Contexto ───────────────────────────── -->
+      <div class="checkin-step" id="ci-step-3">
+        <div class="checkin-step-heading">
+          <span class="checkin-step-emoji">🔍</span>
+          <h2 class="checkin-step-title">Um pouco de contexto</h2>
+          <p class="checkin-step-sub">Duas perguntas rapidas para perceber melhor o teu dia.</p>
+        </div>
+
+        <div class="contexto-section">
+          <div class="contexto-group">
+            <p class="contexto-label">O que esta a pesar mais hoje?</p>
+            <div class="contexto-pills">
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Trabalho</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Relacoes</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Saude</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Financas</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Futuro</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Sem razao aparente</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'peso')">Nada em especial</button>
+            </div>
+          </div>
+
+          <div class="contexto-group">
+            <p class="contexto-label">Dormiste bem esta noite?</p>
+            <div class="contexto-pills">
+              <button class="contexto-pill" onclick="selectPill(this, 'sono')">Sim, bem</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'sono')">Mais ou menos</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'sono')">Nao muito bem</button>
+              <button class="contexto-pill" onclick="selectPill(this, 'sono')">Pessimamente</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkin-nav">
+          <button class="btn-skip-checkin" onclick="goCI(2)">Voltar</button>
+          <div class="checkin-nav-right">
+            <button class="btn-checkin-next" onclick="goCI(4)">Continuar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOMENTO 4 — Nota livre + Sugestão ─────────────── -->
+      <div class="checkin-step" id="ci-step-4">
+        <div class="checkin-step-heading">
+          <span class="checkin-step-emoji">✍️</span>
+          <h2 class="checkin-step-title">Alguma coisa que queiras registar?</h2>
+          <p class="checkin-step-sub">Opcional. Fica so para ti.</p>
+        </div>
+
+        <div class="nota-wrap">
+          <textarea
+            class="nota-textarea"
+            id="nota-livre"
+            placeholder="Escreve o que quiseres — um pensamento, uma sensacao, algo que aconteceu..."
+            maxlength="500"
+          ></textarea>
+          <span class="nota-hint">Maximo 500 caracteres. Nenhum dado e partilhado.</span>
+        </div>
+
+        <!-- Sugestão personalizada -->
+        <div>
+          <p class="checkin-step-sub" style="margin-bottom:12px;">Com base no teu check-in, sugerimos:</p>
+          <div class="sugestao-card">
+            <div class="sugestao-thumb">🌬️</div>
+            <div class="sugestao-info">
+              <p class="sugestao-label">Sessao recomendada</p>
+              <p class="sugestao-title">Respiracao Profunda 4-7-8</p>
+              <p class="sugestao-meta">10 min · Respiracao · Iniciante</p>
+            </div>
+            <button class="btn-sugestao" onclick="window.location.href='sessao.html'">
+              Iniciar
+            </button>
+          </div>
+        </div>
+
+        <div class="checkin-nav">
+          <button class="btn-skip-checkin" onclick="goCI(3)">Voltar</button>
+          <div class="checkin-nav-right">
+            <button class="btn-checkin-next" onclick="concluirCheckin()"
+              style="background:var(--mist-400);">
+              Concluir check-in
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOMENTO FINAL — Confirmação ───────────────────── -->
+      <div class="checkin-step" id="ci-step-5">
+        <div style="text-align:center; padding:40px 0;">
+          <p style="font-size:52px; margin-bottom:16px;">🌿</p>
+          <h2 class="checkin-step-title" style="margin-bottom:10px;">Check-in concluido!</h2>
+          <p class="checkin-step-sub" style="max-width:380px; margin:0 auto 32px;">
+            Obrigado por dedicares este momento a ti. O teu registo foi guardado
+            e vai ajudar-nos a personalizar a tua experiencia.
+          </p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="sessao.html"
+              style="padding:10px 22px; background:var(--dusk-400); color:#fff; border-radius:var(--radius-sm); font-size:13px; font-weight:500;">
+              Iniciar sessao sugerida
+            </a>
+            <a href="dashboard.html"
+              style="padding:10px 22px; background:#fff; color:var(--color-text-soft); border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:13px; font-weight:500;">
+              Voltar ao inicio
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  const dados = { emocao: null, intensidade: null, peso: null, sono: null };
+  const TOTAL = 4;
+
+  function goCI(n) {
+    document.querySelectorAll('.checkin-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('ci-step-' + n).classList.add('active');
+    const pct = (n / TOTAL) * 100;
+    document.getElementById('ci-progress').style.width = Math.min(pct, 100) + '%';
+    document.getElementById('ci-progress-label').textContent =
+      n <= TOTAL ? 'Momento ' + n + ' de ' + TOTAL : '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function selectEmocao(el, emocao, emoji) {
+    document.querySelectorAll('.emocao-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    dados.emocao = { emocao, emoji };
+  }
+
+  function selectIntensidade(el, val) {
+    document.querySelectorAll('.intensidade-item').forEach(i => i.classList.remove('selected'));
+    el.classList.add('selected');
+    dados.intensidade = val;
+  }
+
+  function selectPill(el, group) {
+    el.closest('.contexto-pills').querySelectorAll('.contexto-pill')
+      .forEach(p => p.classList.remove('selected'));
+    el.classList.add('selected');
+    dados[group] = el.textContent;
+  }
+
+  function concluirCheckin() {
+    const nota = document.getElementById('nota-livre').value;
+    dados.nota = nota;
+    dados.data = new Date().toISOString();
+
+    const historico = JSON.parse(localStorage.getItem('mindnest_checkins') || '[]');
+    historico.push(dados);
+    localStorage.setItem('mindnest_checkins', JSON.stringify(historico));
+
+    document.querySelectorAll('.checkin-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('ci-step-5').classList.add('active');
+    document.getElementById('ci-progress').style.width = '100%';
+    document.getElementById('ci-progress-label').textContent = 'Concluido';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

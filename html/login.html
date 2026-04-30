@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/login.css" />
+</head>
+<body>
+
+<div class="login-page">
+
+  <!-- ─── LADO ESQUERDO ────────────────────────────────────── -->
+  <div class="login-left">
+
+    <!-- Decoração -->
+    <div class="login-deco login-deco-1"></div>
+    <div class="login-deco login-deco-2"></div>
+    <div class="login-deco login-deco-3"></div>
+
+    <!-- Brand -->
+    <div class="login-brand">
+      <div class="login-brand-icon">🪴</div>
+      <span class="login-brand-name">MindNest</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="login-hero">
+      <h2 class="login-tagline">
+        O teu espaco<br />
+        de <em>calma</em><br />
+        diaria.
+      </h2>
+      <p class="login-desc">
+        Ferramentas simples para gerir o overthinking,
+        a ansiedade e o stress — um dia de cada vez.
+      </p>
+    </div>
+
+    <!-- Citação -->
+    <div class="login-quote">
+      <p>"A mente que se aquieta encontra mais respostas do que a que nunca para de correr."</p>
+      <span>Principio estoico</span>
+    </div>
+
+  </div>
+
+  <!-- ─── LADO DIREITO ──────────────────────────────────────── -->
+  <div class="login-right">
+    <div class="login-form-wrap">
+
+      <!-- Tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" id="tab-login" onclick="switchTab('login')">Entrar</button>
+        <button class="login-tab" id="tab-register" onclick="switchTab('register')">Criar conta</button>
+      </div>
+
+      <!-- Form: Login -->
+      <div id="form-login">
+        <div class="form-heading">
+          <h2>Bem-vindo de volta</h2>
+          <p>Continua de onde paraste.</p>
+        </div>
+        <form class="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <input class="form-input" type="email" id="login-email" placeholder="o.teu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <label class="form-label" for="login-password">Password</label>
+              <a href="#" class="form-forgot">Esqueci a password</a>
+            </div>
+            <input class="form-input" type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" />
+          </div>
+          <button class="btn-submit" type="submit" onclick="window.location.href='dashboard.html'">
+            Entrar
+          </button>
+          <div class="form-divider"><span>ou</span></div>
+          <div class="form-switch">
+            Ainda nao tens conta?
+            <a href="#" onclick="switchTab('register'); return false;">Cria uma agora</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Form: Registo -->
+      <div id="form-register" class="hidden">
+        <div class="form-heading">
+          <h2>Comeca hoje</h2>
+          <p>Cria a tua conta e da o primeiro passo.</p>
+        </div>
+        <form class="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Nome</label>
+            <input class="form-input" type="text" id="reg-name" placeholder="O teu nome" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email</label>
+            <input class="form-input" type="email" id="reg-email" placeholder="o.teu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <input class="form-input" type="password" id="reg-password" placeholder="Min. 8 caracteres" autocomplete="new-password" />
+            <span class="form-hint">Usa pelo menos 8 caracteres.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm">Confirmar password</label>
+            <input class="form-input" type="password" id="reg-confirm" placeholder="••••••••" autocomplete="new-password" />
+          </div>
+          <button class="btn-submit" type="submit" onclick="window.location.href='onboarding.html'">
+            Criar conta
+          </button>
+          <div class="form-divider"><span>ou</span></div>
+          <div class="form-switch">
+            Ja tens conta?
+            <a href="#" onclick="switchTab('login'); return false;">Entra aqui</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tab) {
+    const isLogin = tab === 'login';
+    document.getElementById('tab-login').classList.toggle('active', isLogin);
+    document.getElementById('tab-register').classList.toggle('active', !isLogin);
+    document.getElementById('form-login').classList.toggle('hidden', !isLogin);
+    document.getElementById('form-register').classList.toggle('hidden', isLogin);
+  }
+</script>
+
+</body>
+</html>

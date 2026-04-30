@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem-vindo — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/onboarding.css" />
+</head>
+<body>
+
+<div class="onboarding-page">
+
+  <!-- Header -->
+  <header class="ob-header">
+    <div class="ob-brand">
+      <div class="ob-brand-icon">🪴</div>
+      <span class="ob-brand-name">MindNest</span>
+    </div>
+    <span class="ob-step-label" id="step-label">Passo 1 de 6</span>
+  </header>
+
+  <!-- Progress bar -->
+  <div class="ob-progress-wrap">
+    <div class="ob-progress-track">
+      <div class="ob-progress-fill" id="progress-fill" style="width:16.6%"></div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 1 — Como te sentes ──────────────────────────── -->
+  <div class="ob-step active" id="step-1">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">👋</span>
+      <h2 class="ob-step-title">Como te describes neste momento?</h2>
+      <p class="ob-step-sub">Seleciona tudo o que se aplica. Nao ha respostas certas ou erradas.</p>
+    </div>
+    <div class="ob-cards ob-cards-2">
+      <div class="ob-card" data-group="estado" data-val="overthinking" onclick="toggleCard(this)">
+        <span class="ob-card-icon">🌀</span>
+        <div>
+          <p class="ob-card-text">Penso demasiado</p>
+          <p class="ob-card-sub">A mente nao para</p>
+        </div>
+      </div>
+      <div class="ob-card" data-group="estado" data-val="ansiedade" onclick="toggleCard(this)">
+        <span class="ob-card-icon">😰</span>
+        <div>
+          <p class="ob-card-text">Sinto-me ansioso/a</p>
+          <p class="ob-card-sub">Tensao e preocupacao</p>
+        </div>
+      </div>
+      <div class="ob-card" data-group="estado" data-val="foco" onclick="toggleCard(this)">
+        <span class="ob-card-icon">🎯</span>
+        <div>
+          <p class="ob-card-text">Falta-me foco</p>
+          <p class="ob-card-sub">Dificuldade em concentrar</p>
+        </div>
+      </div>
+      <div class="ob-card" data-group="estado" data-val="sono" onclick="toggleCard(this)">
+        <span class="ob-card-icon">😴</span>
+        <div>
+          <p class="ob-card-text">Durmo mal</p>
+          <p class="ob-card-sub">Mente ativa a noite</p>
+        </div>
+      </div>
+      <div class="ob-card" data-group="estado" data-val="ansiedade" onclick="toggleCard(this)">
+        <span class="ob-card-icon">😮‍💨</span>
+        <div>
+          <p class="ob-card-text">Quero relaxar mais</p>
+          <p class="ob-card-sub">Tensao no corpo</p>
+        </div>
+      </div>
+      <div class="ob-card" data-group="estado" data-val="overthinking" onclick="toggleCard(this)">
+        <span class="ob-card-icon">💬</span>
+        <div>
+          <p class="ob-card-text">Preocupo-me muito</p>
+          <p class="ob-card-sub">Com o futuro e o passado</p>
+        </div>
+      </div>
+    </div>
+    <div class="ob-nav">
+      <span></span>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="goTo(2)">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 2 — Frequência ───────────────────────────────── -->
+  <div class="ob-step" id="step-2">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">📊</span>
+      <h2 class="ob-step-title">Com que frequencia tens estes momentos?</h2>
+      <p class="ob-step-sub">Sê honesto/a — so assim te podemos ajudar melhor.</p>
+    </div>
+    <div class="ob-scale">
+      <div class="ob-scale-item" onclick="selectScale(this, 'frequencia', 1)">
+        <div class="ob-scale-circle">😌</div>
+        <span class="ob-scale-label">Raramente</span>
+      </div>
+      <div class="ob-scale-item" onclick="selectScale(this, 'frequencia', 2)">
+        <div class="ob-scale-circle">🙂</div>
+        <span class="ob-scale-label">As vezes</span>
+      </div>
+      <div class="ob-scale-item" onclick="selectScale(this, 'frequencia', 3)">
+        <div class="ob-scale-circle">😐</div>
+        <span class="ob-scale-label">Algumas vezes por semana</span>
+      </div>
+      <div class="ob-scale-item" onclick="selectScale(this, 'frequencia', 4)">
+        <div class="ob-scale-circle">😟</div>
+        <span class="ob-scale-label">Quase todos os dias</span>
+      </div>
+      <div class="ob-scale-item" onclick="selectScale(this, 'frequencia', 5)">
+        <div class="ob-scale-circle">😩</div>
+        <span class="ob-scale-label">Todos os dias</span>
+      </div>
+    </div>
+    <div class="ob-nav">
+      <button class="ob-nav-skip" onclick="goTo(1)">Voltar</button>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="goTo(3)">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 3 — Objetivo ─────────────────────────────────── -->
+  <div class="ob-step" id="step-3">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">🎯</span>
+      <h2 class="ob-step-title">O que queres trabalhar primeiro?</h2>
+      <p class="ob-step-sub">Escolhe um. Podes sempre mudar mais tarde.</p>
+    </div>
+    <div class="ob-cards ob-cards-3">
+      <div class="ob-card ob-card-lg" data-group="objetivo" data-val="ansiedade" onclick="selectSingle(this, 'objetivo')">
+        <span class="ob-card-icon">🌊</span>
+        <p class="ob-card-text">Ansiedade & Overthinking</p>
+        <p class="ob-card-sub">Acalmar a mente e reduzir preocupacoes</p>
+      </div>
+      <div class="ob-card ob-card-lg" data-group="objetivo" data-val="foco" onclick="selectSingle(this, 'objetivo')">
+        <span class="ob-card-icon">⚡</span>
+        <p class="ob-card-text">Foco & Clareza</p>
+        <p class="ob-card-sub">Concentrar e organizar pensamentos</p>
+      </div>
+      <div class="ob-card ob-card-lg" data-group="objetivo" data-val="sono" onclick="selectSingle(this, 'objetivo')">
+        <span class="ob-card-icon">🌙</span>
+        <p class="ob-card-text">Relaxamento & Sono</p>
+        <p class="ob-card-sub">Descansar e recuperar energia</p>
+      </div>
+    </div>
+    <div class="ob-nav">
+      <button class="ob-nav-skip" onclick="goTo(2)">Voltar</button>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="goTo(4)">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 4 — Rotina ───────────────────────────────────── -->
+  <div class="ob-step" id="step-4">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">🕐</span>
+      <h2 class="ob-step-title">Quando preferes praticar?</h2>
+      <p class="ob-step-sub">Vamos adaptar as sugestoes ao teu dia.</p>
+    </div>
+    <div class="ob-cards ob-cards-3" style="margin-bottom:8px;">
+      <div class="ob-card ob-card-lg" data-group="horario" data-val="manha" onclick="selectSingle(this, 'horario')">
+        <span class="ob-card-icon">🌅</span>
+        <p class="ob-card-text">Manha</p>
+        <p class="ob-card-sub">Comecar o dia com calma</p>
+      </div>
+      <div class="ob-card ob-card-lg" data-group="horario" data-val="tarde" onclick="selectSingle(this, 'horario')">
+        <span class="ob-card-icon">☀️</span>
+        <p class="ob-card-text">Tarde</p>
+        <p class="ob-card-sub">Pausa a meio do dia</p>
+      </div>
+      <div class="ob-card ob-card-lg" data-group="horario" data-val="noite" onclick="selectSingle(this, 'horario')">
+        <span class="ob-card-icon">🌙</span>
+        <p class="ob-card-text">Noite</p>
+        <p class="ob-card-sub">Desligar antes de dormir</p>
+      </div>
+    </div>
+    <div class="ob-cards ob-cards-2" style="margin-top:8px;">
+      <div class="ob-card" data-group="duracao" data-val="5" onclick="selectSingle(this, 'duracao')">
+        <span class="ob-card-icon">⚡</span>
+        <div><p class="ob-card-text">5 minutos</p><p class="ob-card-sub">Sessoes muito rapidas</p></div>
+      </div>
+      <div class="ob-card" data-group="duracao" data-val="10" onclick="selectSingle(this, 'duracao')">
+        <span class="ob-card-icon">🕙</span>
+        <div><p class="ob-card-text">10 minutos</p><p class="ob-card-sub">Ritmo equilibrado</p></div>
+      </div>
+      <div class="ob-card" data-group="duracao" data-val="20" onclick="selectSingle(this, 'duracao')">
+        <span class="ob-card-icon">🕐</span>
+        <div><p class="ob-card-text">20 minutos</p><p class="ob-card-sub">Pratica mais profunda</p></div>
+      </div>
+      <div class="ob-card" data-group="duracao" data-val="30" onclick="selectSingle(this, 'duracao')">
+        <span class="ob-card-icon">🧘</span>
+        <div><p class="ob-card-text">30+ minutos</p><p class="ob-card-sub">Sessoes completas</p></div>
+      </div>
+    </div>
+    <div class="ob-nav">
+      <button class="ob-nav-skip" onclick="goTo(3)">Voltar</button>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="goTo(5)">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 5 — Quiz 1 ───────────────────────────────────── -->
+  <div class="ob-step" id="step-5">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">🧠</span>
+      <h2 class="ob-step-title">Situacoes do dia a dia</h2>
+      <p class="ob-step-sub">Escolhe a opcao que mais se identifica contigo em cada situacao.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Quando tens uma decisao para tomar, costumas...</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q1" data-perfil="overthinking" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Pensar em todos os cenarios possiveis vezes sem conta
+          </div>
+          <div class="ob-quiz-option" data-q="q1" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Sentir um aperto no peito e adiar a decisao
+          </div>
+          <div class="ob-quiz-option" data-q="q1" data-perfil="foco" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Distrair-te e acabar por nao decidir nada
+          </div>
+          <div class="ob-quiz-option" data-q="q1" data-perfil="sono" data-pts="1" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Decidir rapidamente sem pensar muito
+          </div>
+        </div>
+      </div>
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Quando deitas para dormir, o que acontece mais frequentemente?</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q2" data-perfil="overthinking" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            A cabeca nao para — pensamentos sobre tudo e mais alguma coisa
+          </div>
+          <div class="ob-quiz-option" data-q="q2" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Preocupas-te com o dia seguinte e com o que pode correr mal
+          </div>
+          <div class="ob-quiz-option" data-q="q2" data-perfil="sono" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Adormecer e acordar a meio da noite sem conseguir voltar a dormir
+          </div>
+          <div class="ob-quiz-option" data-q="q2" data-perfil="foco" data-pts="1" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Adormecer facilmente mas acordar cansado/a
+          </div>
+        </div>
+      </div>
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Num dia de trabalho ou estudo, costumas...</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q3" data-perfil="foco" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Saltar entre tarefas sem acabar nenhuma
+          </div>
+          <div class="ob-quiz-option" data-q="q3" data-perfil="overthinking" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Passar muito tempo a planear e pouco a executar
+          </div>
+          <div class="ob-quiz-option" data-q="q3" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Sentir pressao constante mesmo quando nao ha urgencia
+          </div>
+          <div class="ob-quiz-option" data-q="q3" data-perfil="sono" data-pts="2" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Sentir cansaco e falta de energia ao fim do dia
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ob-nav">
+      <button class="ob-nav-skip" onclick="goTo(4)">Voltar</button>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="goTo(6)">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 6 — Quiz 2 ───────────────────────────────────── -->
+  <div class="ob-step" id="step-6">
+    <div class="ob-step-heading">
+      <span class="ob-step-emoji">💭</span>
+      <h2 class="ob-step-title">Corpo e emocoes</h2>
+      <p class="ob-step-sub">Mais algumas perguntas para afinar o teu perfil.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Quando estás stressado/a, o que sentes primeiro?</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q4" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Tensao no peito, respiracao mais curta
+          </div>
+          <div class="ob-quiz-option" data-q="q4" data-perfil="overthinking" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            A cabeca acelera, pensamentos em loop
+          </div>
+          <div class="ob-quiz-option" data-q="q4" data-perfil="sono" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Cansaco fisico e vontade de fechar os olhos
+          </div>
+          <div class="ob-quiz-option" data-q="q4" data-perfil="foco" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Irritacao e dificuldade em estar parado/a
+          </div>
+        </div>
+      </div>
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Como reages quando algo nao corre como esperavas?</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q5" data-perfil="overthinking" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Revisitas o que aconteceu repetidamente na cabeca
+          </div>
+          <div class="ob-quiz-option" data-q="q5" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Preocupas-te com o que pode acontecer a seguir
+          </div>
+          <div class="ob-quiz-option" data-q="q5" data-perfil="foco" data-pts="2" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Distrais-te para nao pensar no assunto
+          </div>
+          <div class="ob-quiz-option" data-q="q5" data-perfil="sono" data-pts="2" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Sentes-te esgotado/a e precisas de descansar
+          </div>
+        </div>
+      </div>
+
+      <div class="ob-quiz-question">
+        <p class="ob-quiz-q">Nos ultimos 30 dias, com que frequencia te sentiste sobrecarregado/a?</p>
+        <div class="ob-quiz-options">
+          <div class="ob-quiz-option" data-q="q6" data-perfil="ansiedade" data-pts="1" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Raramente ou nunca
+          </div>
+          <div class="ob-quiz-option" data-q="q6" data-perfil="overthinking" data-pts="2" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Algumas vezes
+          </div>
+          <div class="ob-quiz-option" data-q="q6" data-perfil="ansiedade" data-pts="3" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Com bastante frequencia
+          </div>
+          <div class="ob-quiz-option" data-q="q6" data-perfil="ansiedade" data-pts="4" onclick="selectQuiz(this)">
+            <div class="ob-quiz-dot"></div>
+            Quase sempre
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ob-nav">
+      <button class="ob-nav-skip" onclick="goTo(5)">Voltar</button>
+      <div class="ob-nav-right">
+        <button class="btn-next" onclick="calcularPerfil()">Ver o meu perfil</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PASSO 7 — Resultado ────────────────────────────────── -->
+  <div class="ob-step" id="step-7">
+    <div class="ob-result">
+      <span class="ob-result-badge" id="result-badge">Perfil identificado</span>
+      <p class="ob-result-profile" id="result-title">Mente Agitada</p>
+      <p class="ob-result-desc" id="result-desc">
+        O teu perfil dominante e o overthinking. A tua mente tende a
+        trabalhar em excesso, revisitando situacoes e antecipando problemas.
+        O MindNest vai ajudar-te a criar pausas mentais e a ganhar distancia dos pensamentos.
+      </p>
+      <div class="ob-result-bars" id="result-bars"></div>
+      <button class="btn-start" onclick="comecar()">Comecar o meu percurso</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const perfis = { overthinking: 0, ansiedade: 0, foco: 0, sono: 0 };
+  const prefs  = {};
+
+  const totalSteps = 6;
+
+  function goTo(n) {
+    document.querySelectorAll('.ob-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + n).classList.add('active');
+    const pct = (n / totalSteps) * 100;
+    document.getElementById('progress-fill').style.width = Math.min(pct, 100) + '%';
+    document.getElementById('step-label').textContent = n <= totalSteps
+      ? 'Passo ' + n + ' de ' + totalSteps
+      : 'Resultado';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleCard(el) {
+    el.classList.toggle('selected');
+    const perfil = el.dataset.val;
+    if (el.classList.contains('selected')) {
+      perfis[perfil] = (perfis[perfil] || 0) + 2;
+    } else {
+      perfis[perfil] = Math.max(0, (perfis[perfil] || 0) - 2);
+    }
+  }
+
+  function selectScale(el, group, val) {
+    el.closest('.ob-scale').querySelectorAll('.ob-scale-item')
+      .forEach(i => i.classList.remove('selected'));
+    el.classList.add('selected');
+    prefs[group] = val;
+  }
+
+  function selectSingle(el, group) {
+    el.closest('.ob-cards').querySelectorAll('.ob-card')
+      .forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    prefs[group] = el.dataset.val;
+  }
+
+  function selectQuiz(el) {
+    const q = el.dataset.q;
+    el.closest('.ob-quiz-options').querySelectorAll('.ob-quiz-option')
+      .forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    const perfil = el.dataset.perfil;
+    const pts    = parseInt(el.dataset.pts);
+    perfis[perfil] = (perfis[perfil] || 0) + pts;
+  }
+
+  function calcularPerfil() {
+    const nomes = {
+      overthinking: 'Mente Agitada',
+      ansiedade:    'Ansiedade & Stress',
+      foco:         'Falta de Foco',
+      sono:         'Descanso Insuficiente'
+    };
+
+    const descs = {
+      overthinking: 'A tua mente tende a trabalhar em excesso, revisitando situacoes e antecipando problemas. O MindNest vai ajudar-te a criar pausas mentais e a ganhar distancia dos teus pensamentos.',
+      ansiedade:    'Sentes frequentemente tensao e preocupacao antecipada. O MindNest vai guiar-te com tecnicas de respiracao e relaxamento para acalmar o sistema nervoso.',
+      foco:         'Tens dificuldade em manter a concentracao e terminar o que começas. O MindNest vai ajudar-te a criar rotinas de foco e a organizar os teus pensamentos.',
+      sono:         'O teu descanso esta a ser afetado por uma mente ativa. O MindNest vai ajudar-te a criar uma rotina noturna para adormecer com mais facilidade.'
+    };
+
+    const dominante = Object.entries(perfis).reduce((a, b) => b[1] > a[1] ? b : a)[0];
+    const total     = Math.max(1, Object.values(perfis).reduce((a, b) => a + b, 0));
+
+    document.getElementById('result-badge').textContent = 'Perfil identificado';
+    document.getElementById('result-title').textContent = nomes[dominante];
+    document.getElementById('result-desc').textContent  = descs[dominante];
+
+    const barsEl = document.getElementById('result-bars');
+    barsEl.innerHTML = '';
+
+    const labels = { overthinking: 'Overthinking', ansiedade: 'Ansiedade', foco: 'Foco', sono: 'Sono' };
+    const cores  = { overthinking: 'var(--dusk-400)', ansiedade: 'var(--mist-400)', foco: 'var(--fog-500)', sono: 'var(--dusk-300)' };
+
+    Object.entries(perfis).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => {
+      const pct = Math.round((v / total) * 100);
+      barsEl.innerHTML += `
+        <div class="ob-result-bar-row">
+          <span class="ob-result-bar-label">${labels[k]}</span>
+          <div class="ob-result-bar-track">
+            <div class="ob-result-bar-fill" style="width:${pct}%; background:${cores[k]};"></div>
+          </div>
+          <span class="ob-result-bar-val">${pct}%</span>
+        </div>`;
+    });
+
+    localStorage.setItem('mindnest_perfil', JSON.stringify({
+      perfis, prefs, dominante,
+      user: { nome: 'Joao' }
+    }));
+
+    goTo(7);
+  }
+
+  function comecar() {
+    window.location.href = 'dashboard.html';
+  }
+</script>
+
+</body>
+</html>

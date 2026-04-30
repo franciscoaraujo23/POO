@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/biblioteca.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🪴</div>
+      <span class="sidebar-brand-name">MindNest</span>
+    </div>
+
+    <span class="sidebar-label">Menu</span>
+
+    <nav>
+      <a href="dashboard.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
+            <polyline points="9 21 9 12 15 12 15 21"/>
+          </svg>
+        </span>
+        Dashboard
+      </a>
+      <a href="biblioteca.html" class="nav-item active">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8"/>
+          </svg>
+        </span>
+        Biblioteca
+        <span class="nav-badge">12</span>
+      </a>
+      <a href="checkin.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
+          </svg>
+        </span>
+        Check-in
+      </a>
+      <a href="reflexoes.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </span>
+        Reflexoes
+      </a>
+      <a href="progresso.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </span>
+        Progresso
+      </a>
+      <a href="favoritos.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </span>
+        Favoritos
+      </a>
+      <a href="perfil.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        Perfil
+      </a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-profile">
+      <div class="profile-card">
+        <div class="avatar">J</div>
+        <div class="min-w-0">
+          <p class="profile-name truncate">Joao Silva</p>
+          <p class="profile-level">Nivel Intermedio</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+  <main class="main-content">
+    <div class="biblioteca-main">
+
+      <!-- Header -->
+      <header class="biblioteca-header anim-1">
+        <div>
+          <h1 class="biblioteca-title">Biblioteca</h1>
+          <p class="biblioteca-sub">Explora todas as sessoes e audios disponíveis.</p>
+        </div>
+      </header>
+
+      <!-- Filtros -->
+      <section class="filters-wrap anim-2">
+        <div class="filters-row">
+          <button class="filter-pill active" data-filter="todos" onclick="filtrar(this)">Todos</button>
+          <button class="filter-pill" data-filter="respiracao" onclick="filtrar(this)">🌊 Respiracao</button>
+          <button class="filter-pill" data-filter="foco" onclick="filtrar(this)">🎯 Foco</button>
+          <button class="filter-pill" data-filter="relaxar" onclick="filtrar(this)">🌙 Relaxar</button>
+          <button class="filter-pill" data-filter="energia" onclick="filtrar(this)">⚡ Energia</button>
+          <div class="filter-divider"></div>
+          <button class="filter-pill" data-dur="5" onclick="filtrarDur(this)">5 min</button>
+          <button class="filter-pill" data-dur="10" onclick="filtrarDur(this)">10 min</button>
+          <button class="filter-pill" data-dur="20" onclick="filtrarDur(this)">20 min</button>
+          <button class="filter-pill" data-dur="30" onclick="filtrarDur(this)">30+ min</button>
+          <div class="input-wrap search-biblioteca">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--color-text-muted);flex-shrink:0;">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Pesquisar..." oninput="pesquisar(this.value)" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Destaques -->
+      <section class="anim-3">
+        <div class="section-header">
+          <h2 class="section-title">Em destaque</h2>
+        </div>
+        <div class="destaques-grid">
+          <div class="destaque-card destaque-card-fog" onclick="window.location.href='sessao.html'">
+            <div class="destaque-blob"></div>
+            <div class="destaque-top">
+              <span class="destaque-badge">Respiracao</span>
+              <span class="destaque-duration">10 min</span>
+            </div>
+            <div class="destaque-info">
+              <p class="destaque-title">Respiracao Profunda 4-7-8</p>
+              <button class="destaque-play">▶</button>
+            </div>
+          </div>
+          <div class="destaque-card destaque-card-mist" onclick="window.location.href='sessao.html'">
+            <div class="destaque-blob"></div>
+            <div class="destaque-top">
+              <span class="destaque-badge">Foco</span>
+              <span class="destaque-duration">25 min</span>
+            </div>
+            <div class="destaque-info">
+              <p class="destaque-title">Foco Total — Tecnica Pomodoro</p>
+              <button class="destaque-play">▶</button>
+            </div>
+          </div>
+          <div class="destaque-card destaque-card-dusk" onclick="window.location.href='sessao.html'">
+            <div class="destaque-blob"></div>
+            <div class="destaque-top">
+              <span class="destaque-badge">Relaxar</span>
+              <span class="destaque-duration">20 min</span>
+            </div>
+            <div class="destaque-info">
+              <p class="destaque-title">Sono Profundo — Relaxamento Muscular</p>
+              <button class="destaque-play">▶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catálogo -->
+      <section class="anim-4">
+        <div class="catalogo-header">
+          <h2 class="section-title">Todas as sessoes</h2>
+          <span class="catalogo-count" id="count-label">12 sessoes</span>
+        </div>
+        <div class="catalogo-grid" id="catalogo">
+
+          <!-- Cards gerados pelo JS -->
+
+          <div class="empty-state" id="empty-state">
+            <p class="empty-state-emoji">🔍</p>
+            <p>Nenhuma sessao encontrada.<br>Tenta outro filtro ou pesquisa.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  const sessoes = [
+    { id:1,  titulo:'Respiracao Profunda 4-7-8',         cat:'respiracao', dur:10, stars:5, emoji:'🌬️', thumb:'dusk', fav:false },
+    { id:2,  titulo:'Respiracao Box — 4 tempos',          cat:'respiracao', dur:5,  stars:4, emoji:'📦', thumb:'dusk', fav:false },
+    { id:3,  titulo:'Respiracao Diafragmatica',           cat:'respiracao', dur:8,  stars:5, emoji:'🫁', thumb:'dusk', fav:true  },
+    { id:4,  titulo:'Foco Total — Tecnica Pomodoro',      cat:'foco',       dur:25, stars:4, emoji:'🍅', thumb:'mist', fav:false },
+    { id:5,  titulo:'Deep Work — Sessao de Concentracao', cat:'foco',       dur:30, stars:5, emoji:'🎯', thumb:'mist', fav:false },
+    { id:6,  titulo:'Foco com Sons da Natureza',          cat:'foco',       dur:20, stars:4, emoji:'🌿', thumb:'mist', fav:true  },
+    { id:7,  titulo:'Acalmar a Mente ao Fim do Dia',      cat:'relaxar',    dur:15, stars:5, emoji:'🧘', thumb:'dusk', fav:false },
+    { id:8,  titulo:'Sono Profundo — Relaxamento Muscular', cat:'relaxar',  dur:20, stars:5, emoji:'🌙', thumb:'dusk', fav:false },
+    { id:9,  titulo:'Body Scan — Libertar Tensao',        cat:'relaxar',    dur:12, stars:4, emoji:'✨', thumb:'dusk', fav:false },
+    { id:10, titulo:'Meditacao Matinal de Gratidao',      cat:'energia',    dur:8,  stars:5, emoji:'🌅', thumb:'fog',  fav:false },
+    { id:11, titulo:'Activacao Suave — Despertar Consciente', cat:'energia', dur:5, stars:4, emoji:'☀️', thumb:'fog',  fav:true  },
+    { id:12, titulo:'Energia Positiva — Afirmacoes Guiadas', cat:'energia', dur:10, stars:4, emoji:'⚡', thumb:'fog',  fav:false },
+  ];
+
+  let filtroAtivo  = 'todos';
+  let durAtiva     = null;
+  let pesquisaAtiva = '';
+  const favs = new Set(sessoes.filter(s => s.fav).map(s => s.id));
+
+  function renderCatalogo() {
+    const catalogo = document.getElementById('catalogo');
+    const empty    = document.getElementById('empty-state');
+
+    const filtered = sessoes.filter(s => {
+      const matchCat  = filtroAtivo === 'todos' || s.cat === filtroAtivo;
+      const matchDur  = !durAtiva || (durAtiva === 30 ? s.dur >= 30 : s.dur === durAtiva);
+      const matchSrch = !pesquisaAtiva || s.titulo.toLowerCase().includes(pesquisaAtiva.toLowerCase());
+      return matchCat && matchDur && matchSrch;
+    });
+
+    catalogo.querySelectorAll('.sessao-card').forEach(el => el.remove());
+
+    filtered.forEach(s => {
+      const isFav = favs.has(s.id);
+      const stars = Array.from({ length: 5 }, (_, i) =>
+        `<span class="${i < s.stars ? 'sessao-star' : 'sessao-star-off'}">★</span>`
+      ).join('');
+
+      const durLabel = s.dur >= 30 ? '30+ min' : s.dur + ' min';
+
+      const card = document.createElement('div');
+      card.className = 'sessao-card';
+      card.dataset.id  = s.id;
+      card.dataset.cat = s.cat;
+      card.dataset.dur = s.dur;
+      card.innerHTML = `
+        <div class="sessao-card-top">
+          <div class="sessao-thumb thumb-${s.thumb}">${s.emoji}</div>
+          <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${s.id})">
+            ${isFav ? '♥' : '♡'}
+          </button>
+        </div>
+        <p class="sessao-title">${s.titulo}</p>
+        <div class="sessao-meta">
+          <div class="sessao-meta-left">
+            <span class="badge badge-${s.cat === 'respiracao' ? 'dusk' : s.cat === 'foco' ? 'mist' : s.cat === 'relaxar' ? 'dusk' : 'fog'}">${capitalize(s.cat)}</span>
+            <span class="sessao-duration">${durLabel}</span>
+          </div>
+          <div class="sessao-stars">${stars}</div>
+        </div>`;
+      card.addEventListener('click', e => {
+        if (e.target.closest('.fav-btn')) return;
+        window.location.href = 'sessao.html';
+      });
+      catalogo.insertBefore(card, empty);
+    });
+
+    const visible = filtered.length;
+    document.getElementById('count-label').textContent =
+      visible + (visible === 1 ? ' sessao' : ' sessoes');
+    empty.classList.toggle('visible', visible === 0);
+  }
+
+  function filtrar(el) {
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    filtroAtivo = el.dataset.filter;
+    renderCatalogo();
+  }
+
+  function filtrarDur(el) {
+    const val = parseInt(el.dataset.dur);
+    if (durAtiva === val) {
+      durAtiva = null;
+      el.classList.remove('active');
+    } else {
+      document.querySelectorAll('[data-dur]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      durAtiva = val;
+    }
+    renderCatalogo();
+  }
+
+  function pesquisar(val) {
+    pesquisaAtiva = val;
+    renderCatalogo();
+  }
+
+  function toggleFav(e, id) {
+    e.stopPropagation();
+    const btn = e.currentTarget;
+    if (favs.has(id)) {
+      favs.delete(id);
+      btn.classList.remove('active');
+      btn.textContent = '♡';
+    } else {
+      favs.add(id);
+      btn.classList.add('active');
+      btn.textContent = '♥';
+    }
+  }
+
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  renderCatalogo();
+</script>
+
+</body>
+</html>

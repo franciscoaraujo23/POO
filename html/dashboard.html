@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/dashboard.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🪴</div>
+      <span class="sidebar-brand-name">MindNest</span>
+    </div>
+
+    <span class="sidebar-label">Menu</span>
+
+    <nav>
+      <a href="dashboard.html" class="nav-item active">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
+            <polyline points="9 21 9 12 15 12 15 21"/>
+          </svg>
+        </span>
+        Dashboard
+      </a>
+
+      <a href="biblioteca.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8"/>
+          </svg>
+        </span>
+        Biblioteca
+        <span class="nav-badge">4</span>
+      </a>
+
+      <a href="checkin.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
+          </svg>
+        </span>
+        Check-in
+      </a>
+
+      <a href="reflexoes.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </span>
+        Reflexoes
+      </a>
+
+      <a href="progresso.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </span>
+        Progresso
+      </a>
+
+      <a href="favoritos.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </span>
+        Favoritos
+      </a>
+
+      <a href="perfil.html" class="nav-item">
+        <span class="nav-item-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        Perfil
+      </a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-profile">
+      <div class="profile-card">
+        <div class="avatar">J</div>
+        <div class="min-w-0">
+          <p class="profile-name truncate">Joao Silva</p>
+          <p class="profile-level">Nivel Intermedio</p>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ─── CONTEÚDO PRINCIPAL ────────────────────────────────── -->
+  <main class="main-content">
+    <div class="dashboard-main">
+
+      <!-- Header -->
+      <header class="dashboard-header anim-1">
+        <div>
+          <p class="dashboard-date">Segunda-feira, 21 de Abril</p>
+          <h1 class="dashboard-greeting">Ola, <span class="name">Joao</span> 👋</h1>
+          <p class="dashboard-sub">Como esta a tua mente hoje?</p>
+        </div>
+        <div class="header-actions">
+          <div class="input-wrap">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--color-text-muted); flex-shrink:0;">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" placeholder="Pesquisar sessoes..." />
+          </div>
+          <button class="btn-icon notif-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="color:var(--color-text-soft);">
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/>
+            </svg>
+            <span class="notif-dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <section class="stats-grid anim-2">
+
+        <div class="card card-hover stat-card">
+          <div class="stat-card-top">
+            <span class="stat-card-label">Progresso semanal</span>
+            <div class="stat-card-icon stat-icon-dusk">📈</div>
+          </div>
+          <div class="stat-card-value">72<small>%</small></div>
+          <div>
+            <div class="stat-bar-labels"><span>Esta semana</span><span>Meta: 100%</span></div>
+            <div class="progress-track">
+              <div class="progress-fill progress-fill-primary" style="width:72%"></div>
+            </div>
+          </div>
+          <span class="stat-card-delta">12% desde semana passada</span>
+        </div>
+
+        <div class="card card-hover stat-card">
+          <div class="stat-card-top">
+            <span class="stat-card-label">Sessoes concluidas</span>
+            <div class="stat-card-icon stat-icon-mist">✅</div>
+          </div>
+          <div class="stat-card-value">18<small>/30</small></div>
+          <div>
+            <div class="stat-bar-labels"><span>Este mes</span><span>Objetivo mensal</span></div>
+            <div class="progress-track">
+              <div class="progress-fill progress-fill-secondary" style="width:60%"></div>
+            </div>
+          </div>
+          <span class="stat-card-delta">3 sessoes esta semana</span>
+        </div>
+
+        <div class="card card-hover stat-card">
+          <div class="stat-card-top">
+            <span class="stat-card-label">Pontos acumulados</span>
+            <div class="stat-card-icon stat-icon-dusk">⭐</div>
+          </div>
+          <div class="stat-card-value">2.4<small>k</small></div>
+          <div>
+            <div class="stat-bar-labels"><span>Nivel atual</span><span>Proximo: 3k</span></div>
+            <div class="progress-track">
+              <div class="progress-fill progress-fill-muted" style="width:80%"></div>
+            </div>
+          </div>
+          <span class="stat-card-delta">340 pts esta semana</span>
+        </div>
+
+      </section>
+
+      <!-- Quote -->
+      <div class="quote-card anim-3">
+        <span class="quote-icon">🌿</span>
+        <div>
+          <p class="quote-text">
+            "Nao precisas de ter todos os teus pensamentos sob controlo.
+            So precisas de respirar e dar um passo de cada vez."
+          </p>
+          <p class="quote-author">Lembrete do dia</p>
+        </div>
+      </div>
+
+      <!-- Categorias -->
+      <section class="anim-4">
+        <div class="section-header">
+          <h2 class="section-title">Explorar categorias</h2>
+          <a href="biblioteca.html" class="btn-ghost">Ver todas</a>
+        </div>
+        <div class="categories-grid">
+
+          <div class="cat-card cat-card-fog">
+            <div class="cat-blob-1"></div>
+            <div class="cat-blob-2"></div>
+            <span class="cat-emoji">🌊</span>
+            <div class="cat-info">
+              <p class="cat-name">Respiracao</p>
+              <p class="cat-desc">Tecnicas para acalmar o sistema nervoso e reduzir ansiedade.</p>
+            </div>
+            <span class="cat-pill">12 sessoes</span>
+          </div>
+
+          <div class="cat-card cat-card-mist">
+            <div class="cat-blob-1"></div>
+            <div class="cat-blob-2"></div>
+            <span class="cat-emoji">🎯</span>
+            <div class="cat-info">
+              <p class="cat-name">Foco</p>
+              <p class="cat-desc">Praticas de concentracao para clareza mental e produtividade.</p>
+            </div>
+            <span class="cat-pill">8 sessoes</span>
+          </div>
+
+          <div class="cat-card cat-card-dusk">
+            <div class="cat-blob-1"></div>
+            <div class="cat-blob-2"></div>
+            <span class="cat-emoji">🌙</span>
+            <div class="cat-info">
+              <p class="cat-name">Relaxar</p>
+              <p class="cat-desc">Meditacoes guiadas para soltar tensao e promover bem-estar.</p>
+            </div>
+            <span class="cat-pill">15 sessoes</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Atividades -->
+      <section class="anim-5">
+        <div class="section-header">
+          <h2 class="section-title">Recomendado para ti</h2>
+          <a href="biblioteca.html" class="btn-ghost">Ver mais</a>
+        </div>
+        <div class="activities-list">
+
+          <div class="card card-sm activity-card">
+            <div class="activity-thumb thumb-dusk">🌬️</div>
+            <div class="activity-info">
+              <p class="activity-name">Respiracao Profunda 4-7-8</p>
+              <div class="activity-meta">
+                <span class="activity-duration">10 min</span>
+                <span class="badge badge-dusk">Respiracao</span>
+              </div>
+            </div>
+            <div class="activity-right">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <button class="btn-play">▶</button>
+            </div>
+          </div>
+
+          <div class="card card-sm activity-card">
+            <div class="activity-thumb thumb-mist">🌿</div>
+            <div class="activity-info">
+              <p class="activity-name">Foco Total - Tecnica Pomodoro</p>
+              <div class="activity-meta">
+                <span class="activity-duration">25 min</span>
+                <span class="badge badge-mist">Foco</span>
+              </div>
+            </div>
+            <div class="activity-right">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star star-empty">★</span>
+              </div>
+              <button class="btn-play" style="background:var(--mist-400);">▶</button>
+            </div>
+          </div>
+
+          <div class="card card-sm activity-card">
+            <div class="activity-thumb thumb-dusk">🧘</div>
+            <div class="activity-info">
+              <p class="activity-name">Acalmar a Mente ao Fim do Dia</p>
+              <div class="activity-meta">
+                <span class="activity-duration">15 min</span>
+                <span class="badge badge-dusk">Relaxar</span>
+              </div>
+            </div>
+            <div class="activity-right">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <button class="btn-play">▶</button>
+            </div>
+          </div>
+
+          <div class="card card-sm activity-card">
+            <div class="activity-thumb thumb-fog">🌅</div>
+            <div class="activity-info">
+              <p class="activity-name">Meditacao de Manha para Comecar Bem</p>
+              <div class="activity-meta">
+                <span class="activity-duration">8 min</span>
+                <span class="badge badge-fog">Energia</span>
+              </div>
+            </div>
+            <div class="activity-right">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star star-empty">★</span>
+              </div>
+              <button class="btn-play" style="background:var(--fog-500);">▶</button>
+            </div>
+          </div>
+
+          <div class="card card-sm activity-card">
+            <div class="activity-thumb thumb-dusk">💭</div>
+            <div class="activity-info">
+              <p class="activity-name">Libertar Pensamentos - Body Scan</p>
+              <div class="activity-meta">
+                <span class="activity-duration">12 min</span>
+                <span class="badge badge-dusk">Relaxar</span>
+              </div>
+            </div>
+            <div class="activity-right">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <button class="btn-play">▶</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
