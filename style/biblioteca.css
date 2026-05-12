@@ -117,19 +117,31 @@
   transform: translateY(-3px);
 }
 
-.destaque-card-fog  { background: linear-gradient(140deg, var(--fog-400), var(--fog-300)); }
-.destaque-card-mist { background: linear-gradient(140deg, var(--mist-400), var(--mist-300)); }
-.destaque-card-dusk { background: linear-gradient(140deg, var(--dusk-500), var(--dusk-400)); }
+.destaque-card-stoic {
+  background-image: url('../assets/imgs/estoicismo.png');
+  background-size: cover;
+  background-position: center top;
+}
 
-.destaque-blob {
+.destaque-card-presence {
+  background-image: url('../assets/imgs/mindfulness.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.destaque-card-tao {
+  background-image: url('../assets/imgs/taoismo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.destaque-card::after {
+  content: '';
   position: absolute;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.1);
-  top: -40px;
-  right: -40px;
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.6) 100%);
+  border-radius: inherit;
+  z-index: 0;
 }
 
 .destaque-top {
@@ -167,7 +179,14 @@
   font-weight: 400;
   color: #fff;
   line-height: 1.3;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.destaque-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 12px;
+  line-height: 1.5;
 }
 
 .destaque-play {
