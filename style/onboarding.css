@@ -26,31 +26,46 @@
 .ob-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  overflow: hidden;
 }
 
-.ob-brand-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--dusk-400);
-  border-radius: var(--radius-sm);
+.ob-brand-logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transform: scale(1.45);
+}
+
+.ob-header-right {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-
-.ob-brand-name {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--color-text);
+  gap: 16px;
 }
 
 .ob-step-label {
   font-size: 12px;
   font-weight: 500;
   color: var(--color-text-muted);
+}
+
+.ob-theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.ob-theme-btn:hover {
+  border-color: var(--dusk-300);
+  color: var(--color-text);
 }
 
 /* ── PROGRESS BAR ────────────────────────────────────────────── */
@@ -99,6 +114,12 @@
   display: block;
 }
 
+.ob-step-emoji img { width: 44px; height: 44px; object-fit: contain; }
+.ob-brand-icon img { width: 22px; height: 22px; object-fit: contain; }
+.ob-card-icon img { width: 26px; height: 26px; object-fit: contain; }
+.ob-card-lg .ob-card-icon img { width: 32px; height: 32px; }
+.ob-scale-circle img { width: 26px; height: 26px; object-fit: contain; }
+
 .ob-step-title {
   font-family: var(--font-display);
   font-size: 26px;
@@ -125,7 +146,7 @@
 .ob-cards-3 { grid-template-columns: repeat(3, 1fr); }
 
 .ob-card {
-  background: #fff;
+  background: var(--color-surface);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 16px 18px;
@@ -200,7 +221,7 @@
   height: 44px;
   border-radius: 50%;
   border: 1.5px solid var(--color-border);
-  background: #fff;
+  background: var(--color-surface);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,7 +247,7 @@
 
 /* ── QUIZ ────────────────────────────────────────────────────── */
 .ob-quiz-question {
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 20px;
@@ -255,7 +276,7 @@
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  background: var(--fog-50);
+  background: var(--color-bg);
   cursor: pointer;
   font-size: 13px;
   color: var(--color-text-soft);
@@ -265,7 +286,7 @@
 
 .ob-quiz-option:hover {
   border-color: var(--dusk-300);
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .ob-quiz-option.selected {
@@ -320,14 +341,14 @@
   font-size: 13px;
   font-weight: 500;
   color: var(--color-text-soft);
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   font-family: var(--font-sans);
   cursor: pointer;
   transition: background var(--transition);
 }
 
-.btn-back:hover { background: var(--fog-100); }
+.btn-back:hover { background: var(--color-border); }
 
 .btn-next {
   padding: 9px 24px;
@@ -425,6 +446,20 @@
   width: 30px;
   text-align: right;
   flex-shrink: 0;
+}
+
+.ob-result-bar-row.dominant .ob-result-bar-label {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.ob-result-bar-row.dominant .ob-result-bar-val {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.ob-result-bar-row.dominant .ob-result-bar-track {
+  height: 8px;
 }
 
 .btn-start {

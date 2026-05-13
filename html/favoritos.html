@@ -1,197 +1,220 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Favoritos — MindNest</title>
   <link rel="stylesheet" href="../style/base.css" />
   <link rel="stylesheet" href="../style/favoritos.css" />
 </head>
+
 <body>
-<div class="app">
+  <div class="app">
 
-  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">🪴</div>
-      <span class="sidebar-brand-name">MindNest</span>
-    </div>
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
+      </div>
 
-    <span class="sidebar-label">Menu</span>
+      <span class="sidebar-label">Menu</span>
 
-    <nav>
-      <a href="dashboard.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
-            <polyline points="9 21 9 12 15 12 15 21"/>
-          </svg>
-        </span>
-        Dashboard
-      </a>
-      <a href="biblioteca.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="10 8 16 12 10 16 10 8"/>
-          </svg>
-        </span>
-        Biblioteca
-      </a>
-      <a href="checkin.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
-          </svg>
-        </span>
-        Check-in
-      </a>
-      <a href="reflexoes.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
-        </span>
-        Reflexoes
-      </a>
-      <a href="progresso.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </span>
-        Progresso
-      </a>
-      <a href="favoritos.html" class="nav-item active">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-          </svg>
-        </span>
-        Favoritos
-      </a>
-      <a href="perfil.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </span>
-        Perfil
-      </a>
-    </nav>
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+        </a>
+        <a href="checkin.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
 
-    <div class="sidebar-spacer"></div>
+      <div class="sidebar-spacer"></div>
 
-    <div class="sidebar-profile">
-      <div class="profile-card">
-        <div class="avatar">J</div>
-        <div class="min-w-0">
-          <p class="profile-name truncate">Joao Silva</p>
-          <p class="profile-level">Nivel Intermedio</p>
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar">J</div>
+          <div class="min-w-0">
+            <p class="profile-name truncate">João Silva</p>
+            <p class="profile-level">Nível Intermédio</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="sidebar-sos">
-      <a href="sos.html" class="btn-sos">
-        <span class="btn-sos-dot"></span>
-        Preciso de ajuda agora
-      </a>
-    </div>
-  </aside>
-
-  <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
-  <main class="main-content">
-    <div class="favoritos-main">
-
-      <!-- Header -->
-      <header class="anim-1">
-        <h1 class="favoritos-title">Favoritos</h1>
-        <p class="favoritos-sub">As sessoes que guardaste para voltar a fazer.</p>
-      </header>
-
-      <!-- Filtros -->
-      <div class="fav-filters anim-2">
-        <button class="filter-pill active" data-filter="todos" onclick="filtrar(this, 'todos')" style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Todos</button>
-        <button class="filter-pill" data-filter="respiracao" onclick="filtrar(this, 'respiracao')" style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">🌊 Respiracao</button>
-        <button class="filter-pill" data-filter="foco" onclick="filtrar(this, 'foco')" style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">🎯 Foco</button>
-        <button class="filter-pill" data-filter="relaxar" onclick="filtrar(this, 'relaxar')" style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">🌙 Relaxar</button>
-        <button class="filter-pill" data-filter="energia" onclick="filtrar(this, 'energia')" style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">⚡ Energia</button>
-        <span class="fav-count" id="fav-count" style="margin-left:auto;"></span>
+      <div class="sidebar-theme">
+        <button class="theme-toggle" onclick="toggleTheme()">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
       </div>
 
-      <!-- Grid -->
-      <div class="favoritos-grid anim-3" id="fav-grid">
-        <!-- Renderizado por JS -->
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
       </div>
+    </aside>
 
-    </div>
-  </main>
-</div>
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="favoritos-main">
 
-<script>
-  const sessoesFav = [
-    { id:3,  titulo:'Respiracao Diafragmatica',            cat:'respiracao', dur:8,  stars:5, emoji:'🫁', thumb:'dusk' },
-    { id:6,  titulo:'Foco com Sons da Natureza',           cat:'foco',       dur:20, stars:4, emoji:'🌿', thumb:'mist' },
-    { id:11, titulo:'Activacao Suave — Despertar Consciente', cat:'energia', dur:5,  stars:4, emoji:'☀️', thumb:'fog'  },
-    { id:7,  titulo:'Acalmar a Mente ao Fim do Dia',       cat:'relaxar',    dur:15, stars:5, emoji:'🧘', thumb:'dusk' },
-    { id:2,  titulo:'Respiracao Box — 4 tempos',           cat:'respiracao', dur:5,  stars:4, emoji:'📦', thumb:'dusk' },
-  ];
+        <!-- Header -->
+        <header class="anim-1">
+          <h1 class="favoritos-title">Favoritos</h1>
+          <p class="favoritos-sub">As sessões que guardaste para voltar a fazer.</p>
+        </header>
 
-  let filtroAtivo = 'todos';
-  const removidos = new Set();
+        <!-- Filtros -->
+        <div class="fav-filters anim-2">
+          <button class="filter-pill active" data-filter="todos" onclick="filtrar(this, 'todos')"
+            style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Todos</button>
+          <button class="filter-pill" data-filter="respiracao" onclick="filtrar(this, 'respiracao')"
+            style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Respiração</button>
+          <button class="filter-pill" data-filter="foco" onclick="filtrar(this, 'foco')"
+            style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Foco</button>
+          <button class="filter-pill" data-filter="relaxar" onclick="filtrar(this, 'relaxar')"
+            style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Relaxar</button>
+          <button class="filter-pill" data-filter="energia" onclick="filtrar(this, 'energia')"
+            style="padding:7px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--color-border); background:#fff; color:var(--color-text-soft); cursor:pointer; transition:.2s;">Energia</button>
+          <span class="fav-count" id="fav-count" style="margin-left:auto;"></span>
+        </div>
 
-  const thumbColors = {
-    dusk: 'var(--dusk-100)',
-    mist: 'var(--color-secondary-bg)',
-    fog:  'var(--fog-200)'
-  };
+        <!-- Grid -->
+        <div class="favoritos-grid anim-3" id="fav-grid">
+          <!-- Renderizado por JS -->
+        </div>
 
-  const badgeStyles = {
-    respiracao: 'background:var(--dusk-100);color:var(--dusk-600);',
-    foco:       'background:var(--color-secondary-bg);color:var(--mist-500);',
-    relaxar:    'background:var(--dusk-100);color:var(--dusk-600);',
-    energia:    'background:var(--fog-200);color:var(--ink-soft);'
-  };
+      </div>
+    </main>
+  </div>
 
-  function stars(n) {
-    return Array.from({length:5}, (_,i) =>
-      `<span class="${i < n ? 'fav-star' : 'fav-star-off'}">★</span>`
-    ).join('');
-  }
+  <script>
+    const sessoesFav = [
+      { id: 3, titulo: 'Respiração Diafragmática', cat: 'respiracao', dur: 8, stars: 5, emoji: '🫁', thumb: 'dusk' },
+      { id: 6, titulo: 'Foco com Sons da Natureza', cat: 'foco', dur: 20, stars: 4, emoji: '🌿', thumb: 'mist' },
+      { id: 11, titulo: 'Ativação Suave — Despertar Consciente', cat: 'energia', dur: 5, stars: 4, emoji: '☀️', thumb: 'fog' },
+      { id: 7, titulo: 'Acalmar a Mente ao Fim do Dia', cat: 'relaxar', dur: 15, stars: 5, emoji: '🧘', thumb: 'dusk' },
+      { id: 2, titulo: 'Respiração Box — 4 tempos', cat: 'respiracao', dur: 5, stars: 4, emoji: '📦', thumb: 'dusk' },
+    ];
 
-  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+    let filtroAtivo = 'todos';
+    const removidos = new Set();
 
-  function render() {
-    const grid = document.getElementById('fav-grid');
-    const lista = sessoesFav.filter(s =>
-      !removidos.has(s.id) &&
-      (filtroAtivo === 'todos' || s.cat === filtroAtivo)
-    );
+    const thumbColors = {
+      dusk: 'var(--dusk-100)',
+      mist: 'var(--color-secondary-bg)',
+      fog: 'var(--fog-200)'
+    };
 
-    document.getElementById('fav-count').textContent =
-      lista.length + (lista.length === 1 ? ' sessao' : ' sessoes');
+    const badgeStyles = {
+      respiracao: 'background:var(--dusk-100);color:var(--dusk-600);',
+      foco: 'background:var(--color-secondary-bg);color:var(--mist-500);',
+      relaxar: 'background:var(--dusk-100);color:var(--dusk-600);',
+      energia: 'background:var(--fog-200);color:var(--ink-soft);'
+    };
 
-    if (lista.length === 0) {
-      grid.innerHTML = `
+    function stars(n) {
+      return Array.from({ length: 5 }, (_, i) =>
+        `<span class="${i < n ? 'fav-star' : 'fav-star-off'}">★</span>`
+      ).join('');
+    }
+
+    function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    function render() {
+      const grid = document.getElementById('fav-grid');
+      const lista = sessoesFav.filter(s =>
+        !removidos.has(s.id) &&
+        (filtroAtivo === 'todos' || s.cat === filtroAtivo)
+      );
+
+      document.getElementById('fav-count').textContent =
+        lista.length + (lista.length === 1 ? ' sessão' : ' sessões');
+
+      if (lista.length === 0) {
+        grid.innerHTML = `
         <div class="fav-empty">
           <p class="fav-empty-emoji">♡</p>
           <p class="fav-empty-title">Sem favoritos aqui</p>
           <p class="fav-empty-sub">
             ${filtroAtivo !== 'todos'
-              ? 'Nao tens favoritos nesta categoria.'
-              : 'Ainda nao guardaste nenhuma sessao.<br>Explora a biblioteca e marca as que gostares.'}
+            ? 'Não tens favoritos nesta categoria.'
+            : 'Ainda não guardaste nenhuma sessão.<br>Explora a biblioteca e marca as que gostares.'}
           </p>
           <a href="biblioteca.html" style="display:inline-block; padding:9px 22px; background:var(--dusk-400); color:#fff; border-radius:var(--radius-sm); font-size:13px; font-weight:500;">
             Explorar biblioteca
           </a>
         </div>`;
-      return;
-    }
+        return;
+      }
 
-    grid.innerHTML = lista.map(s => `
+      grid.innerHTML = lista.map(s => `
       <div class="fav-card" id="fc-${s.id}">
         <div class="fav-card-top">
           <div class="fav-thumb" style="background:${thumbColors[s.thumb]}">${s.emoji}</div>
@@ -209,41 +232,43 @@
           <button class="fav-play" onclick="irParaSessao(event)">▶</button>
         </div>
       </div>`
-    ).join('');
-  }
+      ).join('');
+    }
 
-  function filtrar(el, cat) {
-    document.querySelectorAll('.filter-pill').forEach(b => {
-      b.style.background = '#fff';
-      b.style.color = 'var(--color-text-soft)';
-      b.style.borderColor = 'var(--color-border)';
-    });
-    el.style.background = 'var(--dusk-400)';
-    el.style.color = '#fff';
-    el.style.borderColor = 'var(--dusk-400)';
-    filtroAtivo = cat;
-    render();
-  }
-
-  function remover(e, id) {
-    e.stopPropagation();
-    const card = document.getElementById('fc-' + id);
-    card.style.opacity = '0';
-    card.style.transform = 'scale(.95)';
-    card.style.transition = 'opacity .25s, transform .25s';
-    setTimeout(() => {
-      removidos.add(id);
+    function filtrar(el, cat) {
+      document.querySelectorAll('.filter-pill').forEach(b => {
+        b.style.background = '#fff';
+        b.style.color = 'var(--color-text-soft)';
+        b.style.borderColor = 'var(--color-border)';
+      });
+      el.style.background = 'var(--dusk-400)';
+      el.style.color = '#fff';
+      el.style.borderColor = 'var(--dusk-400)';
+      filtroAtivo = cat;
       render();
-    }, 250);
-  }
+    }
 
-  function irParaSessao(e) {
-    e.stopPropagation();
-    window.location.href = 'sessao.html';
-  }
+    function remover(e, id) {
+      e.stopPropagation();
+      const card = document.getElementById('fc-' + id);
+      card.style.opacity = '0';
+      card.style.transform = 'scale(.95)';
+      card.style.transition = 'opacity .25s, transform .25s';
+      setTimeout(() => {
+        removidos.add(id);
+        render();
+      }, 250);
+    }
 
-  render();
-</script>
+    function irParaSessao(e) {
+      e.stopPropagation();
+      window.location.href = 'sessao.html';
+    }
 
+    render();
+  </script>
+
+  <script src="../js/theme.js"></script>
 </body>
+
 </html>

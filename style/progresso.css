@@ -75,6 +75,12 @@
   margin-bottom: 2px;
 }
 
+.stat-mini-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 .stat-mini-val {
   font-family: var(--font-display);
   font-size: 28px;

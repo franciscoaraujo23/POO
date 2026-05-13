@@ -2,6 +2,7 @@
 <html lang="pt">
 
 <head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biblioteca — MindNest</title>
@@ -60,7 +61,7 @@
               <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
             </svg>
           </span>
-          Reflexoes
+          Reflexões
         </a>
         <a href="progresso.html" class="nav-item">
           <span class="nav-item-icon">
@@ -99,10 +100,17 @@
         <div class="profile-card">
           <div class="avatar">J</div>
           <div class="min-w-0">
-            <p class="profile-name truncate">Joao Silva</p>
-            <p class="profile-level">Nivel Intermedio</p>
+            <p class="profile-name truncate">João Silva</p>
+            <p class="profile-level">Nível Intermédio</p>
           </div>
         </div>
+      </div>
+
+      <div class="sidebar-theme">
+        <button class="theme-toggle" onclick="toggleTheme()">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
       </div>
 
       <div class="sidebar-sos">
@@ -121,7 +129,7 @@
         <header class="biblioteca-header anim-1">
           <div>
             <h1 class="biblioteca-title">Biblioteca</h1>
-            <p class="biblioteca-sub">Explora todas as sessoes e audios disponíveis.</p>
+            <p class="biblioteca-sub">Explora todas as sessões e áudios disponíveis.</p>
           </div>
         </header>
 
@@ -130,7 +138,7 @@
           <div class="filters-row">
             <button class="filter-pill active" data-filter="todos" onclick="filtrar(this)">Todos</button>
             <button class="filter-pill" data-filter="respiracao" onclick="filtrar(this)"><img
-                src="/PROJETO/POO/assets/icons/breathe.png" alt=""> Respiracao</button>
+                src="/PROJETO/POO/assets/icons/breathe.png" alt=""> Respiração</button>
             <button class="filter-pill" data-filter="foco" onclick="filtrar(this)"><img
                 src="/PROJETO/POO/assets/icons/focus.png" alt=""> Foco</button>
             <button class="filter-pill" data-filter="relaxar" onclick="filtrar(this)"><img
@@ -159,36 +167,38 @@
             <h2 class="section-title">Em destaque</h2>
           </div>
           <div class="destaques-grid">
-            <div class="destaque-card destaque-card-stoic" style="background-image: url('../assets/imgs/estoicismo.png')" onclick="window.location.href='sessao.html'">
+            <div class="destaque-card destaque-card-stoic"
+              style="background-image: url('../assets/imgs/estoicismo.png')"
+              onclick="window.location.href='sessao.html'">
               <div class="destaque-top">
                 <span class="destaque-badge">Caminho</span>
-                <span class="destaque-duration">🏛️ Estoicismo</span>
+                <span class="destaque-duration">Estoicismo</span>
               </div>
               <div class="destaque-info">
                 <p class="destaque-title">O Caminho do Estoico</p>
-                <p class="destaque-desc">Controlo, aceitacao e dever. Aprende a distinguir o que depende de ti.</p>
+                <p class="destaque-desc">Controlo, aceitação e dever. Aprende a distinguir o que depende de ti.</p>
                 <button class="destaque-play">▶</button>
               </div>
             </div>
             <div class="destaque-card destaque-card-presence" onclick="window.location.href='sessao.html'">
               <div class="destaque-top">
                 <span class="destaque-badge">Caminho</span>
-                <span class="destaque-duration">🧘 Mindfulness</span>
+                <span class="destaque-duration">Mindfulness</span>
               </div>
               <div class="destaque-info">
-                <p class="destaque-title">O Caminho da Presenca</p>
-                <p class="destaque-desc">Para, respira, observa. A paz esta no momento que habitas agora.</p>
+                <p class="destaque-title">O Caminho da Presença</p>
+                <p class="destaque-desc">Para, respira, observa. A paz está no momento que habitas agora.</p>
                 <button class="destaque-play">▶</button>
               </div>
             </div>
             <div class="destaque-card destaque-card-tao" onclick="window.location.href='sessao.html'">
               <div class="destaque-top">
                 <span class="destaque-badge">Caminho</span>
-                <span class="destaque-duration">☯️ Taoismo</span>
+                <span class="destaque-duration">Taoísmo</span>
               </div>
               <div class="destaque-info">
                 <p class="destaque-title">O Caminho do Tao</p>
-                <p class="destaque-desc">Flui com o que e. A resistencia cansa; a aceitacao liberta.</p>
+                <p class="destaque-desc">Flui com o que é. A resistência cansa; a aceitação liberta.</p>
                 <button class="destaque-play">▶</button>
               </div>
             </div>
@@ -198,8 +208,8 @@
         <!-- Catálogo -->
         <section class="anim-4">
           <div class="catalogo-header">
-            <h2 class="section-title">Todas as sessoes</h2>
-            <span class="catalogo-count" id="count-label">12 sessoes</span>
+            <h2 class="section-title">Todas as sessões</h2>
+            <span class="catalogo-count" id="count-label">12 sessões</span>
           </div>
           <div class="catalogo-grid" id="catalogo">
 
@@ -207,7 +217,7 @@
 
             <div class="empty-state" id="empty-state">
               <p class="empty-state-emoji">🔍</p>
-              <p>Nenhuma sessao encontrada.<br>Tenta outro filtro ou pesquisa.</p>
+              <p>Nenhuma sessão encontrada.<br>Tenta outro filtro ou pesquisa.</p>
             </div>
 
           </div>
@@ -219,18 +229,18 @@
 
   <script>
     const sessoes = [
-      { id: 1, titulo: 'Respiracao Profunda 4-7-8', cat: 'respiracao', dur: 10, stars: 5, emoji: '🌬️', thumb: 'dusk', fav: false },
-      { id: 2, titulo: 'Respiracao Box — 4 tempos', cat: 'respiracao', dur: 5, stars: 4, emoji: '📦', thumb: 'dusk', fav: false },
-      { id: 3, titulo: 'Respiracao Diafragmatica', cat: 'respiracao', dur: 8, stars: 5, emoji: '🫁', thumb: 'dusk', fav: true },
-      { id: 4, titulo: 'Foco Total — Tecnica Pomodoro', cat: 'foco', dur: 25, stars: 4, emoji: '🍅', thumb: 'mist', fav: false },
-      { id: 5, titulo: 'Deep Work — Sessao de Concentracao', cat: 'foco', dur: 30, stars: 5, emoji: '🎯', thumb: 'mist', fav: false },
+      { id: 1, titulo: 'Respiração Profunda 4-7-8', cat: 'respiracao', dur: 10, stars: 5, emoji: '🌬️', thumb: 'dusk', fav: false },
+      { id: 2, titulo: 'Respiração Box — 4 tempos', cat: 'respiracao', dur: 5, stars: 4, emoji: '📦', thumb: 'dusk', fav: false },
+      { id: 3, titulo: 'Respiração Diafragmática', cat: 'respiracao', dur: 8, stars: 5, emoji: '🫁', thumb: 'dusk', fav: true },
+      { id: 4, titulo: 'Foco Total — Técnica Pomodoro', cat: 'foco', dur: 25, stars: 4, emoji: '🍅', thumb: 'mist', fav: false },
+      { id: 5, titulo: 'Deep Work — Sessão de Concentração', cat: 'foco', dur: 30, stars: 5, emoji: '🎯', thumb: 'mist', fav: false },
       { id: 6, titulo: 'Foco com Sons da Natureza', cat: 'foco', dur: 20, stars: 4, emoji: '🌿', thumb: 'mist', fav: true },
       { id: 7, titulo: 'Acalmar a Mente ao Fim do Dia', cat: 'relaxar', dur: 15, stars: 5, emoji: '🧘', thumb: 'dusk', fav: false },
       { id: 8, titulo: 'Sono Profundo — Relaxamento Muscular', cat: 'relaxar', dur: 20, stars: 5, emoji: '🌙', thumb: 'dusk', fav: false },
-      { id: 9, titulo: 'Body Scan — Libertar Tensao', cat: 'relaxar', dur: 12, stars: 4, emoji: '✨', thumb: 'dusk', fav: false },
-      { id: 10, titulo: 'Meditacao Matinal de Gratidao', cat: 'energia', dur: 8, stars: 5, emoji: '🌅', thumb: 'fog', fav: false },
-      { id: 11, titulo: 'Activacao Suave — Despertar Consciente', cat: 'energia', dur: 5, stars: 4, emoji: '☀️', thumb: 'fog', fav: true },
-      { id: 12, titulo: 'Energia Positiva — Afirmacoes Guiadas', cat: 'energia', dur: 10, stars: 4, emoji: '⚡', thumb: 'fog', fav: false },
+      { id: 9, titulo: 'Body Scan — Libertar Tensão', cat: 'relaxar', dur: 12, stars: 4, emoji: '✨', thumb: 'dusk', fav: false },
+      { id: 10, titulo: 'Meditação Matinal de Gratidão', cat: 'energia', dur: 8, stars: 5, emoji: '🌅', thumb: 'fog', fav: false },
+      { id: 11, titulo: 'Ativação Suave — Despertar Consciente', cat: 'energia', dur: 5, stars: 4, emoji: '☀️', thumb: 'fog', fav: true },
+      { id: 12, titulo: 'Energia Positiva — Afirmações Guiadas', cat: 'energia', dur: 10, stars: 4, emoji: '⚡', thumb: 'fog', fav: false },
     ];
 
     let filtroAtivo = 'todos';
@@ -288,7 +298,7 @@
 
       const visible = filtered.length;
       document.getElementById('count-label').textContent =
-        visible + (visible === 1 ? ' sessao' : ' sessoes');
+        visible + (visible === 1 ? ' sessão' : ' sessões');
       empty.classList.toggle('visible', visible === 0);
     }
 
@@ -338,6 +348,7 @@
     renderCatalogo();
   </script>
 
+  <script src="../js/theme.js"></script>
 </body>
 
 </html>

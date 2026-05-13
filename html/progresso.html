@@ -1,375 +1,393 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progresso — MindNest</title>
   <link rel="stylesheet" href="../style/base.css" />
   <link rel="stylesheet" href="../style/progresso.css" />
 </head>
+
 <body>
-<div class="app">
+  <div class="app">
 
-  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">🪴</div>
-      <span class="sidebar-brand-name">MindNest</span>
-    </div>
-
-    <span class="sidebar-label">Menu</span>
-
-    <nav>
-      <a href="dashboard.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
-            <polyline points="9 21 9 12 15 12 15 21"/>
-          </svg>
-        </span>
-        Dashboard
-      </a>
-      <a href="biblioteca.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="10 8 16 12 10 16 10 8"/>
-          </svg>
-        </span>
-        Biblioteca
-      </a>
-      <a href="checkin.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
-          </svg>
-        </span>
-        Check-in
-      </a>
-      <a href="reflexoes.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
-        </span>
-        Reflexoes
-      </a>
-      <a href="progresso.html" class="nav-item active">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </span>
-        Progresso
-      </a>
-      <a href="favoritos.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-          </svg>
-        </span>
-        Favoritos
-      </a>
-      <a href="perfil.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </span>
-        Perfil
-      </a>
-    </nav>
-
-    <div class="sidebar-spacer"></div>
-
-    <div class="sidebar-profile">
-      <div class="profile-card">
-        <div class="avatar">J</div>
-        <div class="min-w-0">
-          <p class="profile-name truncate">Joao Silva</p>
-          <p class="profile-level">Nivel Intermedio</p>
-        </div>
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
       </div>
-    </div>
 
-    <div class="sidebar-sos">
-      <a href="sos.html" class="btn-sos">
-        <span class="btn-sos-dot"></span>
-        Preciso de ajuda agora
-      </a>
-    </div>
-  </aside>
+      <span class="sidebar-label">Menu</span>
 
-  <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
-  <main class="main-content">
-    <div class="progresso-main">
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+        </a>
+        <a href="checkin.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
 
-      <!-- Header -->
-      <header class="anim-1">
-        <h1 class="progresso-title">O teu progresso</h1>
-        <p class="progresso-sub">Acompanha a tua evolucao e conquistas.</p>
-      </header>
+      <div class="sidebar-spacer"></div>
 
-      <div class="progresso-grid">
-
-        <!-- ── COLUNA ESQUERDA ─────────────────────────────── -->
-        <div class="progresso-left">
-
-          <!-- Stat cards mini -->
-          <div class="stats-mini-grid anim-2">
-            <div class="stat-mini">
-              <span class="stat-mini-icon">✍️</span>
-              <div class="stat-mini-val">14</div>
-              <span class="stat-mini-label">Reflexões escritas</span>
-              <span class="stat-mini-delta">↑ 3 este mês</span>
-            </div>
-            <div class="stat-mini">
-              <span class="stat-mini-icon">✅</span>
-              <div class="stat-mini-val">42</div>
-              <span class="stat-mini-label">Sessoes totais</span>
-              <span class="stat-mini-delta">↑ 6 este mês</span>
-            </div>
-            <div class="stat-mini">
-              <span class="stat-mini-icon">⏱️</span>
-              <div class="stat-mini-val">8.4<small>h</small></div>
-              <span class="stat-mini-label">Minutos praticados</span>
-              <span class="stat-mini-delta">↑ 2h esta semana</span>
-            </div>
-            <div class="stat-mini">
-              <span class="stat-mini-icon">💭</span>
-              <div class="stat-mini-val">18</div>
-              <span class="stat-mini-label">Check-ins feitos</span>
-              <span class="stat-mini-delta">↑ 5 este mes</span>
-            </div>
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar">J</div>
+          <div class="min-w-0">
+            <p class="profile-name truncate">João Silva</p>
+            <p class="profile-level">Nível Intermédio</p>
           </div>
-
-          <!-- Gráfico semanal -->
-          <div class="card anim-3">
-            <div class="section-header" style="margin-bottom:20px;">
-              <h2 class="section-title" style="font-size:17px;">Atividade — ultimos 7 dias</h2>
-              <span class="text-sm text-muted">Sessoes por dia</span>
-            </div>
-            <div class="grafico-wrap">
-              <div class="grafico-bars" id="grafico-bars">
-                <!-- Renderizado por JS -->
-              </div>
-              <div class="grafico-legend">
-                <span><span class="grafico-legend-dot" style="background:var(--dusk-400);"></span>Hoje</span>
-                <span><span class="grafico-legend-dot" style="background:var(--dusk-300);"></span>Com atividade</span>
-                <span><span class="grafico-legend-dot" style="background:var(--dusk-200);"></span>Sem atividade</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Histórico de sessões -->
-          <div class="card anim-4">
-            <div class="section-header" style="margin-bottom:16px;">
-              <h2 class="section-title" style="font-size:17px;">Sessoes recentes</h2>
-              <a href="biblioteca.html" class="btn-ghost">Ver biblioteca</a>
-            </div>
-            <div class="historico-sessoes">
-              <div class="hist-item">
-                <div class="hist-thumb">🌬️</div>
-                <div class="hist-info">
-                  <p class="hist-nome">Respiracao Profunda 4-7-8</p>
-                  <p class="hist-meta">Respiracao · Hoje, 09:14</p>
-                </div>
-                <span class="hist-dur">10 min</span>
-                <span class="hist-check">✓</span>
-              </div>
-              <div class="hist-item">
-                <div class="hist-thumb mist">🌿</div>
-                <div class="hist-info">
-                  <p class="hist-nome">Foco Total — Tecnica Pomodoro</p>
-                  <p class="hist-meta">Foco · Ontem, 14:32</p>
-                </div>
-                <span class="hist-dur">25 min</span>
-                <span class="hist-check">✓</span>
-              </div>
-              <div class="hist-item">
-                <div class="hist-thumb">🧘</div>
-                <div class="hist-info">
-                  <p class="hist-nome">Acalmar a Mente ao Fim do Dia</p>
-                  <p class="hist-meta">Relaxar · 19 Abr, 22:05</p>
-                </div>
-                <span class="hist-dur">15 min</span>
-                <span class="hist-check">✓</span>
-              </div>
-              <div class="hist-item">
-                <div class="hist-thumb mist">🎯</div>
-                <div class="hist-info">
-                  <p class="hist-nome">Deep Work — Sessao de Concentracao</p>
-                  <p class="hist-meta">Foco · 18 Abr, 10:00</p>
-                </div>
-                <span class="hist-dur">30 min</span>
-                <span class="hist-check">✓</span>
-              </div>
-              <div class="hist-item">
-                <div class="hist-thumb fog">🌅</div>
-                <div class="hist-info">
-                  <p class="hist-nome">Meditacao Matinal de Gratidao</p>
-                  <p class="hist-meta">Energia · 17 Abr, 08:20</p>
-                </div>
-                <span class="hist-dur">8 min</span>
-                <span class="hist-check">✓</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Histórico check-ins -->
-          <div class="card anim-5">
-            <div class="section-header" style="margin-bottom:16px;">
-              <h2 class="section-title" style="font-size:17px;">Check-ins desta semana</h2>
-              <a href="checkin.html" class="btn-ghost">Fazer check-in</a>
-            </div>
-            <div class="checkins-semana">
-              <div class="ci-dia">
-                <span class="ci-dia-label">Seg</span>
-                <div class="ci-dia-emocao">😌</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Ter</span>
-                <div class="ci-dia-emocao">😟</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Qua</span>
-                <div class="ci-dia-emocao">🙂</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Qui</span>
-                <div class="ci-dia-emocao">😴</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Sex</span>
-                <div class="ci-dia-emocao hoje">🎯</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Sab</span>
-                <div class="ci-dia-emocao vazio">—</div>
-              </div>
-              <div class="ci-dia">
-                <span class="ci-dia-label">Dom</span>
-                <div class="ci-dia-emocao vazio">—</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ── COLUNA DIREITA ──────────────────────────────── -->
-        <div class="progresso-right">
-
-          <!-- Nível -->
-          <div class="card nivel-card">
-            <div class="nivel-top">
-              <div class="nivel-badge">🌿</div>
-              <div class="nivel-info">
-                <p class="nivel-nome">Mente Serena</p>
-                <p class="nivel-num">Nivel 4 · Intermedio</p>
-              </div>
-            </div>
-            <div>
-              <div class="nivel-pts">
-                <span>Pontos atuais</span>
-                <strong>2.400 pts</strong>
-              </div>
-              <div class="nivel-progress-track" style="margin-top:8px;">
-                <div class="nivel-progress-fill" style="width:80%;"></div>
-              </div>
-            </div>
-            <p class="nivel-meta">600 pontos para o Nivel 5 — Mente Clara</p>
-          </div>
-
-          <!-- Conquistas -->
-          <div class="card">
-            <h3 class="section-title" style="font-size:16px; margin-bottom:14px;">Conquistas</h3>
-            <div class="conquistas-grid">
-
-              <div class="conquista">
-                <span class="conquista-emoji">🌱</span>
-                <span class="conquista-nome">Primeiro passo</span>
-                <span class="conquista-desbloqueada">Desbloqueada</span>
-              </div>
-
-              <div class="conquista">
-                <span class="conquista-emoji">🧘</span>
-                <span class="conquista-nome">10 sessoes</span>
-                <span class="conquista-desbloqueada">Desbloqueada</span>
-              </div>
-
-              <div class="conquista">
-                <span class="conquista-emoji">💭</span>
-                <span class="conquista-nome">10 check-ins</span>
-                <span class="conquista-desbloqueada">Desbloqueada</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">🏆</span>
-                <span class="conquista-nome">100 sessoes</span>
-                <span class="conquista-desbloqueada">58 em falta</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">⭐</span>
-                <span class="conquista-nome">Nivel 5</span>
-                <span class="conquista-desbloqueada">600 pts em falta</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">📚</span>
-                <span class="conquista-nome">Escritor</span>
-                <span class="conquista-desbloqueada">10 em falta</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">🔍</span>
-                <span class="conquista-nome">Autoconhecimento</span>
-                <span class="conquista-desbloqueada">7 em falta</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">🗣️</span>
-                <span class="conquista-nome">Voz Interior</span>
-                <span class="conquista-desbloqueada">2 modos em falta</span>
-              </div>
-
-              <div class="conquista bloqueada">
-                <span class="conquista-emoji">🌍</span>
-                <span class="conquista-nome">Mestre dos Caminhos</span>
-                <span class="conquista-desbloqueada">3 caminhos em falta</span>
-              </div>
-
-            </div>
-          </div>
-
         </div>
       </div>
 
-    </div>
-  </main>
-</div>
+      <div class="sidebar-theme">
+        <button class="theme-toggle" onclick="toggleTheme()">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
+      </div>
 
-<script>
-  /* ── GRÁFICO SEMANAL ─────────────────────────────────────── */
-  const dados = [
-    { dia: 'Seg', sessoes: 2 },
-    { dia: 'Ter', sessoes: 1 },
-    { dia: 'Qua', sessoes: 3 },
-    { dia: 'Qui', sessoes: 0 },
-    { dia: 'Sex', sessoes: 2 },
-    { dia: 'Sab', sessoes: 1 },
-    { dia: 'Dom', sessoes: 1, hoje: true },
-  ];
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
+      </div>
+    </aside>
 
-  const max = Math.max(...dados.map(d => d.sessoes), 1);
-  const bars = document.getElementById('grafico-bars');
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="progresso-main">
 
-  dados.forEach(d => {
-    const pct = d.sessoes > 0 ? Math.round((d.sessoes / max) * 100) : 4;
-    const cls = d.hoje ? 'today' : d.sessoes > 0 ? 'has-data' : '';
-    bars.innerHTML += `
+        <!-- Header -->
+        <header class="anim-1">
+          <h1 class="progresso-title">O teu progresso</h1>
+          <p class="progresso-sub">Acompanha a tua evolução e conquistas.</p>
+        </header>
+
+        <div class="progresso-grid">
+
+          <!-- ── COLUNA ESQUERDA ─────────────────────────────── -->
+          <div class="progresso-left">
+
+            <!-- Stat cards mini -->
+            <div class="stats-mini-grid anim-2">
+              <div class="stat-mini">
+                <span class="stat-mini-icon"><img src="../assets/icons/writing.png" alt=""></span>
+                <div class="stat-mini-val">14</div>
+                <span class="stat-mini-label">Reflexões escritas</span>
+                <span class="stat-mini-delta">↑ 3 este mês</span>
+              </div>
+              <div class="stat-mini">
+                <span class="stat-mini-icon"><img src="../assets/icons/correct.png" alt=""></span>
+                <div class="stat-mini-val">42</div>
+                <span class="stat-mini-label">Sessões totais</span>
+                <span class="stat-mini-delta">↑ 6 este mês</span>
+              </div>
+              <div class="stat-mini">
+                <span class="stat-mini-icon"><img src="../assets/icons/time.png" alt=""></span>
+                <div class="stat-mini-val">8.4<small>h</small></div>
+                <span class="stat-mini-label">Horas praticadas</span>
+                <span class="stat-mini-delta">↑ 2h esta semana</span>
+              </div>
+              <div class="stat-mini">
+                <span class="stat-mini-icon"><img src="../assets/icons/calendar.png" alt=""></span>
+                <div class="stat-mini-val">18</div>
+                <span class="stat-mini-label">Check-ins feitos</span>
+                <span class="stat-mini-delta">↑ 5 este mês</span>
+              </div>
+            </div>
+
+            <!-- Gráfico semanal -->
+            <div class="card anim-3">
+              <div class="section-header" style="margin-bottom:20px;">
+                <h2 class="section-title" style="font-size:17px;">Atividade — últimos 7 dias</h2>
+                <span class="text-sm text-muted">Sessões por dia</span>
+              </div>
+              <div class="grafico-wrap">
+                <div class="grafico-bars" id="grafico-bars">
+                  <!-- Renderizado por JS -->
+                </div>
+                <div class="grafico-legend">
+                  <span><span class="grafico-legend-dot" style="background:var(--dusk-400);"></span>Hoje</span>
+                  <span><span class="grafico-legend-dot" style="background:var(--dusk-300);"></span>Com atividade</span>
+                  <span><span class="grafico-legend-dot" style="background:var(--dusk-200);"></span>Sem atividade</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Histórico de sessões -->
+            <div class="card anim-4">
+              <div class="section-header" style="margin-bottom:16px;">
+                <h2 class="section-title" style="font-size:17px;">Sessões recentes</h2>
+                <a href="biblioteca.html" class="btn-ghost">Ver biblioteca</a>
+              </div>
+              <div class="historico-sessoes">
+                <div class="hist-item">
+                  <div class="hist-thumb">🌬️</div>
+                  <div class="hist-info">
+                    <p class="hist-nome">Respiração Profunda 4-7-8</p>
+                    <p class="hist-meta">Respiração · Hoje, 09:14</p>
+                  </div>
+                  <span class="hist-dur">10 min</span>
+                  <span class="hist-check">✓</span>
+                </div>
+                <div class="hist-item">
+                  <div class="hist-thumb mist">🌿</div>
+                  <div class="hist-info">
+                    <p class="hist-nome">Foco Total — Técnica Pomodoro</p>
+                    <p class="hist-meta">Foco · Ontem, 14:32</p>
+                  </div>
+                  <span class="hist-dur">25 min</span>
+                  <span class="hist-check">✓</span>
+                </div>
+                <div class="hist-item">
+                  <div class="hist-thumb">🧘</div>
+                  <div class="hist-info">
+                    <p class="hist-nome">Acalmar a Mente ao Fim do Dia</p>
+                    <p class="hist-meta">Relaxar · 19 Abr, 22:05</p>
+                  </div>
+                  <span class="hist-dur">15 min</span>
+                  <span class="hist-check">✓</span>
+                </div>
+                <div class="hist-item">
+                  <div class="hist-thumb mist">🎯</div>
+                  <div class="hist-info">
+                    <p class="hist-nome">Deep Work — Sessão de Concentração</p>
+                    <p class="hist-meta">Foco · 18 Abr, 10:00</p>
+                  </div>
+                  <span class="hist-dur">30 min</span>
+                  <span class="hist-check">✓</span>
+                </div>
+                <div class="hist-item">
+                  <div class="hist-thumb fog">🌅</div>
+                  <div class="hist-info">
+                    <p class="hist-nome">Meditação Matinal de Gratidão</p>
+                    <p class="hist-meta">Energia · 17 Abr, 08:20</p>
+                  </div>
+                  <span class="hist-dur">8 min</span>
+                  <span class="hist-check">✓</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Histórico check-ins -->
+            <div class="card anim-5">
+              <div class="section-header" style="margin-bottom:16px;">
+                <h2 class="section-title" style="font-size:17px;">Check-ins desta semana</h2>
+                <a href="checkin.html" class="btn-ghost">Fazer check-in</a>
+              </div>
+              <div class="checkins-semana">
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Seg</span>
+                  <div class="ci-dia-emocao">😌</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Ter</span>
+                  <div class="ci-dia-emocao">😟</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Qua</span>
+                  <div class="ci-dia-emocao">🙂</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Qui</span>
+                  <div class="ci-dia-emocao">😴</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Sex</span>
+                  <div class="ci-dia-emocao hoje">🎯</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Sáb</span>
+                  <div class="ci-dia-emocao vazio">—</div>
+                </div>
+                <div class="ci-dia">
+                  <span class="ci-dia-label">Dom</span>
+                  <div class="ci-dia-emocao vazio">—</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── COLUNA DIREITA ──────────────────────────────── -->
+          <div class="progresso-right">
+
+            <!-- Nível -->
+            <div class="card nivel-card">
+              <div class="nivel-top">
+                <div class="nivel-badge">🌿</div>
+                <div class="nivel-info">
+                  <p class="nivel-nome">Mente Serena</p>
+                  <p class="nivel-num">Nível 4 · Intermédio</p>
+                </div>
+              </div>
+              <div>
+                <div class="nivel-pts">
+                  <span>Pontos atuais</span>
+                  <strong>2.400 pts</strong>
+                </div>
+                <div class="nivel-progress-track" style="margin-top:8px;">
+                  <div class="nivel-progress-fill" style="width:80%;"></div>
+                </div>
+              </div>
+              <p class="nivel-meta">600 pontos para o Nível 5 — Mente Clara</p>
+            </div>
+
+            <!-- Conquistas -->
+            <div class="card">
+              <h3 class="section-title" style="font-size:16px; margin-bottom:14px;">Conquistas</h3>
+              <div class="conquistas-grid">
+
+                <div class="conquista">
+                  <span class="conquista-emoji">🌱</span>
+                  <span class="conquista-nome">Primeiro passo</span>
+                  <span class="conquista-desbloqueada">Desbloqueada</span>
+                </div>
+
+                <div class="conquista">
+                  <span class="conquista-emoji">🧘</span>
+                  <span class="conquista-nome">10 sessões</span>
+                  <span class="conquista-desbloqueada">Desbloqueada</span>
+                </div>
+
+                <div class="conquista">
+                  <span class="conquista-emoji">💭</span>
+                  <span class="conquista-nome">10 check-ins</span>
+                  <span class="conquista-desbloqueada">Desbloqueada</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">🏆</span>
+                  <span class="conquista-nome">100 sessões</span>
+                  <span class="conquista-desbloqueada">58 em falta</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">⭐</span>
+                  <span class="conquista-nome">Nível 5</span>
+                  <span class="conquista-desbloqueada">600 pts em falta</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">📚</span>
+                  <span class="conquista-nome">Escritor</span>
+                  <span class="conquista-desbloqueada">10 em falta</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">🔍</span>
+                  <span class="conquista-nome">Autoconhecimento</span>
+                  <span class="conquista-desbloqueada">7 em falta</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">🗣️</span>
+                  <span class="conquista-nome">Voz Interior</span>
+                  <span class="conquista-desbloqueada">2 modos em falta</span>
+                </div>
+
+                <div class="conquista bloqueada">
+                  <span class="conquista-emoji">🌍</span>
+                  <span class="conquista-nome">Mestre dos Caminhos</span>
+                  <span class="conquista-desbloqueada">3 caminhos em falta</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    /* ── GRÁFICO SEMANAL ─────────────────────────────────────── */
+    const dados = [
+      { dia: 'Seg', sessoes: 2 },
+      { dia: 'Ter', sessoes: 1 },
+      { dia: 'Qua', sessoes: 3 },
+      { dia: 'Qui', sessoes: 0 },
+      { dia: 'Sex', sessoes: 2 },
+      { dia: 'Sáb', sessoes: 1 },
+      { dia: 'Dom', sessoes: 1, hoje: true },
+    ];
+
+    const max = Math.max(...dados.map(d => d.sessoes), 1);
+    const bars = document.getElementById('grafico-bars');
+
+    dados.forEach(d => {
+      const pct = d.sessoes > 0 ? Math.round((d.sessoes / max) * 100) : 4;
+      const cls = d.hoje ? 'today' : d.sessoes > 0 ? 'has-data' : '';
+      bars.innerHTML += `
       <div class="grafico-col">
         <div class="grafico-bar-wrap">
           ${d.sessoes > 0 ? `<span class="grafico-val">${d.sessoes}</span>` : ''}
@@ -377,8 +395,10 @@
         </div>
         <span class="grafico-dia ${d.hoje ? 'today' : ''}">${d.dia}</span>
       </div>`;
-  });
-</script>
+    });
+  </script>
 
+  <script src="../js/theme.js"></script>
 </body>
+
 </html>

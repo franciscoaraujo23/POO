@@ -270,8 +270,8 @@
   padding: 2px;
 }
 
-.fav-btn:hover { color: var(--dusk-400); transform: scale(1.15); }
-.fav-btn.active { color: var(--dusk-400); }
+.fav-btn:hover { color: #E24B4A; transform: scale(1.15); }
+.fav-btn.active { color: #E24B4A; }
 
 .sessao-title {
   font-size: 14px;

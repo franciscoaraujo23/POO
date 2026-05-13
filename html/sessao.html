@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Respiracao Profunda 4-7-8 — MindNest</title>
+  <title>Respiração Profunda 4-7-8 — MindNest</title>
   <link rel="stylesheet" href="../style/base.css" />
   <link rel="stylesheet" href="../style/sessao.css" />
 </head>
@@ -13,8 +14,7 @@
   <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">🪴</div>
-      <span class="sidebar-brand-name">MindNest</span>
+      <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
     </div>
 
     <span class="sidebar-label">Menu</span>
@@ -53,7 +53,7 @@
             <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
           </svg>
         </span>
-        Reflexoes
+        Reflexões
       </a>
       <a href="progresso.html" class="nav-item">
         <span class="nav-item-icon">
@@ -88,10 +88,17 @@
       <div class="profile-card">
         <div class="avatar">J</div>
         <div class="min-w-0">
-          <p class="profile-name truncate">Joao Silva</p>
-          <p class="profile-level">Nivel Intermedio</p>
+          <p class="profile-name truncate">João Silva</p>
+          <p class="profile-level">Nível Intermédio</p>
         </div>
       </div>
+    </div>
+
+    <div class="sidebar-theme">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="nav-item-icon" id="theme-icon"></span>
+        <span id="theme-label">Modo noturno</span>
+      </button>
     </div>
 
     <div class="sidebar-sos">
@@ -110,9 +117,9 @@
       <nav class="breadcrumb anim-1">
         <a href="biblioteca.html">Biblioteca</a>
         <span class="breadcrumb-sep">›</span>
-        <a href="biblioteca.html">Respiracao</a>
+        <a href="biblioteca.html">Respiração</a>
         <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-current">Respiracao Profunda 4-7-8</span>
+        <span class="breadcrumb-current">Respiração Profunda 4-7-8</span>
       </nav>
 
       <!-- Grid -->
@@ -152,25 +159,25 @@
 
           <!-- Info da sessão -->
           <div class="card sessao-info-card" id="sessao-info">
-            <h1 class="sessao-detail-title">Respiracao Profunda 4-7-8</h1>
+            <h1 class="sessao-detail-title">Respiração Profunda 4-7-8</h1>
             <div class="sessao-detail-meta">
-              <span class="badge badge-dusk">Respiracao</span>
+              <span class="badge badge-dusk">Respiração</span>
               <span class="text-sm text-muted">10 min</span>
               <span class="text-sm text-muted">·</span>
               <span class="text-sm text-muted">Iniciante</span>
             </div>
             <p class="sessao-detail-desc">
-              A tecnica de respiracao 4-7-8 foi desenvolvida pelo Dr. Andrew Weil
-              e e baseada numa pratica de yoga chamada pranayama. Consiste em inspirar
+              A técnica de respiração 4-7-8 foi desenvolvida pelo Dr. Andrew Weil
+              e é baseada numa prática de yoga chamada pranayama. Consiste em inspirar
               durante 4 segundos, reter o ar por 7 segundos e expirar lentamente durante
-              8 segundos. Esta pratica ativa o sistema nervoso parassimpatico, promovendo
-              um estado de calma profunda e reduzindo os niveis de cortisol no organismo.
+              8 segundos. Esta prática ativa o sistema nervoso parassimpático, promovendo
+              um estado de calma profunda e reduzindo os níveis de cortisol no organismo.
               Ideal para momentos de ansiedade aguda ou para facilitar o adormecimento.
             </p>
 
             <!-- Avaliação -->
             <div class="rating-wrap">
-              <span class="rating-label">A tua avaliacao</span>
+              <span class="rating-label">A tua avaliação</span>
               <div class="rating-stars" id="rating-stars">
                 <span class="rating-star" data-val="1" onclick="rateStar(1)">★</span>
                 <span class="rating-star" data-val="2" onclick="rateStar(2)">★</span>
@@ -182,21 +189,21 @@
 
             <!-- Concluir -->
             <button class="btn-concluir" id="btn-concluir" onclick="concluirSessao()">
-              ✓ Marcar como concluida
+              ✓ Marcar como concluída
             </button>
           </div>
 
           <!-- Quiz pós-sessão -->
           <div class="quiz-pos" id="quiz-pos">
-            <p class="quiz-pos-title">Como correu a sessao? 🌿</p>
+            <p class="quiz-pos-title">Como correu a sessão? 🌿</p>
 
             <div class="quiz-pos-question">
-              <p class="quiz-pos-q">Como te sentiste durante a sessao?</p>
+              <p class="quiz-pos-q">Como te sentiste durante a sessão?</p>
               <div class="quiz-pos-options">
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Muito calmo/a</button>
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Relaxado/a</button>
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Neutro/a</button>
-                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Um pouco distraido/a</button>
+                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Um pouco distraído/a</button>
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q1')">Dificuldade em focar</button>
               </div>
             </div>
@@ -204,16 +211,16 @@
             <div class="quiz-pos-question">
               <p class="quiz-pos-q">O que notaste no teu corpo?</p>
               <div class="quiz-pos-options">
-                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Respiracao mais lenta</button>
-                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Musculos relaxados</button>
+                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Respiração mais lenta</button>
+                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Músculos relaxados</button>
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Mente mais limpa</button>
-                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Sonolencia</button>
-                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Sem grandes mudancas</button>
+                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Sonolência</button>
+                <button class="quiz-pos-opt" onclick="selectOpt(this, 'q2')">Sem grandes mudanças</button>
               </div>
             </div>
 
             <div class="quiz-pos-question">
-              <p class="quiz-pos-q">Repetirias esta sessao?</p>
+              <p class="quiz-pos-q">Repetirias esta sessão?</p>
               <div class="quiz-pos-options">
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q3')">Sim, com certeza</button>
                 <button class="quiz-pos-opt" onclick="selectOpt(this, 'q3')">Provavelmente sim</button>
@@ -234,26 +241,26 @@
           <div class="card info-card">
             <div class="info-row">
               <span class="info-row-label">Categoria</span>
-              <span class="badge badge-dusk">Respiracao</span>
+              <span class="badge badge-dusk">Respiração</span>
             </div>
             <div class="info-divider"></div>
             <div class="info-row">
-              <span class="info-row-label">Duracao</span>
+              <span class="info-row-label">Duração</span>
               <span class="info-row-val">10 minutos</span>
             </div>
             <div class="info-divider"></div>
             <div class="info-row">
-              <span class="info-row-label">Nivel</span>
+              <span class="info-row-label">Nível</span>
               <span class="info-row-val">Iniciante</span>
             </div>
             <div class="info-divider"></div>
             <div class="info-row">
               <span class="info-row-label">Tipo</span>
-              <span class="info-row-val">Audio guiado</span>
+              <span class="info-row-val">Áudio guiado</span>
             </div>
             <div class="info-divider"></div>
             <div class="info-row">
-              <span class="info-row-label">Avaliacao media</span>
+              <span class="info-row-label">Avaliação média</span>
               <span class="info-row-val">★ 4.8 (124)</span>
             </div>
             <button class="btn-fav-full" id="btn-fav" onclick="toggleFav()">
@@ -268,14 +275,14 @@
               <div class="relacionada-card" onclick="window.location.href='sessao.html'">
                 <div class="relacionada-thumb">📦</div>
                 <div class="min-w-0 flex-1">
-                  <p class="relacionada-title">Respiracao Box — 4 tempos</p>
+                  <p class="relacionada-title">Respiração Box — 4 tempos</p>
                   <span class="relacionada-dur">5 min</span>
                 </div>
               </div>
               <div class="relacionada-card" onclick="window.location.href='sessao.html'">
                 <div class="relacionada-thumb">🫁</div>
                 <div class="min-w-0 flex-1">
-                  <p class="relacionada-title">Respiracao Diafragmatica</p>
+                  <p class="relacionada-title">Respiração Diafragmática</p>
                   <span class="relacionada-dur">8 min</span>
                 </div>
               </div>
@@ -368,7 +375,7 @@
   /* ── CONCLUIR ────────────────────────────────────────────── */
   function concluirSessao() {
     const btn = document.getElementById('btn-concluir');
-    btn.textContent = '✓ Sessao concluida!';
+    btn.textContent = '✓ Sessão concluída!';
     btn.style.background = 'var(--mist-500)';
     btn.style.cursor = 'default';
     btn.onclick = null;
@@ -392,10 +399,10 @@
           Obrigado pelo teu feedback!
         </p>
         <p style="font-size:13px; color:var(--color-text-muted); margin-bottom:20px;">
-          As tuas respostas ajudam-nos a melhorar as sugestoes para ti.
+          As tuas respostas ajudam-nos a melhorar as sugestões para ti.
         </p>
         <a href="dashboard.html" style="display:inline-block; padding:10px 24px; background:var(--dusk-400); color:#fff; border-radius:var(--radius-sm); font-size:13px; font-weight:500;">
-          Voltar ao inicio
+          Voltar ao início
         </a>
       </div>`;
   }
@@ -410,5 +417,6 @@
   }
 </script>
 
+  <script src="../js/theme.js"></script>
 </body>
 </html>

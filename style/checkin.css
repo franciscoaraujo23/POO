@@ -139,6 +139,15 @@
 .emocao-emoji {
   font-size: 28px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emocao-emoji img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .emocao-label {
@@ -155,18 +164,21 @@
 /* ── ESCALA DE INTENSIDADE ───────────────────────────────────── */
 .intensidade-wrap {
   display: flex;
-  align-items: flex-end;
   justify-content: center;
   gap: 16px;
   padding: 20px 0;
 }
 
 .intensidade-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  display: grid;
+  grid-template-rows: 72px auto;
+  justify-items: center;
+  row-gap: 10px;
   cursor: pointer;
+}
+
+.intensidade-circulo {
+  align-self: center;
 }
 
 .intensidade-circulo {
@@ -453,4 +465,10 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
+}
+
+.historico-emocao img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }

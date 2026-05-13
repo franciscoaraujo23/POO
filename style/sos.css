@@ -544,6 +544,35 @@
 
 .btn-sos-repeat:hover { color: rgba(255,255,255,.6); }
 
+/* ── BOTÃO FLUTUANTE SOS (páginas sem sidebar) ───────────────── */
+.sos-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: #2E3240;
+  border: 1px solid rgba(226, 75, 74, .3);
+  border-radius: var(--radius-full);
+  color: rgba(226, 75, 74, .9);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  z-index: 100;
+}
+
+.sos-float:hover {
+  background: #3D3D52;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+  transform: translateY(-2px);
+}
+
 /* ── AVISO DE EMERGÊNCIA ─────────────────────────────────────── */
 .sos-alert {
   background: rgba(226,75,74,.1);

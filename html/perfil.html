@@ -1,432 +1,452 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil — MindNest</title>
   <link rel="stylesheet" href="../style/base.css" />
   <link rel="stylesheet" href="../style/perfil.css" />
 </head>
+
 <body>
-<div class="app">
+  <div class="app">
 
-  <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">🪴</div>
-      <span class="sidebar-brand-name">MindNest</span>
-    </div>
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
+      </div>
 
-    <span class="sidebar-label">Menu</span>
+      <span class="sidebar-label">Menu</span>
 
-    <nav>
-      <a href="dashboard.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
-            <polyline points="9 21 9 12 15 12 15 21"/>
-          </svg>
-        </span>
-        Dashboard
-      </a>
-      <a href="biblioteca.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="10 8 16 12 10 16 10 8"/>
-          </svg>
-        </span>
-        Biblioteca
-      </a>
-      <a href="checkin.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
-          </svg>
-        </span>
-        Check-in
-      </a>
-      <a href="reflexoes.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
-        </span>
-        Reflexoes
-      </a>
-      <a href="progresso.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </span>
-        Progresso
-      </a>
-      <a href="favoritos.html" class="nav-item">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-          </svg>
-        </span>
-        Favoritos
-      </a>
-      <a href="perfil.html" class="nav-item active">
-        <span class="nav-item-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </span>
-        Perfil
-      </a>
-    </nav>
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+        </a>
+        <a href="checkin.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
 
-    <div class="sidebar-spacer"></div>
+      <div class="sidebar-spacer"></div>
 
-    <div class="sidebar-profile">
-      <div class="profile-card">
-        <div class="avatar">J</div>
-        <div class="min-w-0">
-          <p class="profile-name truncate">Joao Silva</p>
-          <p class="profile-level">Nivel Intermedio</p>
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar">J</div>
+          <div class="min-w-0">
+            <p class="profile-name truncate">João Silva</p>
+            <p class="profile-level">Nível Intermédio</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="sidebar-sos">
-      <a href="sos.html" class="btn-sos">
-        <span class="btn-sos-dot"></span>
-        Preciso de ajuda agora
-      </a>
-    </div>
-  </aside>
+      <div class="sidebar-theme">
+        <button class="theme-toggle" onclick="toggleTheme()">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
+      </div>
 
-  <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
-  <main class="main-content">
-    <div class="perfil-main">
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
+      </div>
+    </aside>
 
-      <!-- Header -->
-      <header class="anim-1">
-        <h1 class="perfil-title">O teu perfil</h1>
-      </header>
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="perfil-main">
 
-      <div class="perfil-grid">
+        <!-- Header -->
+        <header class="anim-1">
+          <h1 class="perfil-title">O teu perfil</h1>
+        </header>
 
-        <!-- ── COLUNA ESQUERDA ─────────────────────────────── -->
-        <div class="perfil-left">
+        <div class="perfil-grid">
 
-          <!-- Identidade -->
-          <div class="card identidade-card anim-2">
-            <div class="perfil-avatar-wrap">
-              <div class="perfil-avatar" id="avatar-display">J</div>
-              <div class="perfil-avatar-edit" title="Editar foto">✎</div>
-            </div>
-            <div>
-              <p class="perfil-nome-display" id="nome-display">Joao Silva</p>
-              <p class="perfil-email-display">joao.silva@email.com</p>
-            </div>
-            <span class="perfil-nivel-badge">🌿 Mente Serena · Nivel 4</span>
-            <div class="perfil-stats-row">
-              <div class="perfil-stat">
-                <span class="perfil-stat-val">42</span>
-                <span class="perfil-stat-label">Sessoes</span>
+          <!-- ── COLUNA ESQUERDA ─────────────────────────────── -->
+          <div class="perfil-left">
+
+            <!-- Identidade -->
+            <div class="card identidade-card anim-2">
+              <div class="perfil-avatar-wrap">
+                <div class="perfil-avatar" id="avatar-display">J</div>
+                <div class="perfil-avatar-edit" title="Editar foto">✎</div>
               </div>
-              <div class="perfil-stat">
-                <span class="perfil-stat-val">7</span>
-                <span class="perfil-stat-label">Dias streak</span>
-              </div>
-              <div class="perfil-stat">
-                <span class="perfil-stat-val">18</span>
-                <span class="perfil-stat-label">Check-ins</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Perfil dominante -->
-          <div class="card perfil-dominante-card anim-3">
-            <h3 class="section-title" style="font-size:15px;">Perfil mental</h3>
-            <div class="dominante-header">
-              <div class="dominante-icon">🌀</div>
               <div>
-                <p class="dominante-nome">Mente Agitada</p>
-                <p class="dominante-desc">Perfil dominante do teu onboarding</p>
+                <p class="perfil-nome-display" id="nome-display">João Silva</p>
+                <p class="perfil-email-display">joao.silva@email.com</p>
+              </div>
+              <span class="perfil-nivel-badge">Mente Serena · Nível 4</span>
+              <div class="perfil-stats-row">
+                <div class="perfil-stat">
+                  <span class="perfil-stat-val">42</span>
+                  <span class="perfil-stat-label">Sessões</span>
+                </div>
+                <div class="perfil-stat">
+                  <span class="perfil-stat-val">7</span>
+                  <span class="perfil-stat-label">Dias streak</span>
+                </div>
+                <div class="perfil-stat">
+                  <span class="perfil-stat-val">18</span>
+                  <span class="perfil-stat-label">Check-ins</span>
+                </div>
               </div>
             </div>
-            <div class="dominante-bars">
-              <div class="dominante-bar-row">
-                <span class="dominante-bar-label">Overthinking</span>
-                <div class="dominante-bar-track">
-                  <div class="dominante-bar-fill" style="width:62%; background:var(--dusk-400);"></div>
+
+            <!-- Perfil dominante -->
+            <div class="card perfil-dominante-card anim-3">
+              <h3 class="section-title" style="font-size:15px;">Perfil mental</h3>
+              <div class="dominante-header">
+                <div class="dominante-icon">🌀</div>
+                <div>
+                  <p class="dominante-nome">Mente Agitada</p>
+                  <p class="dominante-desc">Perfil dominante do teu questionário inicial</p>
                 </div>
-                <span class="dominante-bar-val">62%</span>
               </div>
-              <div class="dominante-bar-row">
-                <span class="dominante-bar-label">Ansiedade</span>
-                <div class="dominante-bar-track">
-                  <div class="dominante-bar-fill" style="width:22%; background:var(--mist-400);"></div>
+              <div class="dominante-bars">
+                <div class="dominante-bar-row">
+                  <span class="dominante-bar-label">Overthinking</span>
+                  <div class="dominante-bar-track">
+                    <div class="dominante-bar-fill" style="width:62%; background:var(--dusk-400);"></div>
+                  </div>
+                  <span class="dominante-bar-val">62%</span>
                 </div>
-                <span class="dominante-bar-val">22%</span>
+                <div class="dominante-bar-row">
+                  <span class="dominante-bar-label">Ansiedade</span>
+                  <div class="dominante-bar-track">
+                    <div class="dominante-bar-fill" style="width:22%; background:var(--mist-400);"></div>
+                  </div>
+                  <span class="dominante-bar-val">22%</span>
+                </div>
+                <div class="dominante-bar-row">
+                  <span class="dominante-bar-label">Foco</span>
+                  <div class="dominante-bar-track">
+                    <div class="dominante-bar-fill" style="width:10%; background:var(--fog-500);"></div>
+                  </div>
+                  <span class="dominante-bar-val">10%</span>
+                </div>
+                <div class="dominante-bar-row">
+                  <span class="dominante-bar-label">Sono</span>
+                  <div class="dominante-bar-track">
+                    <div class="dominante-bar-fill" style="width:6%; background:var(--dusk-300);"></div>
+                  </div>
+                  <span class="dominante-bar-val">6%</span>
+                </div>
               </div>
-              <div class="dominante-bar-row">
-                <span class="dominante-bar-label">Foco</span>
-                <div class="dominante-bar-track">
-                  <div class="dominante-bar-fill" style="width:10%; background:var(--fog-500);"></div>
-                </div>
-                <span class="dominante-bar-val">10%</span>
+              <button class="btn-ghost" onclick="window.location.href='onboarding.html'"
+                style="font-size:12px; align-self:flex-start;">
+                Refazer questionário
+              </button>
+            </div>
+
+            <!-- Conquistas resumo -->
+            <div class="card anim-4">
+              <div class="section-header" style="margin-bottom:12px;">
+                <h3 class="section-title" style="font-size:15px;">Conquistas</h3>
+                <a href="progresso.html" class="btn-ghost" style="font-size:12px;">Ver todas</a>
               </div>
-              <div class="dominante-bar-row">
-                <span class="dominante-bar-label">Sono</span>
-                <div class="dominante-bar-track">
-                  <div class="dominante-bar-fill" style="width:6%; background:var(--dusk-300);"></div>
-                </div>
-                <span class="dominante-bar-val">6%</span>
+              <div class="conquistas-resumo">
+                <div class="conquista-mini" title="Primeiro passo">🌱</div>
+                <div class="conquista-mini" title="7 dias seguidos">🔥</div>
+                <div class="conquista-mini" title="10 sessões">🧘</div>
+                <div class="conquista-mini" title="Explorador">🗺️</div>
+                <div class="conquista-mini" title="Primeiro diário">✍️</div>
+                <div class="conquista-mini" title="10 check-ins">💭</div>
+                <div class="conquista-mini bloqueada" title="30 dias seguidos">🌙</div>
+                <div class="conquista-mini bloqueada" title="100 sessões">🏆</div>
+                <div class="conquista-mini bloqueada" title="Nível 5">⭐</div>
               </div>
             </div>
-            <button class="btn-ghost" onclick="window.location.href='onboarding.html'"
-              style="font-size:12px; align-self:flex-start;">
-              Refazer questionario
-            </button>
+
           </div>
 
-          <!-- Conquistas resumo -->
-          <div class="card anim-4">
-            <div class="section-header" style="margin-bottom:12px;">
-              <h3 class="section-title" style="font-size:15px;">Conquistas</h3>
-              <a href="progresso.html" class="btn-ghost" style="font-size:12px;">Ver todas</a>
-            </div>
-            <div class="conquistas-resumo">
-              <div class="conquista-mini" title="Primeiro passo">🌱</div>
-              <div class="conquista-mini" title="7 dias seguidos">🔥</div>
-              <div class="conquista-mini" title="10 sessoes">🧘</div>
-              <div class="conquista-mini" title="Explorador">🗺️</div>
-              <div class="conquista-mini" title="Primeiro diario">✍️</div>
-              <div class="conquista-mini" title="10 check-ins">💭</div>
-              <div class="conquista-mini bloqueada" title="30 dias seguidos">🌙</div>
-              <div class="conquista-mini bloqueada" title="100 sessoes">🏆</div>
-              <div class="conquista-mini bloqueada" title="Nivel 5">⭐</div>
-            </div>
-          </div>
+          <!-- ── COLUNA DIREITA ──────────────────────────────── -->
+          <div class="perfil-right">
 
+            <!-- Dados pessoais -->
+            <div class="card anim-2">
+              <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Dados pessoais</h3>
+              <div class="config-section">
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Nome</span>
+                    <span class="config-row-sub" id="nome-sub">João Silva</span>
+                  </div>
+                  <div class="edit-field">
+                    <input class="edit-input" type="text" id="input-nome" value="João Silva" style="display:none;" />
+                    <button class="btn-save" id="save-nome" onclick="guardarNome()">Guardar</button>
+                    <button class="btn-edit" onclick="editarNome()">Editar</button>
+                  </div>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Email</span>
+                    <span class="config-row-sub">joao.silva@email.com</span>
+                  </div>
+                  <button class="btn-edit">Editar</button>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Password</span>
+                    <span class="config-row-sub">Alterada há 30 dias</span>
+                  </div>
+                  <button class="btn-edit">Alterar</button>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Data de nascimento</span>
+                    <span class="config-row-sub">Não definida</span>
+                  </div>
+                  <button class="btn-edit">Adicionar</button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Preferências -->
+            <div class="card anim-3">
+              <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Preferências</h3>
+              <div class="config-section">
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Horário preferido</span>
+                    <span class="config-row-sub">Quando preferes praticar</span>
+                  </div>
+                  <select class="config-select">
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option selected>Noite</option>
+                  </select>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Duração preferida</span>
+                    <span class="config-row-sub">Sessões mais adequadas para ti</span>
+                  </div>
+                  <select class="config-select">
+                    <option>5 min</option>
+                    <option selected>10 min</option>
+                    <option>20 min</option>
+                    <option>30+ min</option>
+                  </select>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Objetivo principal</span>
+                    <span class="config-row-sub">Foco das recomendações</span>
+                  </div>
+                  <select class="config-select">
+                    <option selected>Ansiedade</option>
+                    <option>Foco</option>
+                    <option>Sono</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Notificações -->
+            <div class="card anim-4">
+              <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Notificações</h3>
+              <div class="config-section">
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Lembrete diário</span>
+                    <span class="config-row-sub">Notificação para o check-in diário</span>
+                  </div>
+                  <label class="toggle-wrap">
+                    <input class="toggle-input" type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Sugestões de sessões</span>
+                    <span class="config-row-sub">Recomendações personalizadas</span>
+                  </div>
+                  <label class="toggle-wrap">
+                    <input class="toggle-input" type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Conquistas e níveis</span>
+                    <span class="config-row-sub">Avisos ao desbloquear conquistas</span>
+                  </div>
+                  <label class="toggle-wrap">
+                    <input class="toggle-input" type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Citação do dia</span>
+                    <span class="config-row-sub">Citação diária de inspiração</span>
+                  </div>
+                  <label class="toggle-wrap">
+                    <input class="toggle-input" type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Zona de perigo -->
+            <div class="card danger-zone anim-5">
+              <h3 class="section-title" style="font-size:16px; margin-bottom:4px; color:#A32D2D;">Zona de perigo</h3>
+              <div class="config-section">
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Apagar dados de check-in</span>
+                    <span class="config-row-sub">Remove todo o histórico de check-ins</span>
+                  </div>
+                  <button class="btn-danger">Apagar</button>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Apagar reflexões</span>
+                    <span class="config-row-sub">Remove todas as entradas do diário</span>
+                  </div>
+                  <button class="btn-danger">Apagar</button>
+                </div>
+
+                <div class="config-row">
+                  <div class="config-row-left">
+                    <span class="config-row-label">Eliminar conta</span>
+                    <span class="config-row-sub">Ação irreversível — todos os dados são apagados</span>
+                  </div>
+                  <button class="btn-danger">Eliminar conta</button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Logout -->
+            <div style="display:flex; justify-content:flex-end;">
+              <a href="login.html"
+                style="font-size:13px; font-weight:500; color:var(--color-text-muted); transition:.2s;"
+                onmouseover="this.style.color='var(--color-text)'"
+                onmouseout="this.style.color='var(--color-text-muted)'">
+                Terminar sessão →
+              </a>
+            </div>
+
+          </div>
         </div>
 
-        <!-- ── COLUNA DIREITA ──────────────────────────────── -->
-        <div class="perfil-right">
-
-          <!-- Dados pessoais -->
-          <div class="card anim-2">
-            <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Dados pessoais</h3>
-            <div class="config-section">
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Nome</span>
-                  <span class="config-row-sub" id="nome-sub">Joao Silva</span>
-                </div>
-                <div class="edit-field">
-                  <input class="edit-input" type="text" id="input-nome" value="Joao Silva" style="display:none;" />
-                  <button class="btn-save" id="save-nome" onclick="guardarNome()">Guardar</button>
-                  <button class="btn-edit" onclick="editarNome()">Editar</button>
-                </div>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Email</span>
-                  <span class="config-row-sub">joao.silva@email.com</span>
-                </div>
-                <button class="btn-edit">Editar</button>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Password</span>
-                  <span class="config-row-sub">Alterada ha 30 dias</span>
-                </div>
-                <button class="btn-edit">Alterar</button>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Data de nascimento</span>
-                  <span class="config-row-sub">Nao definida</span>
-                </div>
-                <button class="btn-edit">Adicionar</button>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Preferências -->
-          <div class="card anim-3">
-            <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Preferencias</h3>
-            <div class="config-section">
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Horario preferido</span>
-                  <span class="config-row-sub">Quando preferes praticar</span>
-                </div>
-                <select class="config-select">
-                  <option>Manha</option>
-                  <option>Tarde</option>
-                  <option selected>Noite</option>
-                </select>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Duracao preferida</span>
-                  <span class="config-row-sub">Sessoes mais adequadas para ti</span>
-                </div>
-                <select class="config-select">
-                  <option>5 min</option>
-                  <option selected>10 min</option>
-                  <option>20 min</option>
-                  <option>30+ min</option>
-                </select>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Objetivo principal</span>
-                  <span class="config-row-sub">Foco das recomendacoes</span>
-                </div>
-                <select class="config-select">
-                  <option selected>Ansiedade</option>
-                  <option>Foco</option>
-                  <option>Sono</option>
-                </select>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Notificações -->
-          <div class="card anim-4">
-            <h3 class="section-title" style="font-size:16px; margin-bottom:4px;">Notificacoes</h3>
-            <div class="config-section">
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Lembrete diario</span>
-                  <span class="config-row-sub">Notificacao para o check-in diario</span>
-                </div>
-                <label class="toggle-wrap">
-                  <input class="toggle-input" type="checkbox" checked />
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Sugestoes de sessoes</span>
-                  <span class="config-row-sub">Recomendacoes personalizadas</span>
-                </div>
-                <label class="toggle-wrap">
-                  <input class="toggle-input" type="checkbox" checked />
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Conquistas e niveis</span>
-                  <span class="config-row-sub">Avisos ao desbloquear conquistas</span>
-                </div>
-                <label class="toggle-wrap">
-                  <input class="toggle-input" type="checkbox" />
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Quote do dia</span>
-                  <span class="config-row-sub">Citacao diaria de inspiracao</span>
-                </div>
-                <label class="toggle-wrap">
-                  <input class="toggle-input" type="checkbox" checked />
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Zona de perigo -->
-          <div class="card danger-zone anim-5">
-            <h3 class="section-title" style="font-size:16px; margin-bottom:4px; color:#A32D2D;">Zona de perigo</h3>
-            <div class="config-section">
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Apagar dados de check-in</span>
-                  <span class="config-row-sub">Remove todo o historico de check-ins</span>
-                </div>
-                <button class="btn-danger">Apagar</button>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Apagar reflexoes</span>
-                  <span class="config-row-sub">Remove todas as entradas do diario</span>
-                </div>
-                <button class="btn-danger">Apagar</button>
-              </div>
-
-              <div class="config-row">
-                <div class="config-row-left">
-                  <span class="config-row-label">Eliminar conta</span>
-                  <span class="config-row-sub">Acao irreversivel — todos os dados sao apagados</span>
-                </div>
-                <button class="btn-danger">Eliminar conta</button>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Logout -->
-          <div style="display:flex; justify-content:flex-end;">
-            <a href="login.html"
-              style="font-size:13px; font-weight:500; color:var(--color-text-muted); transition:.2s;"
-              onmouseover="this.style.color='var(--color-text)'"
-              onmouseout="this.style.color='var(--color-text-muted)'">
-              Terminar sessao →
-            </a>
-          </div>
-
-        </div>
       </div>
+    </main>
+  </div>
 
-    </div>
-  </main>
-</div>
+  <script>
+    function editarNome() {
+      const input = document.getElementById('input-nome');
+      const sub = document.getElementById('nome-sub');
+      const save = document.getElementById('save-nome');
+      input.style.display = 'block';
+      sub.style.display = 'none';
+      save.classList.add('visible');
+      input.focus();
+    }
 
-<script>
-  function editarNome() {
-    const input = document.getElementById('input-nome');
-    const sub   = document.getElementById('nome-sub');
-    const save  = document.getElementById('save-nome');
-    input.style.display = 'block';
-    sub.style.display   = 'none';
-    save.classList.add('visible');
-    input.focus();
-  }
+    function guardarNome() {
+      const input = document.getElementById('input-nome');
+      const sub = document.getElementById('nome-sub');
+      const save = document.getElementById('save-nome');
+      const nome = input.value.trim() || 'João Silva';
+      sub.textContent = nome;
+      input.style.display = 'none';
+      sub.style.display = '';
+      save.classList.remove('visible');
+      document.getElementById('nome-display').textContent = nome;
+      document.getElementById('avatar-display').textContent = nome.charAt(0).toUpperCase();
+    }
+  </script>
 
-  function guardarNome() {
-    const input = document.getElementById('input-nome');
-    const sub   = document.getElementById('nome-sub');
-    const save  = document.getElementById('save-nome');
-    const nome  = input.value.trim() || 'Joao Silva';
-    sub.textContent   = nome;
-    input.style.display = 'none';
-    sub.style.display   = '';
-    save.classList.remove('visible');
-    document.getElementById('nome-display').textContent = nome;
-    document.getElementById('avatar-display').textContent = nome.charAt(0).toUpperCase();
-  }
-</script>
-
+  <script src="../js/theme.js"></script>
 </body>
+
 </html>

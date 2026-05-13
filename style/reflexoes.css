@@ -66,6 +66,15 @@
 .modo-emoji {
   font-size: 26px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modo-emoji img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .modo-nome {
@@ -352,6 +361,12 @@
   justify-content: center;
   font-size: 16px;
   flex-shrink: 0;
+}
+
+.entrada-modo-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .entrada-modo-icon.mist { background: var(--color-secondary-bg); }
