@@ -204,7 +204,7 @@
           </div>
         </section>
 
-        <!-- ── MODO 2: Escrita Livre ──────────────────────────── -->
+        <!-- ── MODO 2: Escrita Livre (Livro) ─────────────────── -->
         <section class="card escrita-wrap" id="escrita-livre">
           <div class="prompt-do-dia">
             <span class="prompt-icon"></span>
@@ -214,20 +214,29 @@
             </div>
           </div>
 
-          <div class="campo-grupo">
-            <label class="campo-label">
-              <span class="campo-label-emoji"></span>
-              A tua página em branco
-            </label>
-            <textarea class="campo-textarea lg" id="livre-texto"
-              placeholder="Escreve o que vier à cabeça. Sem julgamentos, sem regras..."></textarea>
-            <span class="campo-hint">Tudo o que escreveres fica guardado localmente e é privado.</span>
-          </div>
-
-          <div class="escrita-actions">
-            <div class="guardado-msg" id="msg-livre">✓ Entrada guardada</div>
-            <button class="btn-limpar" onclick="limpar('livre')">Limpar</button>
-            <button class="btn-guardar" onclick="guardar('livre')">Guardar entrada</button>
+          <div class="livro-container">
+            <div class="livro-nav">
+              <button class="livro-nav-btn" id="btn-ant">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Anteriores
+              </button>
+              <span class="livro-spread-label" id="spread-label"></span>
+              <button class="livro-nav-btn" id="btn-seg">
+                Mais recentes
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <div class="livro-capa">
+              <div class="livro" id="livro">
+                <div class="livro-pagina livro-pag-esq" id="pag-esq"></div>
+                <div class="livro-lombada"><div class="livro-lombada-inner"></div></div>
+                <div class="livro-pagina livro-pag-dir" id="pag-dir"></div>
+                <div class="flip-overlay" id="flip-overlay">
+                  <div class="flip-face flip-front" id="flip-front"></div>
+                  <div class="flip-face flip-back"  id="flip-back"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -351,7 +360,8 @@
         document.getElementById('estoico-controlo').value = '';
         document.getElementById('estoico-passo').value = '';
       } else if (modo === 'livre') {
-        document.getElementById('livre-texto').value = '';
+        const el = document.getElementById('livre-texto');
+        if (el) el.value = '';
       } else if (modo === 'gratidao') {
         document.getElementById('grat-1').value = '';
         document.getElementById('grat-2').value = '';
@@ -464,6 +474,105 @@
 
     carregarDemo();
     renderEntradas();
+
+    /* ── LIVRO: flip 3D real ─────────────────────────────────────── */
+    (function () {
+      var spreads = [
+        {
+          label: '17 – 18 mai',
+          esq: { data: 'sábado, 17 de maio', texto: 'Hoje correu melhor do que esperava. A reunião de manhã foi produtiva e saí com uma sensação de clareza que há muito não sentia. Às vezes é mesmo preciso parar e ouvir os outros para perceber que não estamos tão perdidos quanto pensamos.' },
+          dir: { data: 'domingo, 18 de maio', placeholder: true }
+        },
+        {
+          label: '15 – 16 mai',
+          esq: { data: 'quinta-feira, 15 de maio', texto: 'Acordei com aquela sensação pesada que às vezes aparece sem avisar. Fui mesmo assim trabalhar e no final do dia já estava melhor. O movimento ajuda — isso é uma certeza que já não questiono.' },
+          dir: { data: 'sexta-feira, 16 de maio', texto: 'Conversa longa com a minha irmã. Há quanto tempo não falávamos assim? Dissemos coisas que andávamos a guardar há meses. Fica bem quando isso acontece — mesmo que doa um pouco na altura.' }
+        },
+        {
+          label: '13 – 14 mai',
+          esq: { data: 'terça-feira, 13 de maio', texto: 'Comecei este diário hoje. Não sei bem o que escrever, mas acho que é isso — não é preciso saber. É só começar e deixar as palavras aparecerem.' },
+          dir: { data: 'quarta-feira, 14 de maio', texto: 'Dia cheio mas senti-me presente. Lembrei-me de respirar quando as coisas apertaram — e funcionou. Pequenas vitórias contam.' }
+        }
+      ];
+
+      var current = 0;
+      var flipping = false;
+
+      function html(p) {
+        if (!p) return '';
+        var h = '<p class="livro-data">' + p.data + '</p>';
+        return h + (p.placeholder
+          ? '<p class="livro-placeholder">Escreve o que vier à cabeça. Sem julgamentos, sem regras...</p>'
+          : '<p class="livro-texto">' + p.texto + '</p>');
+      }
+
+      function show(idx) {
+        document.getElementById('pag-esq').innerHTML = html(spreads[idx].esq);
+        document.getElementById('pag-dir').innerHTML = html(spreads[idx].dir);
+        document.getElementById('spread-label').textContent = spreads[idx].label;
+        document.getElementById('btn-ant').disabled = idx >= spreads.length - 1;
+        document.getElementById('btn-seg').disabled = idx <= 0;
+      }
+
+      function flipTo(target) {
+        if (flipping || target === current || target < 0 || target >= spreads.length) return;
+        flipping = true;
+
+        var backward = target > current; /* ir para páginas mais antigas */
+        var curr = spreads[current];
+        var next = spreads[target];
+        var overlay = document.getElementById('flip-overlay');
+        var front   = document.getElementById('flip-front');
+        var back    = document.getElementById('flip-back');
+
+        if (backward) {
+          /* Página esquerda gira para a direita */
+          front.innerHTML = html(curr.esq); /* face da frente = página que levanta */
+          back.innerHTML  = html(next.dir); /* face de trás  = nova página direita  */
+          overlay.className = 'flip-overlay flip-left';
+          overlay.style.display = 'block';
+          overlay.style.transform = 'rotateY(0deg)';
+          document.getElementById('pag-esq').innerHTML = html(next.esq); /* oculto pelo overlay */
+        } else {
+          /* Página direita gira para a esquerda */
+          front.innerHTML = html(curr.dir); /* face da frente = página que levanta */
+          back.innerHTML  = html(next.esq); /* face de trás  = nova página esquerda */
+          overlay.className = 'flip-overlay flip-right';
+          overlay.style.display = 'block';
+          overlay.style.transform = 'rotateY(0deg)';
+          document.getElementById('pag-dir').innerHTML = html(next.dir); /* oculto pelo overlay */
+        }
+
+        /* Double rAF — garante que o browser pinta o estado inicial antes de transicionar */
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            overlay.classList.add('animating');
+            overlay.style.transform = backward ? 'rotateY(-180deg)' : 'rotateY(180deg)';
+          });
+        });
+
+        overlay.addEventListener('transitionend', function () {
+          /* Atualiza a página que não estava coberta pelo overlay */
+          if (backward) {
+            document.getElementById('pag-dir').innerHTML = html(next.dir);
+          } else {
+            document.getElementById('pag-esq').innerHTML = html(next.esq);
+          }
+          overlay.style.display = 'none';
+          overlay.className = 'flip-overlay';
+          overlay.style.transform = '';
+          document.getElementById('spread-label').textContent = next.label;
+          document.getElementById('btn-ant').disabled = target >= spreads.length - 1;
+          document.getElementById('btn-seg').disabled = target <= 0;
+          current = target;
+          flipping = false;
+        }, { once: true });
+      }
+
+      show(0);
+      document.getElementById('btn-ant').addEventListener('click', function () { flipTo(current + 1); });
+      document.getElementById('btn-seg').addEventListener('click', function () { flipTo(current - 1); });
+    })();
   </script>
 
   <script src="../js/theme.js"></script>
