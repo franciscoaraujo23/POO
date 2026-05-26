@@ -16,7 +16,7 @@
 
   <!-- ─── NAVBAR ────────────────────────────────────────────── -->
   <nav class="sos-nav">
-    <div class="sos-brand">🪴 MindNest</div>
+    <div class="sos-brand">MindNest</div>
     <a href="dashboard.html" class="sos-back">← Voltar</a>
     <a href="tel:112" class="sos-emergency">
       <span>●</span> Emergência · 112
@@ -31,37 +31,31 @@
     <div class="sos-estados-grid">
 
       <div class="sos-estado-card" onclick="iniciar('panico')">
-        <span class="sos-estado-emoji">😰</span>
         <p class="sos-estado-nome">Ataque de pânico</p>
         <p class="sos-estado-desc">Coração acelerado, dificuldade em respirar, sensação de perigo.</p>
       </div>
 
       <div class="sos-estado-card" onclick="iniciar('overthinking')">
-        <span class="sos-estado-emoji">🌀</span>
         <p class="sos-estado-nome">Overthinking agudo</p>
         <p class="sos-estado-desc">Mente em loop, pensamentos que não param, não consegues parar.</p>
       </div>
 
       <div class="sos-estado-card" onclick="iniciar('sobrecarga')">
-        <span class="sos-estado-emoji">🫷</span>
         <p class="sos-estado-nome">Sobrecarga emocional</p>
         <p class="sos-estado-desc">Demasiado cheio/a, a ponto de explodir, não consegues mais.</p>
       </div>
 
       <div class="sos-estado-card" onclick="iniciar('insonia')">
-        <span class="sos-estado-emoji">🌙</span>
         <p class="sos-estado-nome">Insónia por ansiedade</p>
         <p class="sos-estado-desc">Não consegues adormecer, a mente não para, são horas da noite.</p>
       </div>
 
       <div class="sos-estado-card" onclick="iniciar('tristeza')">
-        <span class="sos-estado-emoji">😔</span>
         <p class="sos-estado-nome">Tristeza intensa</p>
         <p class="sos-estado-desc">Sentimento de vazio ou peso repentino, sem razão aparente.</p>
       </div>
 
       <div class="sos-estado-card" onclick="iniciar('raiva')">
-        <span class="sos-estado-emoji">😤</span>
         <p class="sos-estado-nome">Irritação ou raiva</p>
         <p class="sos-estado-desc">Tensão física, impulso de reagir, dificuldade em controlar.</p>
       </div>
@@ -103,7 +97,6 @@
 
   <!-- ─── ECRÃ FINAL ─────────────────────────────────────────── -->
   <div class="sos-done" id="screen-done">
-    <span class="sos-done-emoji">🌿</span>
     <h2 class="sos-done-title">Fizeste muito bem.</h2>
     <p class="sos-done-sub">
       Cuidar de ti neste momento é um ato de coragem.
@@ -123,7 +116,7 @@
 const intervencoes = {
 
   panico: {
-    emoji: '😰',
+    emoji: '',
     title: 'Ataque de pânico',
     sub: 'Vai devagar. Segue cada passo com calma. Estás em segurança.',
     passos: [
@@ -164,7 +157,7 @@ const intervencoes = {
   },
 
   overthinking: {
-    emoji: '🌀',
+    emoji: '',
     title: 'Overthinking agudo',
     sub: 'Vamos interromper o loop. Um passo de cada vez.',
     passos: [
@@ -206,7 +199,7 @@ const intervencoes = {
   },
 
   sobrecarga: {
-    emoji: '🫷',
+    emoji: '',
     title: 'Sobrecarga emocional',
     sub: 'Não precisas de processar tudo agora. Só precisas de respirar.',
     passos: [
@@ -245,7 +238,7 @@ const intervencoes = {
   },
 
   insonia: {
-    emoji: '🌙',
+    emoji: '',
     title: 'Insónia por ansiedade',
     sub: 'Não forces o sono. Foca-te apenas em descansar o corpo.',
     passos: [
@@ -285,7 +278,7 @@ const intervencoes = {
   },
 
   tristeza: {
-    emoji: '😔',
+    emoji: '',
     title: 'Tristeza intensa',
     sub: 'Estás aqui. Isso é suficiente por agora.',
     passos: [
@@ -324,7 +317,7 @@ const intervencoes = {
   },
 
   raiva: {
-    emoji: '😤',
+    emoji: '',
     title: 'Irritação ou raiva',
     sub: 'A raiva é energia. Vamos dirigi-la de forma segura.',
     passos: [
