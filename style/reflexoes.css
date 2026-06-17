@@ -1,0 +1,869 @@
+/* ============================================================
+   MINDNEST — reflexoes.css
+   Estilos específicos da página de reflexões e journaling
+   ============================================================ */
+
+/* ── LAYOUT ──────────────────────────────────────────────────── */
+.reflexoes-main {
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ── HEADER ──────────────────────────────────────────────────── */
+.reflexoes-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.reflexoes-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -.3px;
+}
+
+.reflexoes-sub {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+/* ── SELETOR DE MODO ─────────────────────────────────────────── */
+.modo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.modo-card {
+  position: relative;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: border-color var(--transition), border-width var(--transition), background var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  user-select: none;
+}
+
+.modo-card:hover {
+  border-color: var(--dusk-300);
+  transform: translateY(-2px);
+}
+
+.modo-card.active {
+  border: 2.5px solid var(--dusk-400);
+  background: var(--dusk-100);
+}
+
+.modo-card::after {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--dusk-500);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modo-card.active::after {
+  display: flex;
+}
+
+.modo-emoji {
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modo-emoji img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.modo-nome {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.modo-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.modo-card.active .modo-desc {
+  color: var(--dusk-600);
+}
+
+#modo-estoico {
+  background-image: url('../assets/imgs/reflexaoGuiada.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-estoico.active {
+  background: none;
+  background-image: url('../assets/imgs/reflexaoGuiada.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-estoico .modo-emoji { display: none; }
+
+#modo-estoico .modo-nome { max-width: 52%; color: #fff; }
+#modo-estoico .modo-desc { max-width: 52%; color: rgba(255,255,255,0.75); }
+
+#modo-gratidao {
+  background-image: url('../assets/imgs/reflexaoGratidao.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-gratidao.active {
+  background: none;
+  background-image: url('../assets/imgs/reflexaoGratidao.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-gratidao .modo-emoji { display: none; }
+
+#modo-gratidao .modo-nome { max-width: 52%; color: #fff; }
+#modo-gratidao .modo-desc { max-width: 52%; color: rgba(255,255,255,0.75); }
+
+#modo-livre {
+  background-image: url('../assets/imgs/reflexaoLivre.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-livre.active {
+  background: none;
+  background-image: url('../assets/imgs/reflexaoLivre.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#modo-livre .modo-emoji { display: none; }
+
+#modo-livre .modo-nome { max-width: 52%; color: #fff; }
+#modo-livre .modo-desc { max-width: 52%; color: rgba(255,255,255,0.75); }
+
+/* ── ÁREA DE ESCRITA ─────────────────────────────────────────── */
+.escrita-wrap {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeUp .3s ease both;
+}
+
+.escrita-wrap.active {
+  display: flex;
+}
+
+/* Prompt do dia */
+.prompt-do-dia {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--fog-100);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--dusk-400);
+}
+
+.prompt-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.prompt-text {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--color-text-soft);
+  line-height: 1.5;
+}
+
+.prompt-opcional {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: normal;
+  font-family: var(--font-sans);
+  margin-top: 2px;
+  display: block;
+}
+
+/* Campos */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.campo-label-emoji {
+  font-size: 15px;
+}
+
+.campo-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  line-height: 1.7;
+}
+
+.campo-textarea:focus {
+  border-color: var(--dusk-400);
+  box-shadow: 0 0 0 3px var(--dusk-100);
+}
+
+.campo-textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.campo-textarea.sm { min-height: 80px; }
+.campo-textarea.md { min-height: 120px; }
+.campo-textarea.lg { min-height: 180px; }
+
+.campo-hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Divisor entre campos */
+.campo-divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.campo-divisor::before,
+.campo-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.campo-divisor span {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Gratidão — 3 campos numerados */
+.gratidao-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gratidao-campo {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.gratidao-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dusk-100);
+  color: var(--dusk-600);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+.gratidao-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.gratidao-input:focus {
+  border-color: var(--dusk-400);
+  box-shadow: 0 0 0 3px var(--dusk-100);
+}
+
+.gratidao-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Ações */
+.escrita-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-guardar {
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--dusk-400);
+  border: none;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.btn-guardar:hover {
+  background: var(--dusk-500);
+  box-shadow: 0 4px 12px rgba(184,176,200,.4);
+}
+
+.btn-limpar {
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-limpar:hover { background: var(--fog-100); }
+
+/* Confirmação guardado */
+.guardado-msg {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--color-secondary-bg);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--mist-500);
+  font-weight: 500;
+}
+
+.guardado-msg.visible { display: flex; }
+
+/* ── ENTRADAS ANTERIORES ─────────────────────────────────────── */
+.entradas-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.entradas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entrada-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.entrada-card:hover { box-shadow: var(--shadow-sm); }
+
+.entrada-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+.entrada-modo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--dusk-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.entrada-modo-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.entrada-modo-icon.mist { background: var(--color-secondary-bg); }
+.entrada-modo-icon.fog  { background: var(--fog-200); }
+
+.entrada-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.entrada-data {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.entrada-excerto {
+  font-size: 13px;
+  color: var(--color-text-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entrada-emocao {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.entrada-chevron {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.entrada-card.open .entrada-chevron {
+  transform: rotate(180deg);
+}
+
+.entrada-body {
+  display: none;
+  padding: 0 18px 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.entrada-card.open .entrada-body {
+  display: block;
+}
+
+.entrada-campo {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--fog-100);
+}
+
+.entrada-campo:last-child { border-bottom: none; }
+
+.btn-apagar-entrada {
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-apagar-entrada:hover {
+  background: var(--fog-100);
+  color: var(--color-text-soft);
+}
+
+.entrada-campo-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.entrada-campo-texto {
+  font-size: 13px;
+  color: var(--color-text-soft);
+  line-height: 1.65;
+}
+
+/* ── EMPTY STATE ─────────────────────────────────────────────── */
+.entradas-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.entradas-empty p:first-child {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* ── LIVRO (Escrita Livre) ───────────────────────────────────── */
+
+.livro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Capa do Diário ──────────────────────────────────────────── */
+.livro-capa {
+  position: relative;
+  background: #5a3818;
+  border-radius: 5px 14px 14px 5px;
+  padding: 12px 20px 12px 16px;
+  box-shadow:
+    0 16px 48px rgba(50, 28, 8, .30),
+    0 4px 14px rgba(50, 28, 8, .18),
+    -3px 0 10px rgba(50, 28, 8, .14),
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    inset 0 -1px 0 rgba(0, 0, 0, .22);
+}
+
+/* Acento da lombada — bordo esquerdo da capa */
+.livro-capa::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(180, 140, 80, .45) 20%,
+    rgba(180, 140, 80, .55) 50%,
+    rgba(180, 140, 80, .45) 80%,
+    transparent
+  );
+  border-radius: 2px;
+}
+
+/* Acento direito — espelho do bordo esquerdo */
+.livro-capa::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(180, 140, 80, .45) 20%,
+    rgba(180, 140, 80, .55) 50%,
+    rgba(180, 140, 80, .45) 80%,
+    transparent
+  );
+  border-radius: 2px;
+}
+
+/* ── Overlay de flip 3D ──────────────────────────────────────── */
+.flip-overlay {
+  display: none;
+  position: absolute;
+  top: 0; bottom: 0;
+  width: calc(50% - 7px); /* mesma largura que cada página (lombada 14px → 7px por lado) */
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Posição e pivot: spine center = calc(50% do livro), logo offset = lombada/2 = 7px */
+.flip-overlay.flip-left  { left: 0;  transform-origin: calc(100% + 7px) center; }
+.flip-overlay.flip-right { right: 0; transform-origin: -7px center; }
+
+/* Transição da rotação */
+.flip-overlay.animating {
+  transition: transform 0.7s cubic-bezier(.645, .045, .355, 1);
+}
+
+/* Faces da folha */
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background-color: #f5f0e6;
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+/* A face de trás começa voltada para longe do viewer */
+.flip-back { transform: rotateY(180deg); }
+
+/* Barra de navegação */
+.livro-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.livro-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border: 1px solid #d8cfc0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #9a8870;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  text-decoration: none;
+}
+
+.livro-nav-btn:hover:not(:disabled) {
+  border-color: #b8a890;
+  color: #6a5840;
+  background: rgba(180, 150, 110, .07);
+}
+
+.livro-nav-disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.livro-spread-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  color: #9a8870;
+  text-align: center;
+}
+
+/* Livro aberto */
+.livro {
+  display: flex;
+  align-items: stretch;
+  min-height: 320px;
+  border-radius: 3px 10px 10px 3px;
+  position: relative;
+  perspective: 1500px;
+}
+
+/* Páginas */
+.livro-pagina {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  background-color: #f5f0e6;
+}
+
+.livro-pag-esq {
+  border-radius: 3px 0 0 3px;
+  box-shadow: inset -14px 0 28px rgba(0, 0, 0, .09);
+}
+.livro-pag-dir {
+  border-radius: 0 10px 10px 0;
+  box-shadow: inset 14px 0 28px rgba(0, 0, 0, .07);
+}
+
+/* Linha de margem da página esquerda */
+.livro-pag-esq::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 46px;
+  width: 1px;
+  background: rgba(210, 110, 90, .20);
+}
+
+/* Página de escrita (hoje) — tint ligeiramente mais claro */
+.livro-pag-escrita {
+  background-color: #f8f4ec;
+}
+
+/* Lombada */
+.livro-lombada {
+  width: 14px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to right,
+    #d0c0a0 0%,
+    #9a8868 30%,
+    #706048 50%,
+    #9a8868 70%,
+    #d0c0a0 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset -3px 0 6px rgba(0,0,0,.12),
+    inset  3px 0 6px rgba(0,0,0,.06);
+}
+
+.livro-lombada-inner {
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(80,50,20,.15) 20%,
+    rgba(80,50,20,.20) 80%,
+    transparent);
+  border-radius: 1px;
+}
+
+/* Data / cabeçalho da página */
+.livro-data {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #9a8060;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(160, 130, 90, .22);
+}
+
+/* Texto das entradas */
+.livro-texto {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14.5px;
+  color: #3e3224;
+  line-height: 1.9;
+  flex: 1;
+}
+
+/* Placeholder na página em branco (hoje) */
+.livro-placeholder {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: #c0ab8a;
+  line-height: 1.9;
+  flex: 1;
+}
+
+/* Dark mode */
+[data-theme="dark"] .livro-pagina {
+  background-color: #201e18;
+}
+
+[data-theme="dark"] .livro-pag-escrita {
+  background-color: #242018;
+}
+
+[data-theme="dark"] .livro-pag-esq::before {
+  background: rgba(200, 100, 80, .15);
+}
+
+[data-theme="dark"] .livro-lombada {
+  background: linear-gradient(
+    to right,
+    #3e3428 0%,
+    #282018 25%,
+    #100c06 50%,
+    #282018 75%,
+    #3e3428 100%
+  );
+}
+
+[data-theme="dark"] .livro-data    { color: #7a6850; }
+[data-theme="dark"] .livro-texto   { color: #c4b090; }
+[data-theme="dark"] .livro-placeholder { color: #6a5840; }
+
+[data-theme="dark"] .flip-face {
+  background-color: #201e18;
+}
+
+[data-theme="dark"] .livro-nav-btn {
+  border-color: #3e3828;
+  color: #7a6850;
+}
+
+[data-theme="dark"] .livro-nav-btn:hover:not(:disabled) {
+  border-color: #5a5040;
+  color: #a8906a;
+  background: rgba(160, 130, 80, .08);
+}
+
+[data-theme="dark"] .livro-spread-label { color: #7a6850; }
+
+[data-theme="dark"] .livro-capa {
+  background: #2e1a08;
+}
+
+[data-theme="dark"] .livro-capa::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(140, 100, 40, .40) 20%,
+    rgba(140, 100, 40, .50) 50%,
+    rgba(140, 100, 40, .40) 80%,
+    transparent
+  );
+}
+
+[data-theme="dark"] .livro-capa::after {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(140, 100, 40, .40) 20%,
+    rgba(140, 100, 40, .50) 50%,
+    rgba(140, 100, 40, .40) 80%,
+    transparent
+  );
+}

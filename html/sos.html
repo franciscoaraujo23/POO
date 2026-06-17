@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOS — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/sos.css" />
+</head>
+<body>
+
+<div class="sos-page">
+
+  <div class="sos-deco sos-deco-1"></div>
+  <div class="sos-deco sos-deco-2"></div>
+
+  <!-- ─── NAVBAR ────────────────────────────────────────────── -->
+  <nav class="sos-nav">
+    <div class="sos-brand">MindNest</div>
+    <a href="dashboard.html" class="sos-back">← Voltar</a>
+    <a href="tel:112" class="sos-emergency">
+      <span>●</span> Emergência · 112
+    </a>
+  </nav>
+
+  <!-- ─── SELEÇÃO DE ESTADO ─────────────────────────────────── -->
+  <div class="sos-select active" id="screen-select">
+    <h1 class="sos-select-title">O que estás a sentir agora?</h1>
+    <p class="sos-select-sub">Escolhe o que melhor descreve este momento. Sem julgamentos.</p>
+
+    <div class="sos-estados-grid">
+
+      <div class="sos-estado-card" onclick="iniciar('panico')">
+        <p class="sos-estado-nome">Ataque de pânico</p>
+        <p class="sos-estado-desc">Coração acelerado, dificuldade em respirar, sensação de perigo.</p>
+      </div>
+
+      <div class="sos-estado-card" onclick="iniciar('overthinking')">
+        <p class="sos-estado-nome">Overthinking agudo</p>
+        <p class="sos-estado-desc">Mente em loop, pensamentos que não param, não consegues parar.</p>
+      </div>
+
+      <div class="sos-estado-card" onclick="iniciar('sobrecarga')">
+        <p class="sos-estado-nome">Sobrecarga emocional</p>
+        <p class="sos-estado-desc">Demasiado cheio/a, a ponto de explodir, não consegues mais.</p>
+      </div>
+
+      <div class="sos-estado-card" onclick="iniciar('insonia')">
+        <p class="sos-estado-nome">Insónia por ansiedade</p>
+        <p class="sos-estado-desc">Não consegues adormecer, a mente não para, são horas da noite.</p>
+      </div>
+
+      <div class="sos-estado-card" onclick="iniciar('tristeza')">
+        <p class="sos-estado-nome">Tristeza intensa</p>
+        <p class="sos-estado-desc">Sentimento de vazio ou peso repentino, sem razão aparente.</p>
+      </div>
+
+      <div class="sos-estado-card" onclick="iniciar('raiva')">
+        <p class="sos-estado-nome">Irritação ou raiva</p>
+        <p class="sos-estado-desc">Tensão física, impulso de reagir, dificuldade em controlar.</p>
+      </div>
+
+    </div>
+
+    <div class="sos-alert" style="margin-top:28px;">
+      Se sentes que estás em perigo imediato ou que não consegues gerir sozinho/a,
+      liga para o <a href="tel:112">112</a> ou para a
+      <a href="tel:213544545">Linha de Apoio Psicológico (213 544 545)</a>.
+    </div>
+  </div>
+
+  <!-- ─── INTERVENÇÕES ──────────────────────────────────────── -->
+  <div class="sos-intervention" id="screen-intervention">
+
+    <div class="sos-intervention-header">
+      <span class="sos-intervention-emoji" id="iv-emoji"></span>
+      <h2 class="sos-intervention-title" id="iv-title"></h2>
+      <p class="sos-intervention-sub" id="iv-sub"></p>
+    </div>
+
+    <div class="sos-step-progress" id="step-progress"></div>
+
+    <!-- Passos renderizados por JS -->
+    <div class="sos-steps" id="sos-steps-wrap"></div>
+
+    <div class="sos-nav-btns">
+      <button class="btn-sos-back" id="btn-prev" onclick="prevStep()">← Anterior</button>
+      <button class="btn-sos-next" id="btn-next" onclick="nextStep()">Continuar</button>
+    </div>
+
+    <div class="sos-alert" style="margin-top:16px;">
+      Se a situação piorar, liga para o <a href="tel:112">112</a> ou
+      <a href="tel:213544545">213 544 545</a>.
+    </div>
+
+  </div>
+
+  <!-- ─── ECRÃ FINAL ─────────────────────────────────────────── -->
+  <div class="sos-done" id="screen-done">
+    <h2 class="sos-done-title">Fizeste muito bem.</h2>
+    <p class="sos-done-sub">
+      Cuidar de ti neste momento é um ato de coragem.
+      O mais difícil já passou. Respira.
+    </p>
+    <div class="sos-done-btns">
+      <a href="dashboard.html" class="btn-sos-home">Voltar ao início</a>
+      <button class="btn-sos-repeat" onclick="repetir()">Repetir exercício</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+/* ── CONTEÚDO DAS INTERVENÇÕES ───────────────────────────────── */
+const intervencoes = {
+
+  panico: {
+    emoji: '',
+    title: 'Ataque de pânico',
+    sub: 'Vai devagar. Segue cada passo com calma. Estás em segurança.',
+    passos: [
+      {
+        titulo: 'Para. Fica onde estás.',
+        corpo: 'Não precisas de fazer nada agora. <strong>Apenas fica onde estás.</strong> O teu corpo está a reagir, mas estás em segurança. Isto vai passar.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'Respiração 4-7-8',
+        corpo: 'Segue o círculo. Inspira 4 segundos, segura 7, expira 8. Repete 3 vezes.',
+        tipo: 'respiracao',
+        ciclos: 3,
+        fases: [
+          { label: 'Inspira', dur: 4000, fase: 'expand' },
+          { label: 'Segura', dur: 7000, fase: 'hold' },
+          { label: 'Expira', dur: 8000, fase: 'release' }
+        ]
+      },
+      {
+        titulo: 'Âncora ao momento presente',
+        corpo: 'Nomeia em voz alta ou mentalmente:',
+        tipo: 'grounding',
+        items: [
+          '5 coisas que consegues VER agora',
+          '4 coisas que consegues TOCAR',
+          '3 coisas que consegues OUVIR',
+          '2 coisas que consegues CHEIRAR',
+          '1 coisa que consegues SABOREAR'
+        ]
+      },
+      {
+        titulo: 'Já passou o pico.',
+        corpo: 'Os ataques de pânico são intensos mas passam. O teu corpo está a voltar ao normal. <strong>Continua a respirar devagar.</strong> Não precisas de fazer mais nada agora.',
+        tipo: 'texto'
+      }
+    ]
+  },
+
+  overthinking: {
+    emoji: '',
+    title: 'Overthinking agudo',
+    sub: 'Vamos interromper o loop. Um passo de cada vez.',
+    passos: [
+      {
+        titulo: 'Reconhece o que está a acontecer',
+        corpo: 'A tua mente está presa num loop. Isso é normal — o cérebro tenta resolver problemas repetindo-os. <strong>Mas agora não é o momento de resolver.</strong> É o momento de parar.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'O exercício do Stop',
+        corpo: 'Segue estes passos agora:',
+        tipo: 'lista',
+        items: [
+          'Diz "STOP" em voz alta ou mentalmente',
+          'Olha à volta e nomeia 3 objetos que vês',
+          'Sente os pés no chão — pressiona-os contra o chão',
+          'Respira fundo uma vez, muito devagar',
+          'Pergunta: "Este pensamento é facto ou suposição?"'
+        ]
+      },
+      {
+        titulo: 'Respiração para acalmar',
+        corpo: 'Respiração box — 4 tempos iguais. Foca-te apenas no círculo.',
+        tipo: 'respiracao',
+        ciclos: 4,
+        fases: [
+          { label: 'Inspira', dur: 4000, fase: 'expand' },
+          { label: 'Segura', dur: 4000, fase: 'hold' },
+          { label: 'Expira', dur: 4000, fase: 'release' },
+          { label: 'Segura', dur: 4000, fase: 'hold' }
+        ]
+      },
+      {
+        titulo: 'Adiamento consciente',
+        corpo: 'Diz para ti mesmo/a: <strong>"Vou pensar nisto amanhã às [hora concreta]."</strong> Não estás a ignorar o problema — estás a agendar um momento para ele. Agora não é esse momento.',
+        tipo: 'texto'
+      }
+    ]
+  },
+
+  sobrecarga: {
+    emoji: '',
+    title: 'Sobrecarga emocional',
+    sub: 'Não precisas de processar tudo agora. Só precisas de respirar.',
+    passos: [
+      {
+        titulo: 'Dá permissão para pausar',
+        corpo: '<strong>Não tens de resolver nada agora.</strong> Não tens de sentir melhor imediatamente. Só precisas de estar aqui, neste momento, por uns minutos.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'Descarga física',
+        corpo: 'Faz um destes agora:',
+        tipo: 'lista',
+        items: [
+          'Aperta os punhos com força durante 5 segundos e solta',
+          'Levanta os ombros até às orelhas e larga-os de golpe',
+          'Faz uma expiração longa com som — como um suspiro profundo',
+          'Agita as mãos como se estivesses a sacudir água'
+        ]
+      },
+      {
+        titulo: 'Respiração de alívio',
+        corpo: 'Expiração dupla — expira tudo, depois expira mais um pouco.',
+        tipo: 'respiracao',
+        ciclos: 3,
+        fases: [
+          { label: 'Inspira', dur: 4000, fase: 'expand' },
+          { label: 'Expira muito devagar', dur: 8000, fase: 'release' }
+        ]
+      },
+      {
+        titulo: 'Uma coisa de cada vez',
+        corpo: 'Quando estiveres pronto/a, escolhe <strong>apenas uma coisa</strong> — a mais pequena — para fazer a seguir. Só uma. O resto pode esperar.',
+        tipo: 'texto'
+      }
+    ]
+  },
+
+  insonia: {
+    emoji: '',
+    title: 'Insónia por ansiedade',
+    sub: 'Não forces o sono. Foca-te apenas em descansar o corpo.',
+    passos: [
+      {
+        titulo: 'Para de tentar adormecer',
+        corpo: 'Tentar dormir aumenta a ansiedade. <strong>O objetivo agora não é dormir — é descansar o corpo.</strong> Mesmo acordado/a, o descanso tem valor.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'Relaxamento muscular progressivo',
+        corpo: 'Percorre o corpo de baixo para cima:',
+        tipo: 'lista',
+        items: [
+          'Aperta os pés com força 5s — solta e sente o relaxamento',
+          'Tensiona as pernas 5s — solta devagar',
+          'Contrai o abdómen 5s — expira e solta',
+          'Levanta os ombros 5s — larga de golpe',
+          'Franze a testa 5s — solta e sente a testa relaxar'
+        ]
+      },
+      {
+        titulo: 'Respiração para o sono',
+        corpo: 'Respiração lenta e profunda. Foca-te apenas no som da tua respiração.',
+        tipo: 'respiracao',
+        ciclos: 5,
+        fases: [
+          { label: 'Inspira pelo nariz', dur: 4000, fase: 'expand' },
+          { label: 'Expira pela boca', dur: 6000, fase: 'release' }
+        ]
+      },
+      {
+        titulo: 'Imagem de segurança',
+        corpo: 'Fecha os olhos. Imagina um lugar onde te sintas completamente seguro/a — pode ser real ou imaginado. <strong>Descreve-o mentalmente com o máximo de detalhe possível:</strong> cores, sons, temperatura, cheiros.',
+        tipo: 'texto'
+      }
+    ]
+  },
+
+  tristeza: {
+    emoji: '',
+    title: 'Tristeza intensa',
+    sub: 'Estás aqui. Isso é suficiente por agora.',
+    passos: [
+      {
+        titulo: 'Deixa-te sentir',
+        corpo: 'Não precisas de explicar, justificar ou resolver a tristeza. <strong>Ela está aqui e é válida.</strong> Podes chorar se precisares. Podes ficar em silêncio. Não há pressa.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'Âncora ao corpo',
+        corpo: 'Faz qualquer um destes gestos agora:',
+        tipo: 'lista',
+        items: [
+          'Coloca a mão no peito e sente o batimento do coração',
+          'Abraça-te — cruza os braços sobre o peito durante 30 segundos',
+          'Coloca os pés descalços no chão e sente a temperatura',
+          'Bebe um copo de água devagar, sentindo cada gole'
+        ]
+      },
+      {
+        titulo: 'Respiração suave',
+        corpo: 'Sem forçar. Apenas acompanha a tua respiração natural.',
+        tipo: 'respiracao',
+        ciclos: 4,
+        fases: [
+          { label: 'Inspira suavemente', dur: 4000, fase: 'expand' },
+          { label: 'Expira devagar', dur: 6000, fase: 'release' }
+        ]
+      },
+      {
+        titulo: 'Um gesto de autocuidado',
+        corpo: 'Escolhe uma coisa pequena que possas fazer por ti agora: <strong>uma bebida quente, uma música calma, uma manta, abrir a janela.</strong> Não para resolver — apenas para te acompanhar.',
+        tipo: 'texto'
+      }
+    ]
+  },
+
+  raiva: {
+    emoji: '',
+    title: 'Irritação ou raiva',
+    sub: 'A raiva é energia. Vamos dirigi-la de forma segura.',
+    passos: [
+      {
+        titulo: 'Não reagas ainda',
+        corpo: '<strong>Espera 90 segundos.</strong> É o tempo que a onda de adrenalina demora a baixar. Se ainda quiseres reagir depois desse tempo, podes — mas com mais clareza.',
+        tipo: 'texto'
+      },
+      {
+        titulo: 'Descarga física segura',
+        corpo: 'Escolhe uma destes agora:',
+        tipo: 'lista',
+        items: [
+          'Caminha rápido durante 2 minutos — mesmo que seja em círculos',
+          'Aperta um objeto macio com força durante 10 segundos',
+          'Faz 10 respirações muito fortes pela boca',
+          'Escreve o que sentes num papel — sem filtros — e rasga-o depois'
+        ]
+      },
+      {
+        titulo: 'Respiração de arrefecimento',
+        corpo: 'Expiração longa. Quanto mais longa a expiração, mais depressa baixa a adrenalina.',
+        tipo: 'respiracao',
+        ciclos: 4,
+        fases: [
+          { label: 'Inspira rápido', dur: 2000, fase: 'expand' },
+          { label: 'Expira muito devagar', dur: 8000, fase: 'release' }
+        ]
+      },
+      {
+        titulo: 'Antes de agir, pergunta',
+        corpo: '<strong>"Esta reação vai melhorar ou piorar a situação?"</strong><br /><br />Não precisas de suprimir a raiva — precisas de escolher como a expressas. Tens o direito de comunicar o que sentes. Escolhe o momento e as palavras.',
+        tipo: 'texto'
+      }
+    ]
+  }
+
+};
+
+/* ── ESTADO ──────────────────────────────────────────────────── */
+let estadoAtivo  = null;
+let passoAtivo   = 0;
+let totalPassos  = 0;
+let breathTimer  = null;
+let cicloAtual   = 0;
+
+/* ── INICIAR ─────────────────────────────────────────────────── */
+function iniciar(estado) {
+  estadoAtivo = estado;
+  passoAtivo  = 0;
+  const iv    = intervencoes[estado];
+  totalPassos = iv.passos.length;
+
+  document.getElementById('iv-emoji').textContent = iv.emoji;
+  document.getElementById('iv-title').textContent = iv.title;
+  document.getElementById('iv-sub').textContent   = iv.sub;
+
+  renderProgress();
+  renderPasso();
+
+  document.getElementById('screen-select').classList.remove('active');
+  document.getElementById('screen-intervention').classList.add('active');
+}
+
+/* ── PROGRESSO ───────────────────────────────────────────────── */
+function renderProgress() {
+  const wrap = document.getElementById('step-progress');
+  wrap.innerHTML = '';
+  for (let i = 0; i < totalPassos; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'sos-step-dot' +
+      (i === passoAtivo ? ' active' : i < passoAtivo ? ' done' : '');
+    wrap.appendChild(dot);
+  }
+}
+
+/* ── RENDERIZAR PASSO ────────────────────────────────────────── */
+function renderPasso() {
+  const iv    = intervencoes[estadoAtivo];
+  const passo = iv.passos[passoAtivo];
+  const wrap  = document.getElementById('sos-steps-wrap');
+
+  clearTimeout(breathTimer);
+
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  btnPrev.style.visibility = passoAtivo === 0 ? 'hidden' : 'visible';
+  btnNext.textContent = passoAtivo === totalPassos - 1 ? 'Concluir' : 'Continuar';
+
+  let html = `
+    <div class="sos-step active">
+      <div class="sos-step-content">
+        <p class="sos-step-num">Passo ${passoAtivo + 1} de ${totalPassos}</p>
+        <h3 class="sos-step-title">${passo.titulo}</h3>
+        <p class="sos-step-body">${passo.corpo}</p>`;
+
+  if (passo.tipo === 'respiracao') {
+    html += `
+        <div class="breath-circle-wrap">
+          <div class="breath-circle" id="breath-circle"></div>
+          <p class="breath-label" id="breath-label">Pronto para começar?</p>
+          <p class="breath-count" id="breath-count"></p>
+        </div>`;
+  }
+
+  if (passo.tipo === 'grounding') {
+    html += `<div class="grounding-items">`;
+    passo.items.forEach((item, i) => {
+      html += `
+        <div class="grounding-item" id="gi-${i}" onclick="doneGrounding(${i})">
+          <div class="grounding-num">${i + 1}</div>
+          <p class="grounding-text">${item}</p>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (passo.tipo === 'lista') {
+    html += `<div class="sos-list">`;
+    passo.items.forEach(item => {
+      html += `<div class="sos-list-item"><div class="sos-list-dot"></div><span>${item}</span></div>`;
+    });
+    html += `</div>`;
+  }
+
+  html += `</div></div>`;
+  wrap.innerHTML = html;
+  renderProgress();
+
+  if (passo.tipo === 'respiracao') {
+    setTimeout(() => iniciarRespiracao(passo), 800);
+  }
+}
+
+/* ── RESPIRAÇÃO ──────────────────────────────────────────────── */
+function iniciarRespiracao(passo) {
+  cicloAtual = 0;
+  correrFase(passo, 0);
+}
+
+function correrFase(passo, faseIdx) {
+  if (cicloAtual >= passo.ciclos) {
+    const label = document.getElementById('breath-label');
+    const circle = document.getElementById('breath-circle');
+    if (label) label.textContent = 'Muito bem!';
+    if (circle) { circle.className = 'breath-circle'; }
+    return;
+  }
+
+  const fase   = passo.fases[faseIdx];
+  const label  = document.getElementById('breath-label');
+  const circle = document.getElementById('breath-circle');
+  const count  = document.getElementById('breath-count');
+
+  if (!label || !circle) return;
+
+  label.textContent  = fase.label;
+  circle.className   = 'breath-circle ' + fase.fase;
+
+  const secs = fase.dur / 1000;
+  let remaining = secs;
+  if (count) count.textContent = remaining;
+
+  const ticker = setInterval(() => {
+    remaining--;
+    if (count) count.textContent = remaining > 0 ? remaining : '';
+    if (remaining <= 0) clearInterval(ticker);
+  }, 1000);
+
+  breathTimer = setTimeout(() => {
+    const nextFase = faseIdx + 1;
+    if (nextFase >= passo.fases.length) {
+      cicloAtual++;
+      correrFase(passo, 0);
+    } else {
+      correrFase(passo, nextFase);
+    }
+  }, fase.dur);
+}
+
+/* ── GROUNDING ───────────────────────────────────────────────── */
+function doneGrounding(i) {
+  document.getElementById('gi-' + i).classList.toggle('done');
+}
+
+/* ── NAVEGAÇÃO ───────────────────────────────────────────────── */
+function nextStep() {
+  clearTimeout(breathTimer);
+  if (passoAtivo < totalPassos - 1) {
+    passoAtivo++;
+    renderPasso();
+  } else {
+    concluir();
+  }
+}
+
+function prevStep() {
+  clearTimeout(breathTimer);
+  if (passoAtivo > 0) {
+    passoAtivo--;
+    renderPasso();
+  }
+}
+
+function concluir() {
+  clearTimeout(breathTimer);
+  document.getElementById('screen-intervention').classList.remove('active');
+  document.getElementById('screen-done').classList.add('active');
+}
+
+function repetir() {
+  document.getElementById('screen-done').classList.remove('active');
+  iniciar(estadoAtivo);
+}
+</script>
+
+</body>
+</html>

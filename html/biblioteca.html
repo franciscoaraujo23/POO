@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/biblioteca.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
+      </div>
+
+      <span class="sidebar-label">Menu</span>
+
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+          <span class="nav-badge">12</span>
+        </a>
+        <a href="checkin.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="min-w-0">
+            <p class="profile-name truncate"></p>
+            <p class="profile-level"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-theme">
+        <button class="theme-toggle">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
+      </div>
+
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
+      </div>
+    </aside>
+
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="biblioteca-main">
+
+        <!-- Header -->
+        <header class="biblioteca-header anim-1">
+          <div>
+            <h1 class="biblioteca-title">Biblioteca</h1>
+            <p class="biblioteca-sub">Explora todas as sessões e áudios disponíveis.</p>
+          </div>
+        </header>
+
+        <!-- Filtros -->
+        <section class="filters-wrap anim-2">
+          <div class="filters-row">
+            <button class="filter-pill active" data-filter="todos">Todos</button>
+            <button class="filter-pill" data-filter="respiracao">Respiração</button>
+            <button class="filter-pill" data-filter="meditacao">Meditação</button>
+            <button class="filter-pill" data-filter="foco">Foco</button>
+            <button class="filter-pill" data-filter="relaxamento">Relaxamento</button>
+            <button class="filter-pill" data-filter="sono">Sono</button>
+            <button class="filter-pill" data-filter="ansiedade">Ansiedade</button>
+            <div class="filter-divider"></div>
+            <button class="filter-pill" data-dur="curta">≤10 min</button>
+            <button class="filter-pill" data-dur="media">10–20 min</button>
+            <button class="filter-pill" data-dur="longa">+20 min</button>
+            <div class="input-wrap search-biblioteca">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                style="color:var(--color-text-muted);flex-shrink:0;">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input type="text" id="search-input" placeholder="Pesquisar..." />
+            </div>
+          </div>
+        </section>
+
+        <!-- Destaques -->
+        <section class="anim-3">
+          <div class="section-header">
+            <h2 class="section-title">Em destaque</h2>
+          </div>
+          <div class="destaques-grid">
+            <div class="destaque-card destaque-card-stoic"
+              style="background-image: url('../assets/imgs/estoicismo.png')"
+              onclick="window.location.href='caminho.html?tipo=estoicismo'">
+              <div class="destaque-top">
+                <span class="destaque-badge">Caminho</span>
+                <span class="destaque-duration">Estoicismo</span>
+              </div>
+              <div class="destaque-info">
+                <p class="destaque-title">O Caminho do Estoico</p>
+                <p class="destaque-desc">Controlo, aceitação e dever. Aprende a distinguir o que depende de ti.</p>
+                <button class="destaque-play">▶</button>
+              </div>
+            </div>
+            <div class="destaque-card destaque-card-presence" onclick="window.location.href='caminho.html?tipo=mindfulness'">
+              <div class="destaque-top">
+                <span class="destaque-badge">Caminho</span>
+                <span class="destaque-duration">Mindfulness</span>
+              </div>
+              <div class="destaque-info">
+                <p class="destaque-title">O Caminho da Presença</p>
+                <p class="destaque-desc">Para, respira, observa. A paz está no momento que habitas agora.</p>
+                <button class="destaque-play">▶</button>
+              </div>
+            </div>
+            <div class="destaque-card destaque-card-tao" onclick="window.location.href='caminho.html?tipo=taoismo'">
+              <div class="destaque-top">
+                <span class="destaque-badge">Caminho</span>
+                <span class="destaque-duration">Taoísmo</span>
+              </div>
+              <div class="destaque-info">
+                <p class="destaque-title">O Caminho do Tao</p>
+                <p class="destaque-desc">Flui com o que é. A resistência cansa; a aceitação liberta.</p>
+                <button class="destaque-play">▶</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Catálogo -->
+        <section class="anim-4">
+          <div class="catalogo-header">
+            <h2 class="section-title">Todas as sessões</h2>
+            <span class="catalogo-count" id="count-label">12 sessões</span>
+          </div>
+          <div class="catalogo-grid" id="catalogo">
+
+            <!-- Cards gerados pelo JS -->
+
+            <div class="empty-state" id="empty-state">
+              <p class="empty-state-emoji">🔍</p>
+              <p>Nenhuma sessão encontrada.<br>Tenta outro filtro ou pesquisa.</p>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/init.js"></script>
+  <script type="module" src="../js/controllers/BibliotecaController.js"></script>
+  <script type="module" src="../js/views/SidebarView.js"></script>
+  <script src="../js/theme.js"></script>
+</body>
+
+</html>

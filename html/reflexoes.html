@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflexões — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/reflexoes.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
+      </div>
+
+      <span class="sidebar-label">Menu</span>
+
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+        </a>
+        <a href="checkin.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="min-w-0">
+            <p class="profile-name truncate"></p>
+            <p class="profile-level"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-theme">
+        <button class="theme-toggle">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
+      </div>
+
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
+      </div>
+    </aside>
+
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="reflexoes-main">
+
+        <!-- Header -->
+        <header class="reflexoes-header anim-1">
+          <div>
+            <h1 class="reflexoes-title">Reflexões</h1>
+            <p class="reflexoes-sub">Escreve, processa, clarifica. O teu espaço privado.</p>
+          </div>
+        </header>
+
+        <!-- Seletor de modo -->
+        <section class="anim-2">
+          <div class="section-header">
+            <h2 class="section-title">Que tipo de reflexão queres fazer hoje?</h2>
+          </div>
+          <div class="modo-grid">
+            <div class="modo-card active" id="modo-estoico" data-modo="estoico">
+              <span class="modo-emoji"><img src="../assets/icons/reflection.png" alt=""></span>
+              <p class="modo-nome">Reflexão Guiada</p>
+              <p class="modo-desc">Identifica um problema, o que controlas e um passo concreto.</p>
+            </div>
+            <div class="modo-card" id="modo-livre" data-modo="livre">
+              <span class="modo-emoji"><img src="../assets/icons/writing.png" alt=""></span>
+              <p class="modo-nome">Escrita Livre</p>
+              <p class="modo-desc">Escreve o que quiseres, com ou sem prompt de inspiração.</p>
+            </div>
+            <div class="modo-card" id="modo-gratidao" data-modo="gratidao">
+              <span class="modo-emoji"><img src="../assets/icons/gratitude.png" alt=""></span>
+              <p class="modo-nome">Gratidão</p>
+              <p class="modo-desc">Três coisas pelas quais és grato hoje. Simples e poderoso.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── MODO 1: Reflexão Guiada (Estoica) ─────────────── -->
+        <section class="card escrita-wrap active" id="escrita-estoico">
+          <div class="prompt-do-dia">
+            <span class="prompt-icon"></span>
+            <div>
+              <p class="prompt-text">"Não te perturbes com o que não podes controlar. Foca-te no que depende de ti."</p>
+              <span class="prompt-opcional">Marco Aurélio · Meditações</span>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label">
+              <span class="campo-label-emoji"></span>
+              O que te está a preocupar hoje?
+            </label>
+            <textarea class="campo-textarea md" id="estoico-problema"
+              placeholder="Descreve o que tens na cabeça. Não há resposta certa — é só para ti..."></textarea>
+          </div>
+
+          <div class="campo-divisor"><span>separa o que controlas</span></div>
+
+          <div class="campo-grupo">
+            <label class="campo-label">
+              <span class="campo-label-emoji"></span>
+              Desta situação, o que depende de ti?
+            </label>
+            <textarea class="campo-textarea sm" id="estoico-controlo"
+              placeholder="O que está realmente no teu controlo nesta situação..."></textarea>
+            <span class="campo-hint">Foca-te apenas no que podes influenciar diretamente.</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label">
+              <span class="campo-label-emoji"></span>
+              Que passo concreto podes dar hoje?
+            </label>
+            <textarea class="campo-textarea sm" id="estoico-passo"
+              placeholder="Não precisas de resolver tudo. Apenas um passo pequeno..."></textarea>
+            <span class="campo-hint">Um passo concreto e realista. Não uma solução completa.</span>
+          </div>
+
+          <div class="escrita-actions">
+            <div class="guardado-msg" id="msg-estoico">✓ Reflexão guardada</div>
+            <button class="btn-limpar" data-modo="estoico">Limpar</button>
+            <button class="btn-guardar" data-modo="estoico">Guardar reflexão</button>
+          </div>
+        </section>
+
+        <!-- ── MODO 2: Escrita Livre (Livro) ─────────────────── -->
+        <section class="card escrita-wrap" id="escrita-livre">
+          <div class="prompt-do-dia">
+            <span class="prompt-icon"></span>
+            <div>
+              <p class="prompt-text" id="prompt-rotativo">"O que tens na cabeça agora?"</p>
+              <span class="prompt-opcional">Prompt de hoje · Opcional — podes ignorar</span>
+            </div>
+          </div>
+
+          <div class="livro-container">
+            <div class="livro-nav">
+              <button class="livro-nav-btn" id="btn-ant">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Anteriores
+              </button>
+              <span class="livro-spread-label" id="spread-label"></span>
+              <button class="livro-nav-btn" id="btn-seg">
+                Mais recentes
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <div class="livro-capa">
+              <div class="livro" id="livro">
+                <div class="livro-pagina livro-pag-esq" id="pag-esq"></div>
+                <div class="livro-lombada"><div class="livro-lombada-inner"></div></div>
+                <div class="livro-pagina livro-pag-dir" id="pag-dir"></div>
+                <div class="flip-overlay" id="flip-overlay">
+                  <div class="flip-face flip-front" id="flip-front"></div>
+                  <div class="flip-face flip-back"  id="flip-back"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── MODO 3: Gratidão ───────────────────────────────── -->
+        <section class="card escrita-wrap" id="escrita-gratidao">
+          <div class="prompt-do-dia">
+            <span class="prompt-icon"></span>
+            <div>
+              <p class="prompt-text">"A gratidão transforma o que temos em suficiente."</p>
+              <span class="prompt-opcional">Prática diária · Leva menos de 2 minutos</span>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label">
+              <span class="campo-label-emoji"></span>
+              Hoje sou grato/a por...
+            </label>
+            <div class="gratidao-campos">
+              <div class="gratidao-campo">
+                <div class="gratidao-num">1</div>
+                <input class="gratidao-input" type="text" id="grat-1"
+                  placeholder="Uma pessoa, momento ou coisa pequena..." />
+              </div>
+              <div class="gratidao-campo">
+                <div class="gratidao-num">2</div>
+                <input class="gratidao-input" type="text" id="grat-2"
+                  placeholder="Algo que costumas tomar como garantido..." />
+              </div>
+              <div class="gratidao-campo">
+                <div class="gratidao-num">3</div>
+                <input class="gratidao-input" type="text" id="grat-3"
+                  placeholder="Um pensamento, sensação ou conquista de hoje..." />
+              </div>
+            </div>
+          </div>
+
+          <div class="escrita-actions">
+            <div class="guardado-msg" id="msg-gratidao">✓ Gratidão guardada</div>
+            <button class="btn-limpar" data-modo="gratidao">Limpar</button>
+            <button class="btn-guardar" data-modo="gratidao">Guardar gratidão</button>
+          </div>
+        </section>
+
+        <!-- ── ENTRADAS ANTERIORES ────────────────────────────── -->
+        <section class="anim-5">
+          <div class="entradas-header">
+            <h2 class="section-title">Entradas anteriores</h2>
+            <span class="text-sm text-muted" id="entradas-count"></span>
+          </div>
+          <div class="entradas-list" id="entradas-list">
+            <!-- Renderizado por JS -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/init.js"></script>
+  <script type="module" src="../js/controllers/ReflexaoController.js"></script>
+  <script type="module" src="../js/views/SidebarView.js"></script>
+  <script src="../js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,832 @@
+{
+  "users": [
+    {
+      "email": "321@gmail.com",
+      "password": "$2a$10$txwrvOtAnJaw0z5/PKej/eFGBJcCVarnCg40fbn7euYZLwkdvLNyK",
+      "id": 1
+    },
+    {
+      "email": "andresousa321@gmail.com",
+      "password": "$2a$10$IRxJWqx5w83YOmK7RfW8AefpjUdtX4zhAv8M/yC2q8iUOnTQKnZLy",
+      "id": 2
+    },
+    {
+      "email": "caraujo@gmail.com",
+      "password": "$2a$10$bUReRZV4xAymk8sK4Ovose.W0gWM7hnb/TsWZwc8p73wCjdf0Ek6i",
+      "id": 3
+    },
+    {
+      "email": "nunogambler@hotmail.com",
+      "password": "$2a$10$VpHLSReiISsIwZzQPhkz.Of78Ncg8xCJV9PlDWsnxYrr.Zy38iHne",
+      "id": 4
+    },
+    {
+      "email": "nunosilva@hotmail.com",
+      "password": "$2a$10$lLeHlVNyp6CLs986785qm.n51z9i.vOGOg0owCqYqxP7k34j/olxe",
+      "id": 5
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$oxhfalQ2ZZz3wF9Mi7fwYukfZfpE2QTXTR8GNo8WNdAyQRAFd.1dO",
+      "id": 6
+    },
+    {
+      "email": "111@gmail.com",
+      "password": "$2a$10$aBfb.LV9fM3vNyPhERmN8ucpnyEl4QfmqqAMyT8j8q4.eRpuwrMSK",
+      "id": 7
+    },
+    {
+      "email": "franciscosilva@gmail.com",
+      "password": "$2a$10$QnokfLT3WFdFDmAT76G2Tuc71fT6JqaIRK/ZthqPdXEnWTdigLklO",
+      "id": 8
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$074VO83Fz.RK3uD3wlF4oOweuiaX4u6XdOnWz.vk010KwreBeAOMO",
+      "id": 9
+    }
+  ],
+  "checkins": [
+    {
+      "id": "mq9kzp6k37uft",
+      "data": "2026-06-11T14:16:44.348Z",
+      "emocao": "pensativo",
+      "intensidade": 4,
+      "peso": "Nada em especial",
+      "sono": "Pessimamente",
+      "nota": "Sinto-me fly",
+      "userId": 3
+    },
+    {
+      "id": "mqhirjj5xxozr",
+      "data": "2026-06-17T03:36:33.953Z",
+      "emocao": "confuso",
+      "intensidade": 4,
+      "peso": "Nada em especial",
+      "sono": "Pessimamente",
+      "nota": "",
+      "userId": "6"
+    },
+    {
+      "id": "mqhivr3719noe",
+      "data": "2026-06-17T03:39:50.371Z",
+      "emocao": "calmo",
+      "intensidade": 5,
+      "peso": "Nada em especial",
+      "sono": "Não muito bem",
+      "nota": "",
+      "userId": "7"
+    },
+    {
+      "id": "mqi56h9exf2ur",
+      "data": "2026-06-17T14:04:02.402Z",
+      "emocao": "pensativo",
+      "intensidade": 4,
+      "peso": "Futuro",
+      "sono": "Pessimamente",
+      "nota": "Boas......",
+      "userId": "4"
+    },
+    {
+      "id": "mqi9onl35qa9i",
+      "data": "2026-06-17T16:10:08.871Z",
+      "emocao": "calmo",
+      "intensidade": 3,
+      "peso": "Nada em especial",
+      "sono": "Não muito bem",
+      "nota": "",
+      "userId": "8"
+    },
+    {
+      "id": "mqik11evhdbse",
+      "data": "2026-06-17T20:59:42.823Z",
+      "emocao": "cansado",
+      "intensidade": 4,
+      "peso": "Nada em especial",
+      "sono": "Pessimamente",
+      "nota": "",
+      "userId": "9"
+    }
+  ],
+  "reflexoes": [
+    {
+      "id": "mq9jbi55hpoih",
+      "data": "2026-06-11T13:29:55.865Z",
+      "modo": "estoico",
+      "campos": {
+        "problema": "Boas",
+        "controlo": "Dest",
+        "passo": "Dá"
+      },
+      "userId": 3
+    },
+    {
+      "id": "ref6a",
+      "data": "2026-06-11T09:30:00.000Z",
+      "modo": "estoico",
+      "campos": {
+        "problema": "Sinto que não consigo gerir o tempo.",
+        "controlo": "Posso organizar melhor as minhas tarefas e definir prioridades.",
+        "passo": "Amanhã começo o dia com uma lista de 3 prioridades."
+      },
+      "userId": 6
+    },
+    {
+      "id": "ref6b",
+      "data": "2026-06-10T22:00:00.000Z",
+      "modo": "livre",
+      "campos": {
+        "texto": "Hoje foi um dia tranquilo. Consegui fazer uma pausa a meio da tarde e isso fez toda a diferença."
+      },
+      "userId": 6
+    },
+    {
+      "id": "ref6c",
+      "data": "2026-06-09T21:15:00.000Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "Ter tido uma conversa honesta com um amigo.",
+        "g2": "O café da manhã em silêncio.",
+        "g3": "Conseguir terminar o que comecei."
+      },
+      "userId": 6
+    },
+    {
+      "id": "ref6d",
+      "data": "2026-06-08T20:45:00.000Z",
+      "modo": "livre",
+      "campos": {
+        "texto": "Preciso de descansar mais. Noto que quando durmo mal tudo parece mais complicado do que realmente é."
+      },
+      "userId": 6
+    },
+    {
+      "id": "ref6e",
+      "data": "2026-06-07T19:00:00.000Z",
+      "modo": "estoico",
+      "campos": {
+        "problema": "Discussão com um colega de trabalho.",
+        "controlo": "Posso controlar a forma como reajo e comunicar com calma.",
+        "passo": "Pedir uma conversa tranquila amanhã."
+      },
+      "userId": 6
+    },
+    {
+      "id": "ref6f",
+      "data": "2026-06-06T21:30:00.000Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "A saúde da minha família.",
+        "g2": "Um dia sem grandes problemas.",
+        "g3": "Ter conseguido descansar bem."
+      },
+      "userId": 6
+    },
+    {
+      "id": "mqi66ye6pf87c",
+      "data": "2026-06-17T14:32:24.222Z",
+      "modo": "livre",
+      "campos": {
+        "texto": "Boas brother.."
+      },
+      "userId": "4"
+    },
+    {
+      "id": "mqilq198nyijl",
+      "data": "2026-06-17T21:47:08.636Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "1",
+        "g2": "2",
+        "g3": "3"
+      },
+      "userId": "9"
+    },
+    {
+      "id": "mqilskzv8i1dm",
+      "data": "2026-06-17T21:49:07.531Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "ww",
+        "g2": "aa",
+        "g3": "qqq"
+      },
+      "userId": "9"
+    },
+    {
+      "id": "mqilsn2rqbjkl",
+      "data": "2026-06-17T21:49:10.227Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "ww",
+        "g2": "aa",
+        "g3": "qqq"
+      },
+      "userId": "9"
+    },
+    {
+      "id": "mqilso6pq3bhu",
+      "data": "2026-06-17T21:49:11.665Z",
+      "modo": "gratidao",
+      "campos": {
+        "g1": "ww",
+        "g2": "aa",
+        "g3": "qqq"
+      },
+      "userId": "9"
+    }
+  ],
+  "perfis": [
+    {
+      "id": "mq9lgjm6509ri",
+      "nome": "Nuno Silva",
+      "email": "nunosilva@hotmail.com",
+      "role": null,
+      "perfilDominante": "sono",
+      "preferencias": {
+        "frequencia": 3,
+        "objetivo": "foco",
+        "duracao": "5",
+        "horario": "tarde"
+      },
+      "favoritos": [],
+      "historico": [],
+      "userId": "5"
+    },
+    {
+      "id": "mq9ni20cfaj8a",
+      "nome": "321",
+      "email": "123@gmail.com",
+      "role": "admin",
+      "perfilDominante": "foco",
+      "preferencias": {
+        "frequencia": 2,
+        "objetivo": "ansiedade",
+        "horario": "tarde",
+        "duracao": "30",
+        "aniversario": "2003-06-10",
+        "notificacoes": {
+          "sugestoes": false,
+          "conquistas": true,
+          "citacao": true
+        }
+      },
+      "favoritos": [
+        3,
+        17,
+        18
+      ],
+      "userId": "6"
+    },
+    {
+      "id": "mqhivkvj78k1j",
+      "nome": "111",
+      "email": "111@gmail.com",
+      "role": null,
+      "perfilDominante": "sono",
+      "preferencias": {
+        "frequencia": 2,
+        "objetivo": "foco",
+        "horario": "tarde",
+        "duracao": "5",
+        "scores": {
+          "overthinking": 0,
+          "ansiedade": 0,
+          "foco": 0,
+          "sono": 100
+        }
+      },
+      "favoritos": [],
+      "historico": [],
+      "userId": "7"
+    },
+    {
+      "id": "mqi6dh89yzxl6",
+      "nome": "Francisco Silva",
+      "email": "franciscosilva@gmail.com",
+      "role": null,
+      "perfilDominante": "foco",
+      "preferencias": {
+        "frequencia": 4,
+        "objetivo": "foco",
+        "duracao": "20",
+        "scores": {
+          "overthinking": 32,
+          "ansiedade": 26,
+          "foco": 42,
+          "sono": 0
+        },
+        "notificacoes": {
+          "sugestoes": true,
+          "conquistas": true,
+          "citacao": true
+        }
+      },
+      "favoritos": [
+        2,
+        4
+      ],
+      "historico": [],
+      "userId": "8"
+    },
+    {
+      "id": "mqicizv547ihz",
+      "nome": "Admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "perfilDominante": "overthinking",
+      "preferencias": {
+        "objetivo": "sono",
+        "scores": {
+          "overthinking": 100,
+          "ansiedade": 0,
+          "foco": 0,
+          "sono": 0
+        }
+      },
+      "favoritos": [],
+      "historico": [],
+      "userId": "9"
+    }
+  ],
+  "sessoes_concluidas": [
+    {
+      "id": "sc6a",
+      "sessaoId": 1,
+      "titulo": "Respiração 4-7-8 para Ansiedade",
+      "categoria": "respiracao",
+      "duracao": 10,
+      "avaliacao": 4,
+      "data": "2026-06-10T20:00:00.000Z",
+      "userId": 6
+    },
+    {
+      "id": "sc6b",
+      "sessaoId": 6,
+      "titulo": "Respiração em Caixa",
+      "categoria": "respiracao",
+      "duracao": 3,
+      "avaliacao": 5,
+      "data": "2026-06-09T21:00:00.000Z",
+      "userId": 6
+    },
+    {
+      "id": "sc6c",
+      "sessaoId": 7,
+      "titulo": "Foco Profundo - Pomodoro Guiado",
+      "categoria": "foco",
+      "duracao": 7,
+      "avaliacao": 4,
+      "data": "2026-06-08T18:30:00.000Z",
+      "userId": 6
+    },
+    {
+      "sessaoId": 27,
+      "titulo": "Wu Wei - O Não Esforço no Taoismo",
+      "categoria": "foco",
+      "duracao": 13,
+      "avaliacao": 4,
+      "data": "2026-06-17T21:04:38.212Z",
+      "userId": "6",
+      "id": "C4OiucO"
+    },
+    {
+      "sessaoId": 3,
+      "titulo": "Relaxamento Muscular Progressivo",
+      "categoria": "relaxamento",
+      "duracao": 12,
+      "avaliacao": 5,
+      "data": "2026-06-17T21:05:45.436Z",
+      "userId": "6",
+      "id": "Jwoli7d"
+    },
+    {
+      "sessaoId": 1,
+      "titulo": "Respiracao 4-7-8 para Ansiedade",
+      "categoria": "respiracao",
+      "duracao": 10,
+      "avaliacao": 5,
+      "data": "2026-06-17T21:23:10.327Z",
+      "userId": "9",
+      "id": "s-ceh13"
+    },
+    {
+      "sessaoId": 1,
+      "titulo": "Respiracao 4-7-8 para Ansiedade",
+      "categoria": "respiracao",
+      "duracao": 10,
+      "avaliacao": 5,
+      "data": "2026-06-17T21:39:49.959Z",
+      "userId": "9",
+      "id": "PuORZrX"
+    }
+  ],
+  "sessoes": [
+    {
+      "id": 1,
+      "titulo": "Respiracao 4-7-8 para Ansiedade",
+      "categoria": "respiracao",
+      "duracao": 10,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Tecnica de respiracao para reduzir ansiedade aguda em poucos minutos.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/LiUnFJ8P4gM",
+      "caminho": "",
+      "ratingTotal": 5,
+      "ratingCount": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Meditacao de Ancoragem no Presente",
+      "categoria": "meditacao",
+      "duracao": 5,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Exercicio guiado de mindfulness para sair do piloto automatico.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/VWxoEZACB_o",
+      "caminho": ""
+    },
+    {
+      "id": 3,
+      "titulo": "Relaxamento Muscular Progressivo",
+      "categoria": "relaxamento",
+      "duracao": 12,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Tensao e relaxamento progressivo de grupos musculares.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/NIdukIWvgto",
+      "caminho": ""
+    },
+    {
+      "id": 4,
+      "titulo": "Meditacao para Overthinking",
+      "categoria": "meditacao",
+      "duracao": 13,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Tecnica para observar pensamentos sem se prender a eles.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/CE6kq_8YlIk",
+      "caminho": ""
+    },
+    {
+      "id": 5,
+      "titulo": "Body Scan para Adormecer",
+      "categoria": "sono",
+      "duracao": 27,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Varrimento corporal guiado para relaxar antes de dormir.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/dJljnvdBIUI",
+      "caminho": ""
+    },
+    {
+      "id": 6,
+      "titulo": "Respiracao em Caixa",
+      "categoria": "respiracao",
+      "duracao": 3,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Tecnica 4-4-4-4 usada para acalmar o sistema nervoso.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/NLU0ffah75c",
+      "caminho": ""
+    },
+    {
+      "id": 7,
+      "titulo": "Foco Profundo - Pomodoro Guiado",
+      "categoria": "foco",
+      "duracao": 7,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Sessao de trabalho focado com musica e pausas guiadas.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/hfxfJ7Qa4sg",
+      "caminho": ""
+    },
+    {
+      "id": 8,
+      "titulo": "Meditacao Estoica - O Que Controlo",
+      "categoria": "meditacao",
+      "duracao": 10,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Reflexao guiada baseada na dicotomia do controlo de Epicteto.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/1G0XGsRdgBY",
+      "caminho": "estoicismo"
+    },
+    {
+      "id": 9,
+      "titulo": "Sons da Natureza para Concentracao",
+      "categoria": "foco",
+      "duracao": 60,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Ambiente sonoro natural para manter foco prolongado.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/OighwhOIKgQ",
+      "caminho": ""
+    },
+    {
+      "id": 10,
+      "titulo": "Visualizacao para Reduzir Ansiedade",
+      "categoria": "ansiedade",
+      "duracao": 20,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Tecnica de visualizacao de lugar seguro para acalmar a mente.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/D7iRTG0J1d4",
+      "caminho": ""
+    },
+    {
+      "id": 11,
+      "titulo": "Meditacao de Gratidao",
+      "categoria": "meditacao",
+      "duracao": 13,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Pratica guiada de gratidao baseada em evidencia cientifica.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/DKqkTeTy-4w",
+      "caminho": ""
+    },
+    {
+      "id": 12,
+      "titulo": "Ruido Branco para Dormir",
+      "categoria": "sono",
+      "duracao": 30,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Ruido branco continuo para facilitar o adormecimento.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/73qcRzXuXMI",
+      "caminho": ""
+    },
+    {
+      "id": 13,
+      "titulo": "Tecnica de Grounding 5-4-3-2-1",
+      "categoria": "ansiedade",
+      "duracao": 7,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Exercicio sensorial para sair de estados de panico ou dissociacao.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/vgxwvDEBW8o",
+      "caminho": ""
+    },
+    {
+      "id": 14,
+      "titulo": "Respiracao Diafragmatica",
+      "categoria": "respiracao",
+      "duracao": 4,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Treino de respiracao abdominal para reduzir tensao cronica.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/Mu39nw6R0Lk",
+      "caminho": ""
+    },
+    {
+      "id": 15,
+      "titulo": "Meditacao para Clareza Mental",
+      "categoria": "foco",
+      "duracao": 18,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Pratica guiada para organizar pensamentos e tomar decisoes.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/GL1jeXV0dr8",
+      "caminho": ""
+    },
+    {
+      "id": 16,
+      "titulo": "Cresça com as Experiências da Vida - Estoicismo",
+      "categoria": "meditacao",
+      "duracao": 18,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Reflexao estoica sobre crescimento pessoal atraves da adversidade.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/bdDj5MXUvp8",
+      "caminho": "estoicismo"
+    },
+    {
+      "id": 17,
+      "titulo": "Como Pensar Claramente - Marco Aurelio e Estoicismo",
+      "categoria": "foco",
+      "duracao": 12,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Ensino estoico sobre clareza mental e controlo dos julgamentos.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/9kSpO1GtM7A",
+      "caminho": "estoicismo"
+    },
+    {
+      "id": 18,
+      "titulo": "13 Lições Estóicas para a Vida",
+      "categoria": "ansiedade",
+      "duracao": 20,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Resumo de principios estoicos para resiliencia emocional e calma interior.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/juDAtuZ2DPY",
+      "caminho": "estoicismo"
+    },
+    {
+      "id": 19,
+      "titulo": "Como Lidar com Pessoas Toxicas - Estoicismo",
+      "categoria": "ansiedade",
+      "duracao": 10,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Aplicacao pratica do estoicismo em conflitos e relacoes dificeis.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/MbOIsNWlI4E",
+      "caminho": "estoicismo"
+    },
+    {
+      "id": 20,
+      "titulo": "Meditação Mindfulness 10 Minutos em Portugues",
+      "categoria": "meditacao",
+      "duracao": 10,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Pratica de atencao plena focada na respiracao e no momento presente.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/un2_ou9DQs0",
+      "caminho": "mindfulness"
+    },
+    {
+      "id": 21,
+      "titulo": "Body Scan - Mindfulness MBSR",
+      "categoria": "relaxamento",
+      "duracao": 30,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Exercicio de varrimento corporal para consciencia plena do corpo.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/iJcT6ceq2YQ",
+      "caminho": "mindfulness"
+    },
+    {
+      "id": 22,
+      "titulo": "Observar Pensamentos sem Julgamento",
+      "categoria": "foco",
+      "duracao": 12,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Treino de observacao da mente sem reatividade.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/BTe_7qOSV7c",
+      "caminho": "mindfulness"
+    },
+    {
+      "id": 23,
+      "titulo": "Respiração Consciente e Mindfulness",
+      "categoria": "respiracao",
+      "duracao": 15,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Tecnica de respiracao consciente para reduzir stress e ansiedade.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/AvUBeAUBMYk",
+      "caminho": "mindfulness"
+    },
+    {
+      "id": 24,
+      "titulo": "Filosofia Taoista - Introducao ao Taoismo",
+      "categoria": "meditacao",
+      "duracao": 16,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Introducao ao taoismo, Tao e equilibrio Yin Yang.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/PjQ1b7jweic",
+      "caminho": "taoismo"
+    },
+    {
+      "id": 25,
+      "titulo": "O que é o Taoismo? Explicacao Completa",
+      "categoria": "foco",
+      "duracao": 14,
+      "nivel": "iniciante",
+      "tipo": "video",
+      "descricao": "Explicacao dos conceitos fundamentais do taoismo e do Tao Te Ching.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/CdWLIq4Fvko",
+      "caminho": "taoismo"
+    },
+    {
+      "id": 26,
+      "titulo": "Lao Tzu e o Tao Te Ching - Filosofia Taoista",
+      "categoria": "relaxamento",
+      "duracao": 20,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Reflexao sobre os ensinamentos de Lao Tzu e harmonia com a vida.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/sCJufeuRxA0",
+      "caminho": "taoismo"
+    },
+    {
+      "id": 27,
+      "titulo": "Wu Wei - O Não Esforço no Taoismo",
+      "categoria": "foco",
+      "duracao": 13,
+      "nivel": "intermediario",
+      "tipo": "video",
+      "descricao": "Explicacao do conceito taoista de agir em harmonia com o fluxo natural.",
+      "avaliacao": 0,
+      "url": "https://www.youtube.com/embed/mjfCIHo-LZ8",
+      "caminho": "taoismo"
+    }
+  ],
+  "gamificacao": [
+    {
+      "id": 1,
+      "pontos": 10,
+      "nivel": 1,
+      "streak": 1,
+      "ultimoCheckin": "2026-06-11",
+      "conquistas": [
+        "primeiro-checkin"
+      ],
+      "userId": 3
+    },
+    {
+      "id": 2,
+      "pontos": 140,
+      "nivel": 2,
+      "conquistas": [
+        "primeiro-checkin",
+        "streak-3",
+        "pontos-100",
+        "Autoconhecimento"
+      ],
+      "userId": "6"
+    },
+    {
+      "id": 3,
+      "pontos": 0,
+      "nivel": 1,
+      "conquistas": [
+        "Autoconhecimento"
+      ],
+      "userId": "5"
+    },
+    {
+      "id": 4,
+      "pontos": 10,
+      "nivel": 1,
+      "streak": 1,
+      "ultimoCheckin": "2026-06-17",
+      "conquistas": [
+        "primeiro-checkin"
+      ],
+      "userId": "7"
+    },
+    {
+      "id": 5,
+      "pontos": 10,
+      "nivel": 1,
+      "streak": 1,
+      "ultimoCheckin": "2026-06-17",
+      "conquistas": [
+        "primeiro-checkin"
+      ],
+      "userId": "4"
+    },
+    {
+      "id": 6,
+      "pontos": 10,
+      "nivel": 1,
+      "streak": 1,
+      "ultimoCheckin": "2026-06-17",
+      "conquistas": [
+        "Autoconhecimento",
+        "1passo"
+      ],
+      "userId": "8"
+    },
+    {
+      "id": 7,
+      "pontos": 490,
+      "nivel": 5,
+      "conquistas": [
+        "Autoconhecimento",
+        "1passo",
+        "5nivel",
+        "Escritor"
+      ],
+      "userId": "9"
+    }
+  ]
+}

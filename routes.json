@@ -1,0 +1,9 @@
+{
+  "users": 600,
+  "/sessoes*": "/660/sessoes$1",
+  "/perfis*": "/660/perfis$1",
+  "/checkins*": "/660/checkins$1",
+  "/reflexoes*": "/660/reflexoes$1",
+  "/sessoes_concluidas*": "/660/sessoes_concluidas$1",
+  "/gamificacao*": "/660/gamificacao$1"
+}

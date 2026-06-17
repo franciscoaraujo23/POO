@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('mindnest-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check-in — MindNest</title>
+  <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/checkin.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ─── SIDEBAR ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/imgs/mindnest_transparent.png" alt="MindNest" class="sidebar-brand-logo" />
+      </div>
+
+      <span class="sidebar-label">Menu</span>
+
+      <nav>
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+              <polyline points="9 21 9 12 15 12 15 21" />
+            </svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="biblioteca.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </span>
+          Biblioteca
+        </a>
+        <a href="checkin.html" class="nav-item active">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z" />
+            </svg>
+          </span>
+          Check-in
+        </a>
+        <a href="reflexoes.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </span>
+          Reflexões
+        </a>
+        <a href="progresso.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Progresso
+        </a>
+        <a href="favoritos.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </span>
+          Favoritos
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+          Perfil
+        </a>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-profile">
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="min-w-0">
+            <p class="profile-name truncate"></p>
+            <p class="profile-level"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-theme">
+        <button class="theme-toggle">
+          <span class="nav-item-icon" id="theme-icon"></span>
+          <span id="theme-label">Modo noturno</span>
+        </button>
+      </div>
+
+      <div class="sidebar-sos">
+        <a href="sos.html" class="btn-sos">
+          <span class="btn-sos-dot"></span>
+          Preciso de ajuda agora
+        </a>
+      </div>
+    </aside>
+
+    <!-- ─── CONTEÚDO ──────────────────────────────────────────── -->
+    <main class="main-content">
+      <div class="checkin-main">
+
+        <!-- Header -->
+        <header class="checkin-header anim-1">
+          <p class="checkin-date"></p>
+          <h1 class="checkin-title">Check-in diário</h1>
+          <p class="checkin-sub">Como está a tua mente e o teu corpo hoje?</p>
+        </header>
+
+        <!-- Progress -->
+        <div class="checkin-progress anim-2">
+          <div class="checkin-progress-track">
+            <div class="checkin-progress-fill" id="ci-progress" style="width:25%"></div>
+          </div>
+          <span class="checkin-progress-label" id="ci-progress-label">Momento 1 de 4</span>
+        </div>
+
+        <!-- Histórico recente -->
+        <div class="historico-wrap anim-2" id="checkin-historico-semana"></div>
+
+        <!-- ── ECRÃ "JÁ FIZESTE HOJE" ──────────────────────────── -->
+        <div class="checkin-step" id="ci-step-0">
+          <div style="text-align:center; padding:48px 0 32px;">
+            <h2 class="checkin-step-title" style="margin-bottom:10px;">Já fizeste o teu check-in hoje!</h2>
+            <p class="checkin-step-sub" id="ci-hoje-resumo" style="max-width:360px; margin:0 auto 32px;"></p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+              <button id="btn-editar-checkin" class="btn-checkin-next" style="background:var(--dusk-400);">
+                Editar check-in
+              </button>
+              <a href="dashboard.html" class="btn-skip-checkin" style="padding:10px 22px; border-radius:var(--radius-sm); text-decoration:none; display:inline-flex; align-items:center;">
+                Voltar ao início
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MOMENTO 1 — Emoção ─────────────────────────────── -->
+        <div class="checkin-step active" id="ci-step-1">
+          <div class="checkin-step-heading">
+            <span class="checkin-step-emoji"></span>
+            <h2 class="checkin-step-title">Como te sentes agora?</h2>
+            <p class="checkin-step-sub">Escolhe a emoção que mais se aproxima do teu estado atual.</p>
+          </div>
+
+          <div class="emocoes-grid">
+            <div class="emocao-card" data-emocao="calmo">
+              <span class="emocao-emoji"><img src="../assets/icons/calm.png" alt=""></span>
+              <span class="emocao-label">Calmo</span>
+            </div>
+            <div class="emocao-card" data-emocao="pensativo">
+              <span class="emocao-emoji"><img src="../assets/icons/pensative.png" alt=""></span>
+              <span class="emocao-label">Pensativo</span>
+            </div>
+            <div class="emocao-card" data-emocao="cansado">
+              <span class="emocao-emoji"><img src="../assets/icons/tired.png" alt=""></span>
+              <span class="emocao-label">Cansado</span>
+            </div>
+            <div class="emocao-card" data-emocao="focado">
+              <span class="emocao-emoji"><img src="../assets/icons/focus.png" alt=""></span>
+              <span class="emocao-label">Focado</span>
+            </div>
+            <div class="emocao-card" data-emocao="triste">
+              <span class="emocao-emoji"><img src="../assets/icons/sad.png" alt=""></span>
+              <span class="emocao-label">Triste</span>
+            </div>
+            <div class="emocao-card" data-emocao="ansioso">
+              <span class="emocao-emoji"><img src="../assets/icons/ansious.png" alt=""></span>
+              <span class="emocao-label">Ansioso</span>
+            </div>
+            <div class="emocao-card" data-emocao="confuso">
+              <span class="emocao-emoji"><img src="../assets/icons/confused.png" alt=""></span>
+              <span class="emocao-label">Confuso</span>
+            </div>
+            <div class="emocao-card" data-emocao="grato">
+              <span class="emocao-emoji"><img src="../assets/icons/gratitude.png" alt=""></span>
+              <span class="emocao-label">Grato</span>
+            </div>
+          </div>
+
+          <div class="checkin-nav">
+            <button class="btn-skip-checkin" data-ci-step="2">Saltar</button>
+            <div class="checkin-nav-right">
+              <button class="btn-checkin-next" data-ci-step="2">Continuar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MOMENTO 2 — Intensidade ────────────────────────── -->
+        <div class="checkin-step" id="ci-step-2">
+          <div class="checkin-step-heading">
+            <span class="checkin-step-emoji"></span>
+            <h2 class="checkin-step-title">Com que intensidade?</h2>
+            <p class="checkin-step-sub">Clica no círculo que melhor representa a intensidade do que sentes.</p>
+          </div>
+
+          <div class="intensidade-wrap">
+            <div class="intensidade-item" data-val="1">
+              <div class="intensidade-circulo"></div>
+              <span class="intensidade-label">Muito<br>leve</span>
+            </div>
+            <div class="intensidade-item" data-val="2">
+              <div class="intensidade-circulo"></div>
+              <span class="intensidade-label">Leve</span>
+            </div>
+            <div class="intensidade-item" data-val="3">
+              <div class="intensidade-circulo"></div>
+              <span class="intensidade-label">Moderado</span>
+            </div>
+            <div class="intensidade-item" data-val="4">
+              <div class="intensidade-circulo"></div>
+              <span class="intensidade-label">Intenso</span>
+            </div>
+            <div class="intensidade-item" data-val="5">
+              <div class="intensidade-circulo"></div>
+              <span class="intensidade-label">Muito<br>intenso</span>
+            </div>
+          </div>
+
+          <div class="checkin-nav">
+            <button class="btn-skip-checkin" data-ci-step="1">Voltar</button>
+            <div class="checkin-nav-right">
+              <button class="btn-checkin-next" data-ci-step="3">Continuar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MOMENTO 3 — Contexto ───────────────────────────── -->
+        <div class="checkin-step" id="ci-step-3">
+          <div class="checkin-step-heading">
+            <span class="checkin-step-emoji"></span>
+            <h2 class="checkin-step-title">Um pouco de contexto</h2>
+            <p class="checkin-step-sub">Duas perguntas rápidas para perceber melhor o teu dia.</p>
+          </div>
+
+          <div class="contexto-section">
+            <div class="contexto-group">
+              <p class="contexto-label">O que está a pesar mais hoje?</p>
+              <div class="contexto-pills">
+                <button class="contexto-pill" data-grupo="peso">Trabalho</button>
+                <button class="contexto-pill" data-grupo="peso">Relações</button>
+                <button class="contexto-pill" data-grupo="peso">Saúde</button>
+                <button class="contexto-pill" data-grupo="peso">Finanças</button>
+                <button class="contexto-pill" data-grupo="peso">Futuro</button>
+                <button class="contexto-pill" data-grupo="peso">Sem razão aparente</button>
+                <button class="contexto-pill" data-grupo="peso">Nada em especial</button>
+              </div>
+            </div>
+
+            <div class="contexto-group">
+              <p class="contexto-label">Dormiste bem esta noite?</p>
+              <div class="contexto-pills">
+                <button class="contexto-pill" data-grupo="sono">Sim, bem</button>
+                <button class="contexto-pill" data-grupo="sono">Mais ou menos</button>
+                <button class="contexto-pill" data-grupo="sono">Não muito bem</button>
+                <button class="contexto-pill" data-grupo="sono">Pessimamente</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkin-nav">
+            <button class="btn-skip-checkin" data-ci-step="2">Voltar</button>
+            <div class="checkin-nav-right">
+              <button class="btn-checkin-next" data-ci-step="4">Continuar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MOMENTO 4 — Nota livre + Sugestão ─────────────── -->
+        <div class="checkin-step" id="ci-step-4">
+          <div class="checkin-step-heading">
+            <span class="checkin-step-emoji"></span>
+            <h2 class="checkin-step-title">Alguma coisa que queiras registar?</h2>
+            <p class="checkin-step-sub">Opcional. Fica só para ti.</p>
+          </div>
+
+          <div class="nota-wrap">
+            <textarea class="nota-textarea" id="nota-livre"
+              placeholder="Escreve o que quiseres — um pensamento, uma sensação, algo que aconteceu..."
+              maxlength="500"></textarea>
+            <span class="nota-hint">Máximo 500 caracteres. Nenhum dado é partilhado.</span>
+          </div>
+
+          <div class="checkin-nav">
+            <button class="btn-skip-checkin" data-ci-step="3">Voltar</button>
+            <div class="checkin-nav-right">
+              <button class="btn-checkin-next" id="btn-concluir-checkin" style="background:var(--mist-400);">
+                Concluir check-in
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MOMENTO FINAL — Confirmação ───────────────────── -->
+        <div class="checkin-step" id="ci-step-5">
+          <div style="text-align:center; padding:40px 0;">
+            <h2 class="checkin-step-title" style="margin-bottom:10px;">Check-in concluído!</h2>
+            <p class="checkin-step-sub" style="max-width:380px; margin:0 auto 32px;">
+              Obrigado por dedicares este momento a ti. O teu registo foi guardado
+              e vai ajudar-nos a personalizar a tua experiência.
+            </p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+              <a href="dashboard.html"
+                style="padding:10px 22px; background:var(--dusk-400); color:#fff; border-radius:var(--radius-sm); font-size:13px; font-weight:500;">
+                Voltar ao início
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/init.js"></script>
+  <script type="module" src="../js/controllers/CheckinController.js"></script>
+  <script type="module" src="../js/views/SidebarView.js"></script>
+  <script src="../js/theme.js"></script>
+</body>
+
+</html>

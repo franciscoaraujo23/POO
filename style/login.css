@@ -1,0 +1,347 @@
+/* ============================================================
+   MINDNEST — login.css
+   Estilos específicos da página de login e registo
+   ============================================================ */
+
+/* ── LAYOUT ──────────────────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── LADO ESQUERDO ───────────────────────────────────────────── */
+.login-left {
+  width: 52%;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoração — círculos em CSS puro */
+.login-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.login-deco-1 {
+  width: 340px;
+  height: 340px;
+  background: var(--dusk-400);
+  opacity: .12;
+  top: -100px;
+  right: -80px;
+}
+
+.login-deco-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--mist-400);
+  opacity: .10;
+  bottom: 60px;
+  right: 80px;
+}
+
+.login-deco-3 {
+  width: 120px;
+  height: 120px;
+  background: var(--dusk-300);
+  opacity: .08;
+  bottom: -40px;
+  left: 40px;
+}
+
+/* Brand */
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-brand-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--dusk-400);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.login-brand-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* Conteúdo central */
+.login-hero {
+  position: relative;
+  z-index: 1;
+}
+
+.login-tagline {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -.5px;
+  margin-bottom: 20px;
+}
+
+.login-tagline em {
+  color: var(--dusk-300);
+  font-style: italic;
+}
+
+.login-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, .5);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+/* Citação no fundo */
+.login-quote {
+  position: relative;
+  z-index: 1;
+  border-left: 2px solid var(--dusk-400);
+  padding-left: 16px;
+}
+
+.login-quote p {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255, 255, 255, .55);
+  line-height: 1.65;
+}
+
+.login-quote span {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, .3);
+  margin-top: 6px;
+}
+
+/* ── LADO DIREITO ────────────────────────────────────────────── */
+.login-right {
+  flex: 1;
+  background: var(--fog-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 56px;
+}
+
+.login-form-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Tabs */
+.login-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--fog-100);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  margin-bottom: 32px;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+.login-tab.active {
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Formulário */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form.hidden {
+  display: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  letter-spacing: .02em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--dusk-400);
+  box-shadow: 0 0 0 3px var(--dusk-100);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* Forgot password */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-forgot {
+  font-size: 12px;
+  color: var(--dusk-500);
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.form-forgot:hover {
+  opacity: .7;
+}
+
+/* Submit button */
+.btn-submit {
+  width: 100%;
+  padding: 11px;
+  background: var(--dusk-400);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  margin-top: 4px;
+}
+
+.btn-submit:hover {
+  background: var(--dusk-500);
+  box-shadow: 0 4px 14px rgba(184, 176, 200, .45);
+}
+
+.btn-submit:active {
+  transform: scale(.98);
+}
+
+/* Divider */
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.form-divider span {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Switch link */
+.form-switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+}
+
+.form-switch a {
+  color: var(--dusk-600);
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.form-switch a:hover {
+  opacity: .7;
+}
+
+/* Heading do form */
+.form-heading {
+  margin-bottom: 28px;
+}
+
+.form-heading h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -.3px;
+}
+
+.form-heading p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+/* ── RESPONSIVO BÁSICO ───────────────────────────────────────── */
+@media (max-width: 860px) {
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    padding: 40px 28px;
+  }
+}
