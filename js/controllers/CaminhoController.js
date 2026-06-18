@@ -1,7 +1,9 @@
+// Controlador da página de caminhos filosóficos (mindfulness, estoicismo, taoismo)
 import SessaoModel from '../models/sessaoModel.js';
 import UserModel from '../models/UserModel.js';
 import { renderCaminho, renderSessoesCaminho } from '../views/CaminhoView.js';
 
+// informação de cada caminho disponível
 const CAMINHOS = {
   estoicismo: {
     titulo: 'O Caminho do Estoico',
@@ -26,11 +28,14 @@ const CAMINHOS = {
   }
 };
 
+// lê o tipo de caminho do URL (ex: caminho.html?tipo=estoicismo)
 const params = new URLSearchParams(window.location.search);
 const tipo   = (params.get('tipo') || '').toLowerCase();
 
 document.addEventListener('DOMContentLoaded', async () => {
   const meta = CAMINHOS[tipo];
+
+  // redireciona para a biblioteca se o tipo não existir
   if (!meta) {
     window.location.href = 'biblioteca.html';
     return;
@@ -38,11 +43,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderCaminho(tipo, meta);
 
+  // carrega sessões e favoritos em paralelo
   const [todas, utilizador] = await Promise.all([SessaoModel.getAll(), UserModel.get()]);
+
+  // filtra apenas as sessões deste caminho
   const filtradas = todas.filter(s => s.caminho === tipo);
   const favIds = utilizador?.favoritos ?? [];
   renderSessoesCaminho(filtradas, favIds);
 
+  // liga os botões de favorito das sessões do caminho
   document.getElementById('caminho-sessoes').addEventListener('click', async e => {
     const btn = e.target.closest('.fav-btn');
     if (!btn || !utilizador) return;

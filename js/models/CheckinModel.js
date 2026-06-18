@@ -1,18 +1,17 @@
-// Model do check-in diário de bem-estar.
-// Estende EntradaModel para herdar ID e data automáticos.
-// Ao guardar, atualiza automaticamente os pontos do utilizador.
+// Herda de EntradaModel (herança)
 import EntradaModel from './entradaModel.js';
 import GamificacaoModel from './GamificacaoModel.js';
 import { getCheckins, saveCheckin, updateCheckin } from '../services/service.js';
 
 class CheckinModel extends EntradaModel {
-  emocao;      // Emoção registada (ex: 'calmo', 'ansioso')
-  intensidade; // Intensidade de 1 a 5
-  peso;        // Sensação de peso mental (ex: 'Leve', 'Pesado')
-  sono;        // Qualidade do sono (ex: 'Bem', 'Mal')
-  nota;        // Nota livre opcional do utilizador
+  // campos públicos
+  emocao;
+  intensidade;
+  peso;
+  sono;
+  nota;
 
-  // Mapa privado que associa cada emoção a uma categoria de sessão sugerida
+  // campo estático privado — mapa emoção → categoria sugerida
   static #sugestoes = {
     calmo:     "meditacao",
     pensativo: "meditacao",
@@ -24,8 +23,9 @@ class CheckinModel extends EntradaModel {
     grato:     "meditacao"
   };
 
+  // super() chama o construtor do EntradaModel para gerar ID e data
   constructor(emocao, intensidade, peso, sono, nota = "") {
-    super(); // Gera ID e data automáticos via EntradaModel
+    super();
     this.emocao      = emocao;
     this.intensidade = intensidade;
     this.peso        = peso;
@@ -33,7 +33,7 @@ class CheckinModel extends EntradaModel {
     this.nota        = nota;
   }
 
-  // Guarda o check-in na API e atualiza pontos e conquistas do utilizador
+  // guarda na API e atualiza gamificação
   async save() {
     await saveCheckin({
       id:          this.id,
@@ -45,8 +45,7 @@ class CheckinModel extends EntradaModel {
       nota:        this.nota
     });
 
-    // Atualiza a gamificação após cada check-in guardado e devolve conquistas novas.
-    // Busca o total de check-ins (inclui o que acabou de ser guardado) para verificar conquistas.
+    // Promise.all — busca os dois ao mesmo tempo
     const [gamificacao, listaCheckins] = await Promise.all([
       GamificacaoModel.load(),
       getCheckins()
@@ -55,32 +54,32 @@ class CheckinModel extends EntradaModel {
     return gamificacao.verificarConquistas({ checkins: listaCheckins.length });
   }
 
-  // Reconstrói uma instância de CheckinModel a partir de dados em bruto da API
+  // reconstrói instância a partir de dados da API (usa _restore do EntradaModel)
   static fromObject(dados) {
     const ci = new CheckinModel(dados.emocao, dados.intensidade, dados.peso, dados.sono, dados.nota || '');
-    ci._restore(dados.id, dados.data); // Restaura ID e data originais
+    ci._restore(dados.id, dados.data);
     return ci;
   }
 
-  // Obtém todos os check-ins do utilizador autenticado como instâncias de CheckinModel
+  // vai buscar todos os checkins do utilizador
   static async getAll() {
     const lista = await getCheckins();
     return lista.map(CheckinModel.fromObject);
   }
 
-  // Atualiza um check-in existente com novos dados (edição do dia)
+  // atualiza checkin existente (edição do dia)
   static async update(id, dados) {
     await updateCheckin(id, dados);
   }
 
-  // Devolve o check-in mais recente do utilizador
+  // devolve o checkin mais recente
   static async getUltimo() {
     const lista = await CheckinModel.getAll();
     if (!lista.length) return null;
     return lista.sort((a, b) => new Date(a.data) - new Date(b.data)).at(-1);
   }
 
-  // Devolve a categoria de sessão recomendada para uma dada emoção
+  // devolve categoria sugerida para uma emoção
   static getSugestao(emocao) {
     return CheckinModel.#sugestoes[emocao] || "respiracao";
   }

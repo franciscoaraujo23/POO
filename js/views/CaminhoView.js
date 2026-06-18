@@ -1,18 +1,21 @@
+// View da página de caminhos filosóficos
 import { categoriaImg } from '../utils/emocaoIcons.js';
 
+// cor do badge por categoria
 const BADGE_COLOR = {
   respiracao: 'dusk', meditacao: 'mist', relaxamento: 'dusk',
   foco: 'mist', sono: 'fog', ansiedade: 'fog'
 };
 
+// nome legível por categoria
 const CATEGORIA_LABEL = {
   respiracao: 'Respiração', meditacao: 'Meditação', relaxamento: 'Relaxamento',
   foco: 'Foco', sono: 'Sono', ansiedade: 'Ansiedade'
 };
 
+// renderiza o cabeçalho do caminho (título, imagem de hero)
 export function renderCaminho(tipo, meta) {
   document.title = meta.titulo + ' — MindNest';
-
   document.getElementById('breadcrumb-caminho').textContent = meta.titulo;
 
   const hero = document.getElementById('caminho-hero');
@@ -20,6 +23,7 @@ export function renderCaminho(tipo, meta) {
   hero.innerHTML = `<img src="../assets/imgs/${tipo}1.png" alt="${meta.titulo}" class="caminho-hero-img">`;
 }
 
+// renderiza a grelha de sessões do caminho com botões de favorito
 export function renderSessoesCaminho(sessoes, favIds = []) {
   const grid = document.getElementById('caminho-sessoes');
 

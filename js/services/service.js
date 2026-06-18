@@ -1,10 +1,7 @@
-// Camada de acesso à API (json-server-auth).
-// Todas as comunicações com o servidor passam por este ficheiro.
-// Utiliza fetch com autenticação via JWT guardado no localStorage.
-
+// Única camada que faz fetch — todos os models importam daqui
 const BASE_URL = 'http://localhost:3000';
 
-// Constrói os headers de autenticação com o token JWT da sessão ativa
+// constrói headers com token JWT do localStorage
 function authHeaders() {
   const sessao = JSON.parse(localStorage.getItem('mindnest_sessao'));
   return {
@@ -13,7 +10,7 @@ function authHeaders() {
   };
 }
 
-// Extrai o ID do utilizador a partir do payload do JWT guardado na sessão
+// extrai o ID do utilizador do token JWT (atob descodifica o payload de base64)
 function getUserId() {
   const sessao = JSON.parse(localStorage.getItem('mindnest_sessao'));
   if (!sessao?.token) return null;
@@ -25,7 +22,8 @@ function getUserId() {
   }
 }
 
-// Regista um novo utilizador na API e devolve o token de acesso
+// ── AUTENTICAÇÃO ─────────────────────────────────────────
+
 export async function register(email, password) {
   const resposta = await fetch(`${BASE_URL}/register`, {
     method: 'POST',
@@ -37,7 +35,6 @@ export async function register(email, password) {
   return { ok: true, token: dados.accessToken };
 }
 
-// Autentica um utilizador existente e devolve o token de acesso
 export async function login(email, password) {
   const resposta = await fetch(`${BASE_URL}/login`, {
     method: 'POST',
@@ -49,7 +46,8 @@ export async function login(email, password) {
   return { ok: true, token: dados.accessToken };
 }
 
-// Obtém o perfil do utilizador autenticado
+// ── PERFIL ───────────────────────────────────────────────
+
 export async function getPerfil() {
   const res = await fetch(`${BASE_URL}/perfis?userId=${getUserId()}`, { headers: authHeaders() });
   if (!res.ok) return null;
@@ -57,7 +55,7 @@ export async function getPerfil() {
   return lista[0] || null;
 }
 
-// Guarda ou atualiza o perfil do utilizador (PUT se já existir, POST se for novo)
+// PUT se já existe, POST se é novo
 export async function savePerfil(id, dados) {
   if (id) {
     await fetch(`${BASE_URL}/perfis/${id}`, {
@@ -76,14 +74,14 @@ export async function savePerfil(id, dados) {
   return criado.id;
 }
 
-// Obtém todos os check-ins do utilizador autenticado
+// ── CHECKINS ─────────────────────────────────────────────
+
 export async function getCheckins() {
   const res = await fetch(`${BASE_URL}/checkins?userId=${getUserId()}`, { headers: authHeaders() });
   if (!res.ok) return [];
   return res.json();
 }
 
-// Guarda um novo check-in na API
 export async function saveCheckin(dados) {
   await fetch(`${BASE_URL}/checkins`, {
     method: 'POST',
@@ -92,32 +90,6 @@ export async function saveCheckin(dados) {
   });
 }
 
-// Obtém todas as reflexões do utilizador autenticado
-export async function getReflexoes() {
-  const res = await fetch(`${BASE_URL}/reflexoes?userId=${getUserId()}`, { headers: authHeaders() });
-  if (!res.ok) return [];
-  return res.json();
-}
-
-// Guarda uma nova reflexão na API
-export async function saveReflexao(dados) {
-  await fetch(`${BASE_URL}/reflexoes`, {
-    method: 'POST',
-    headers: authHeaders(),
-    body: JSON.stringify({ ...dados, userId: getUserId() })
-  });
-}
-
-// Atualiza uma reflexão existente (PATCH parcial)
-export async function updateReflexao(id, dados) {
-  await fetch(`${BASE_URL}/reflexoes/${id}`, {
-    method: 'PATCH',
-    headers: authHeaders(),
-    body: JSON.stringify(dados)
-  });
-}
-
-// Atualiza um check-in existente (PATCH parcial)
 export async function updateCheckin(id, dados) {
   await fetch(`${BASE_URL}/checkins/${id}`, {
     method: 'PATCH',
@@ -126,7 +98,30 @@ export async function updateCheckin(id, dados) {
   });
 }
 
-// Elimina uma reflexão pelo seu ID
+// ── REFLEXÕES ────────────────────────────────────────────
+
+export async function getReflexoes() {
+  const res = await fetch(`${BASE_URL}/reflexoes?userId=${getUserId()}`, { headers: authHeaders() });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function saveReflexao(dados) {
+  await fetch(`${BASE_URL}/reflexoes`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify({ ...dados, userId: getUserId() })
+  });
+}
+
+export async function updateReflexao(id, dados) {
+  await fetch(`${BASE_URL}/reflexoes/${id}`, {
+    method: 'PATCH',
+    headers: authHeaders(),
+    body: JSON.stringify(dados)
+  });
+}
+
 export async function deleteReflexao(id) {
   await fetch(`${BASE_URL}/reflexoes/${id}`, {
     method: 'DELETE',
@@ -134,14 +129,19 @@ export async function deleteReflexao(id) {
   });
 }
 
-// Obtém todas as sessões concluídas pelo utilizador autenticado
+// ── SESSÕES ──────────────────────────────────────────────
+
+export async function getSessoesCatalogo() {
+  const res = await fetch(`${BASE_URL}/sessoes`, { headers: authHeaders() });
+  return res.ok ? res.json() : [];
+}
+
 export async function getSessoesConcluidas() {
   const res = await fetch(`${BASE_URL}/sessoes_concluidas?userId=${getUserId()}`, { headers: authHeaders() });
   if (!res.ok) return [];
   return res.json();
 }
 
-// Regista uma sessão como concluída pelo utilizador autenticado
 export async function saveSessaoConcluida(dados) {
   await fetch(`${BASE_URL}/sessoes_concluidas`, {
     method: 'POST',
@@ -150,7 +150,23 @@ export async function saveSessaoConcluida(dados) {
   });
 }
 
-// Obtém os dados de gamificação do utilizador autenticado
+// atualiza rating global da sessão (soma avaliação ao total e incrementa contagem)
+export async function patchSessaoRating(sessaoId, avaliacao) {
+  const res = await fetch(`${BASE_URL}/sessoes/${sessaoId}`, { headers: authHeaders() });
+  if (!res.ok) return;
+  const sessao = await res.json();
+  await fetch(`${BASE_URL}/sessoes/${sessaoId}`, {
+    method: 'PATCH',
+    headers: authHeaders(),
+    body: JSON.stringify({
+      ratingTotal: (sessao.ratingTotal || 0) + avaliacao,
+      ratingCount: (sessao.ratingCount || 0) + 1
+    })
+  });
+}
+
+// ── GAMIFICAÇÃO ──────────────────────────────────────────
+
 export async function getGamificacao() {
   const res = await fetch(`${BASE_URL}/gamificacao?userId=${getUserId()}`, { headers: authHeaders() });
   if (!res.ok) return null;
@@ -158,7 +174,7 @@ export async function getGamificacao() {
   return lista[0] || null;
 }
 
-// Guarda ou atualiza os dados de gamificação (PUT se já existir, POST se for novo)
+// PUT se já existe, POST se é novo
 export async function saveGamificacao(id, dados) {
   if (id) {
     await fetch(`${BASE_URL}/gamificacao/${id}`, {
@@ -177,34 +193,15 @@ export async function saveGamificacao(id, dados) {
   return criado.id;
 }
 
-// Obtém todas as frases motivacionais da API
+// ── FRASES ───────────────────────────────────────────────
+
 export async function getFrases() {
   const res = await fetch(`${BASE_URL}/frases`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// Obtém o catálogo completo de sessões disponíveis
-export async function getSessoesCatalogo() {
-  const res = await fetch(`${BASE_URL}/sessoes`, { headers: authHeaders() });
-  return res.ok ? res.json() : [];
-}
+// ── ADMIN ────────────────────────────────────────────────
 
-// Atualiza o agregado de rating de uma sessão no catálogo (ratingTotal + ratingCount)
-export async function patchSessaoRating(sessaoId, avaliacao) {
-  const res = await fetch(`${BASE_URL}/sessoes/${sessaoId}`, { headers: authHeaders() });
-  if (!res.ok) return;
-  const sessao = await res.json();
-  await fetch(`${BASE_URL}/sessoes/${sessaoId}`, {
-    method: 'PATCH',
-    headers: authHeaders(),
-    body: JSON.stringify({
-      ratingTotal: (sessao.ratingTotal || 0) + avaliacao,
-      ratingCount: (sessao.ratingCount || 0) + 1
-    })
-  });
-}
-
-// [ADMIN] Cria uma nova sessão no catálogo
 export async function adminCreateSessao(dados) {
   const res = await fetch(`${BASE_URL}/sessoes`, {
     method: 'POST',
@@ -214,7 +211,6 @@ export async function adminCreateSessao(dados) {
   return res.ok ? res.json() : null;
 }
 
-// [ADMIN] Atualiza uma sessão existente no catálogo
 export async function adminUpdateSessao(id, dados) {
   const res = await fetch(`${BASE_URL}/sessoes/${id}`, {
     method: 'PUT',
@@ -224,7 +220,6 @@ export async function adminUpdateSessao(id, dados) {
   return res.ok;
 }
 
-// [ADMIN] Elimina uma sessão do catálogo pelo ID
 export async function adminDeleteSessao(id) {
   const res = await fetch(`${BASE_URL}/sessoes/${id}`, {
     method: 'DELETE',
@@ -233,43 +228,36 @@ export async function adminDeleteSessao(id) {
   return res.ok;
 }
 
-// [ADMIN] Obtém todos os perfis de utilizadores registados
 export async function adminGetPerfis() {
   const res = await fetch(`${BASE_URL}/perfis`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// [ADMIN] Obtém todos os check-ins de todos os utilizadores
 export async function adminGetCheckins() {
   const res = await fetch(`${BASE_URL}/checkins`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// [ADMIN] Obtém todas as sessões concluídas de todos os utilizadores
 export async function adminGetSessoesConcluidas() {
   const res = await fetch(`${BASE_URL}/sessoes_concluidas`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// [ADMIN] Obtém todas as reflexões de todos os utilizadores
 export async function adminGetReflexoes() {
   const res = await fetch(`${BASE_URL}/reflexoes`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// [ADMIN] Obtém todos os registos de gamificação de todos os utilizadores
 export async function adminGetGamificacao() {
   const res = await fetch(`${BASE_URL}/gamificacao`, { headers: authHeaders() });
   return res.ok ? res.json() : [];
 }
 
-// [ADMIN] Elimina o perfil de um utilizador pelo ID do perfil
 export async function adminDeletePerfil(id) {
   const res = await fetch(`${BASE_URL}/perfis/${id}`, { method: 'DELETE', headers: authHeaders() });
   return res.ok;
 }
 
-// [ADMIN] Elimina todos os check-ins de um utilizador específico
 export async function adminDeleteCheckinsByUser(userId) {
   const res = await fetch(`${BASE_URL}/checkins?userId=${userId}`, { headers: authHeaders() });
   const lista = res.ok ? await res.json() : [];
@@ -278,7 +266,6 @@ export async function adminDeleteCheckinsByUser(userId) {
   ));
 }
 
-// [ADMIN] Elimina todas as reflexões de um utilizador específico
 export async function adminDeleteReflexoesByUser(userId) {
   const res = await fetch(`${BASE_URL}/reflexoes?userId=${userId}`, { headers: authHeaders() });
   const lista = res.ok ? await res.json() : [];
@@ -287,7 +274,6 @@ export async function adminDeleteReflexoesByUser(userId) {
   ));
 }
 
-// [ADMIN] Elimina todas as sessões concluídas de um utilizador específico
 export async function adminDeleteSessoesByUser(userId) {
   const res = await fetch(`${BASE_URL}/sessoes_concluidas?userId=${userId}`, { headers: authHeaders() });
   const lista = res.ok ? await res.json() : [];
@@ -296,7 +282,6 @@ export async function adminDeleteSessoesByUser(userId) {
   ));
 }
 
-// [ADMIN] Elimina o registo de gamificação de um utilizador específico
 export async function adminDeleteGamificacaoByUser(userId) {
   const res = await fetch(`${BASE_URL}/gamificacao?userId=${userId}`, { headers: authHeaders() });
   const lista = res.ok ? await res.json() : [];
@@ -305,7 +290,6 @@ export async function adminDeleteGamificacaoByUser(userId) {
   ));
 }
 
-// [ADMIN] Cria um registo de gamificação inicial para um utilizador
 export async function adminCreateGamificacao(userId) {
   const res = await fetch(`${BASE_URL}/gamificacao`, {
     method: 'POST',
@@ -315,7 +299,6 @@ export async function adminCreateGamificacao(userId) {
   return res.ok ? res.json() : null;
 }
 
-// [ADMIN] Atualiza parcialmente os dados de gamificação de um utilizador (ex: pontos, nivel)
 export async function adminPatchGamificacao(gamId, dados) {
   const res = await fetch(`${BASE_URL}/gamificacao/${gamId}`, {
     method: 'PATCH',
@@ -325,7 +308,6 @@ export async function adminPatchGamificacao(gamId, dados) {
   return res.ok;
 }
 
-// Atualiza a password do utilizador autenticado via PATCH /users/:id
 export async function updatePassword(novaPassword) {
   const sessao = JSON.parse(localStorage.getItem('mindnest_sessao'));
   if (!sessao?.token) return false;
@@ -340,7 +322,6 @@ export async function updatePassword(novaPassword) {
   } catch { return false; }
 }
 
-// [ADMIN] Altera o role (papel) de um utilizador (ex: 'user' para 'admin')
 export async function adminToggleRole(perfilId, novoRole) {
   const res = await fetch(`${BASE_URL}/perfis/${perfilId}`, {
     method: 'PATCH',

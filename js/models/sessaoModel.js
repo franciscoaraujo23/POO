@@ -1,20 +1,20 @@
-// Model das sessões de bem-estar (meditação, respiração, foco, etc.).
-// Contém o catálogo de sessões embutido e métodos de filtragem.
-// Também gere as frases motivacionais exibidas na aplicação.
+// Gere as sessões de bem-estar e o catálogo
 import { getSessoesCatalogo, getSessoesConcluidas, saveSessaoConcluida, getFrases, patchSessaoRating } from '../services/service.js';
 
 class SessaoModel {
-  #id;        // ID único da sessão
+  // campos privados
+  #id;
+  #avaliacao; // validada pelo setter — só aceita 0 a 5
+
+  // campos públicos
   titulo;
   categoria;
   duracao;
   descricao;
   nivel;
   tipo;
-  #avaliacao; // Avaliação de 0 a 5 estrelas — validada pelo setter
   url;
-  caminho;    // Caminho filosófico associado (ex: 'mindfulness', 'estoicismo', 'taoismo')
-
+  caminho;
 
   constructor(id, titulo, categoria, duracao, descricao, nivel, tipo, avaliacao, url, caminho) {
     this.#id        = id;
@@ -29,13 +29,12 @@ class SessaoModel {
     this.caminho    = caminho;
   }
 
+  // getters e setter com validação
   get id()         { return this.#id; }
   get avaliacao()  { return this.#avaliacao; }
-  // Setter com validação: só aceita avaliações entre 0 e 5
   set avaliacao(v) { if (v >= 0 && v <= 5) this.#avaliacao = v; }
 
-  // Regista a sessão como concluída e atualiza o agregado de rating global no catálogo.
-  // Ambas as operações correm em paralelo para sobreviver a recargas do Live Server.
+  // regista sessão como concluída e atualiza rating global
   async save() {
     const ops = [
       saveSessaoConcluida({
@@ -53,12 +52,12 @@ class SessaoModel {
     await Promise.all(ops);
   }
 
-  // Obtém o catálogo completo de sessões da API
+  // vai buscar o catálogo completo
   static async getAll() {
     return getSessoesCatalogo();
   }
 
-  // Obtém uma sessão específica pelo seu ID como instância de SessaoModel
+  // vai buscar uma sessão pelo ID e devolve instância de SessaoModel
   static async getById(id) {
     const lista = await getSessoesCatalogo();
     const s = lista.find(s => s.id === Number(id));
@@ -66,19 +65,19 @@ class SessaoModel {
     return new SessaoModel(s.id, s.titulo, s.categoria, s.duracao, s.descricao, s.nivel, s.tipo, s.avaliacao, s.url, s.caminho);
   }
 
-  // Obtém todas as sessões de uma categoria específica (ex: 'meditacao')
+  // filtra sessões por categoria
   static async getByCategoria(categoria) {
     const lista = await getSessoesCatalogo();
     return lista.filter(s => s.categoria === categoria);
   }
 
-  // Obtém todas as sessões associadas a um caminho filosófico (ex: 'taoismo')
+  // filtra sessões por caminho filosófico
   static async getByCaminho(caminho) {
     const lista = await getSessoesCatalogo();
     return lista.filter(s => s.caminho === caminho);
   }
 
-  // Filtra sessões por categoria, duração (curta/media/longa), texto de pesquisa ou caminho
+  // filtra por categoria, duração, pesquisa ou caminho
   static async filtrar({ categoria, duracao, query, caminho } = {}) {
     const lista = await getSessoesCatalogo();
     return lista.filter(s => {
@@ -92,12 +91,12 @@ class SessaoModel {
     });
   }
 
-  // Obtém todas as sessões já concluídas pelo utilizador autenticado
+  // vai buscar sessões concluídas pelo utilizador
   static async getConcluidas() {
     return getSessoesConcluidas();
   }
 
-  // Obtém uma frase motivacional aleatória da API; fallback hardcoded se a API falhar
+  // devolve frase motivacional aleatória
   static async getFraseAleatoria() {
     const frases = await getFrases();
     if (!frases.length) return {

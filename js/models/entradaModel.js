@@ -1,21 +1,18 @@
-// Model base para entradas com data e ID único.
-// É estendido por CheckinModel e ReflexaoModel para partilhar a lógica de identificação.
+// Classe base — extendida por CheckinModel e ReflexaoModel
 class EntradaModel {
-  #id;   // ID único gerado automaticamente no momento da criação
-  #data; // Data e hora ISO da criação da entrada
+  #id;   // campo privado
+  #data; // campo privado
 
   constructor() {
-    // Gera um ID único combinando timestamp e valor aleatório em base36
     this.#id   = Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
     this.#data = new Date().toISOString();
   }
 
-  // Getters de leitura para os campos privados
+  // getters
   get id()   { return this.#id; }
   get data() { return this.#data; }
 
-  // Restaura o ID e a data de uma entrada existente carregada da API
-  // Usado pelas subclasses ao reconstruir objetos a partir dos dados do servidor
+  // reconstrói objeto vindo da API sem gerar ID novo
   _restore(id, data) {
     this.#id   = id;
     this.#data = data;

@@ -1,20 +1,20 @@
-// Model das reflexões escritas pelo utilizador.
-// Estende EntradaModel para herdar ID e data automáticos.
-// Suporta três modos de escrita: 'estoico', 'livre' e 'gratidao'.
+// Herda de EntradaModel (herança) — suporta 3 modos: 'estoico', 'livre', 'gratidao'
 import EntradaModel from './entradaModel.js';
 import { getReflexoes, saveReflexao, updateReflexao, deleteReflexao } from '../services/service.js';
 
 class ReflexaoModel extends EntradaModel {
-  modo;   // Tipo de reflexão: 'estoico', 'livre' ou 'gratidao'
-  campos; // Objeto com os campos preenchidos (varia conforme o modo)
+  // campos públicos
+  modo;
+  campos;
 
+  // super() chama o construtor do EntradaModel para gerar ID e data
   constructor(modo, campos) {
-    super(); // Gera ID e data automáticos via EntradaModel
+    super();
     this.modo   = modo;
     this.campos = campos;
   }
 
-  // Guarda a reflexão na API com todos os seus campos
+  // guarda a reflexão na API
   async save() {
     await saveReflexao({
       id:     this.id,
@@ -24,25 +24,25 @@ class ReflexaoModel extends EntradaModel {
     });
   }
 
-  // Reconstrói uma instância de ReflexaoModel a partir de dados em bruto da API
+  // reconstrói instância a partir de dados da API (usa _restore do EntradaModel)
   static fromObject(dados) {
     const r = new ReflexaoModel(dados.modo, dados.campos);
-    r._restore(dados.id, dados.data); // Restaura ID e data originais
+    r._restore(dados.id, dados.data);
     return r;
   }
 
-  // Obtém todas as reflexões do utilizador autenticado como instâncias de ReflexaoModel
+  // vai buscar todas as reflexões do utilizador
   static async getAll() {
     const lista = await getReflexoes();
     return lista.map(ReflexaoModel.fromObject);
   }
 
-  // Atualiza os campos de uma reflexão existente (ex: edição do livro)
+  // atualiza campos de uma reflexão existente
   static async update(entrada) {
     await updateReflexao(entrada.id, { campos: entrada.campos });
   }
 
-  // Elimina uma reflexão pelo seu ID
+  // elimina uma reflexão pelo ID
   static async delete(id) {
     await deleteReflexao(id);
   }
